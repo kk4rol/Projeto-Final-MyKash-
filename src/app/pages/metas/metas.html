@@ -1,0 +1,621 @@
+<!-- =====================================================
+         HEADER
+====================================================== -->
+
+<header>
+
+    <div>
+        <img src="img/logo mykash.png" alt="logo" class="logo">
+    </div>
+
+
+    <div class="header-right">
+
+        <button class="header-button" aria-label="Notificações">
+
+            <span class="material-symbols-outlined">
+                notifications
+            </span>
+
+            <span class="notification-dot"></span>
+
+        </button>
+
+
+        <button class="profile-button">
+
+            <span class="material-symbols-outlined profile-icon">
+                person
+            </span>
+
+            <div class="profile-info">
+
+                <strong>Letícia</strong>
+
+                <small>Minha conta</small>
+
+            </div>
+
+        </button>
+
+    </div>
+
+</header>
+
+<div class="layout">
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+    <app-menu-lateral></app-menu-lateral>
+
+
+    <!-- ==================================================
+         CONTEÚDO
+    ================================================== -->
+
+    <main>
+
+        <!-- CABEÇALHO -->
+
+        <section class="page-header">
+
+            <div>
+
+                <h1>
+                    Metas financeiras
+                </h1>
+
+                <p>
+                    Acompanhe seus objetivos e veja seu progresso.
+                </p>
+
+            </div>
+
+
+            <button
+                class="new-goal-button"
+                type="button"
+                (click)="abrirModal()">
+
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+
+                Nova meta
+
+            </button>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             RESUMO
+        ================================================== -->
+
+        <section class="goals-summary">
+
+            <div class="summary-card">
+
+                <span class="material-symbols-outlined">
+                    flag
+                </span>
+
+                <div>
+
+                    <span class="summary-label">
+                        Metas ativas
+                    </span>
+
+                    <strong>
+                        {{ metas.length }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span class="material-symbols-outlined">
+                    savings
+                </span>
+
+                <div>
+
+                    <span class="summary-label">
+                        Total guardado
+                    </span>
+
+                    <strong>
+                        R$ {{ totalGuardado | number:'1.2-2' }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span class="material-symbols-outlined">
+                    account_balance
+                </span>
+
+                <div>
+
+                    <span class="summary-label">
+                        Total das metas
+                    </span>
+
+                    <strong>
+                        R$ {{ totalObjetivo | number:'1.2-2' }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             METAS
+        ================================================== -->
+
+        <section class="goals-section">
+
+            <div class="section-title">
+
+                <div>
+
+                    <h2>
+                        Minhas metas
+                    </h2>
+
+                    <p>
+                        Seus objetivos financeiros
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 QUANDO EXISTIREM METAS
+            ================================================== -->
+
+            <div
+                class="goals-grid"
+                *ngIf="metas.length > 0; else semMetas">
+
+
+                <article
+                    class="goal-card"
+                    *ngFor="let meta of metas">
+
+
+                    <!-- CABEÇALHO DO CARD -->
+
+                    <div class="goal-card-header">
+
+                        <div class="goal-icon">
+
+                            <span class="material-symbols-outlined">
+                                {{ meta.icone }}
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="delete-button"
+                            (click)="excluirMeta(meta.id)"
+                            aria-label="Excluir meta">
+
+                            <span class="material-symbols-outlined">
+                                delete
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- INFORMAÇÕES -->
+
+                    <div class="goal-info">
+
+                        <h3>
+                            {{ meta.nome }}
+                        </h3>
+
+                        <span class="goal-category">
+                            {{ meta.categoria }}
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- VALORES -->
+
+                    <div class="goal-values">
+
+                        <div>
+
+                            <span>
+                                Guardado
+                            </span>
+
+                            <strong>
+                                R$ {{ meta.valorAtual | number:'1.2-2' }}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="goal-target">
+
+                            <span>
+                                Objetivo
+                            </span>
+
+                            <strong>
+                                R$ {{ meta.valorObjetivo | number:'1.2-2' }}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- BARRA DE PROGRESSO -->
+
+                    <div class="progress-area">
+
+                        <div class="progress-header">
+
+                            <span>
+                                Progresso
+                            </span>
+
+                            <strong>
+                                {{ percentual(meta) }}%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="progress-bar">
+
+                            <div
+                                class="progress"
+                                [style.width.%]="percentual(meta)">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- RODAPÉ -->
+
+                    <div class="goal-footer">
+
+                        <span>
+
+                            <span class="material-symbols-outlined">
+                                calendar_month
+                            </span>
+
+                            Até {{ formatarData(meta.prazo) }}
+
+                        </span>
+
+
+                        <span>
+
+                            R$ {{ valorRestante(meta) | number:'1.2-2' }}
+                            restantes
+
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 SEM METAS
+            ================================================== -->
+
+            <ng-template #semMetas>
+
+                <div class="empty-goals">
+
+                    <span class="material-symbols-outlined">
+                        flag
+                    </span>
+
+                    <h3>
+                        Você ainda não possui metas
+                    </h3>
+
+                    <p>
+                        Crie sua primeira meta financeira
+                        e comece a acompanhar seu progresso.
+                    </p>
+
+                    <button
+                        type="button"
+                        (click)="abrirModal()">
+
+                        Criar primeira meta
+
+                    </button>
+
+                </div>
+
+            </ng-template>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- ==================================================
+     MODAL — NOVA META
+================================================== -->
+
+<div
+    class="modal-overlay"
+    *ngIf="modalAberto"
+    (click)="fecharModal()">
+
+
+    <div
+        class="modal"
+        (click)="$event.stopPropagation()">
+
+
+        <!-- CABEÇALHO -->
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2>
+                    Nova meta
+                </h2>
+
+                <p>
+                    Defina um objetivo para acompanhar.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="close-button"
+                (click)="fecharModal()">
+
+                <span class="material-symbols-outlined">
+                    close
+                </span>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- FORMULÁRIO -->
+
+        <form
+            #formMeta="ngForm"
+            (ngSubmit)="criarMeta()">
+
+
+            <!-- NOME -->
+
+            <div class="form-field">
+
+                <label for="nome">
+                    Nome da meta
+                </label>
+
+                <input
+                    id="nome"
+                    type="text"
+                    name="nome"
+                    [(ngModel)]="novaMeta.nome"
+                    placeholder="Ex.: Comprar um notebook"
+                    required>
+
+            </div>
+
+
+
+            <!-- VALORES -->
+
+            <div class="form-row">
+
+                <div class="form-field">
+
+                    <label for="valorObjetivo">
+                        Valor objetivo
+                    </label>
+
+                    <div class="money-input">
+
+                        <span>
+                            R$
+                        </span>
+
+                        <input
+                            id="valorObjetivo"
+                            type="number"
+                            name="valorObjetivo"
+                            [(ngModel)]="novaMeta.valorObjetivo"
+                            min="0.01"
+                            step="0.01"
+                            placeholder="5.000,00"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="valorAtual">
+                        Já guardado
+                    </label>
+
+                    <div class="money-input">
+
+                        <span>
+                            R$
+                        </span>
+
+                        <input
+                            id="valorAtual"
+                            type="number"
+                            name="valorAtual"
+                            [(ngModel)]="novaMeta.valorAtual"
+                            min="0"
+                            step="0.01"
+                            placeholder="0,00">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRAZO -->
+
+            <div class="form-field">
+
+                <label for="prazo">
+                    Prazo da meta
+                </label>
+
+                <input
+                    id="prazo"
+                    type="date"
+                    name="prazo"
+                    [(ngModel)]="novaMeta.prazo"
+                    required>
+
+            </div>
+
+
+
+            <!-- CATEGORIA -->
+
+            <div class="form-field">
+
+                <label for="categoria">
+                    Categoria
+                </label>
+
+                <select
+                    id="categoria"
+                    name="categoria"
+                    [(ngModel)]="novaMeta.categoria"
+                    required>
+
+                    <option value="" disabled>
+                        Selecione uma categoria
+                    </option>
+
+                    <option value="Tecnologia">
+                        Tecnologia
+                    </option>
+
+                    <option value="Viagem">
+                        Viagem
+                    </option>
+
+                    <option value="Educação">
+                        Educação
+                    </option>
+
+                    <option value="Casa">
+                        Casa
+                    </option>
+
+                    <option value="Veículo">
+                        Veículo
+                    </option>
+
+                    <option value="Reserva">
+                        Reserva
+                    </option>
+
+                    <option value="Outro">
+                        Outro
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- BOTÕES -->
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="cancel-button"
+                    (click)="fecharModal()">
+
+                    Cancelar
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="create-button"
+                    [disabled]="!formMeta.valid">
+
+                    <span class="material-symbols-outlined">
+                        add
+                    </span>
+
+                    Criar meta
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

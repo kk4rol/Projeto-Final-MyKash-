@@ -1,0 +1,276 @@
+body {
+    min-height: 100vh;
+    font-family: "Mona Sans", sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #16bac5 0%,
+            #176b70 28%,
+            #171d1c 75%
+        );
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 40px 20px;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+}
+
+.back-button {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.back-button:hover {
+    color: white;
+    transform: translateX(-3px);
+}
+
+.back-button .material-symbols-outlined {
+    font-size: 19px;
+}
+
+
+/* FORMULÁRIO DE LOGIN */
+
+.formLogin {
+    width: min(440px, 100%);
+    padding: 45px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.13);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.30);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.login-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background-color: rgba(88, 99, 248, 0.18);
+    color: var(--blue);
+}
+
+.login-icon .material-symbols-outlined {
+    font-size: 28px;
+}
+
+.login-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.login-header h1 {
+    font-size: 28px;
+    font-weight: 650;
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    color: #263C3B;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+form {
+    width: 100%;
+}
+
+.campo {
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.password-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.password-label label {
+    margin-bottom: 0;
+}
+
+.password-label a {
+    color: #263C3B;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.password-label a:hover {
+    text-decoration: underline;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.input-container .material-symbols-outlined {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--blue);
+    font-size: 20px;
+    pointer-events: none;
+}
+
+.input-container input {
+    width: 100%;
+    height: 50px;
+    padding:
+        0 16px 0 48px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.94);
+    color: #171d1c;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.input-container input::placeholder {
+    color: #8b8e91;
+}
+
+.input-container input:focus {
+    border-color: var(--cyan);
+    box-shadow:
+        0 0 0 3px rgba(22, 186, 197, 0.18);
+}
+
+form button {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--blue);
+    color: white;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+form button:hover {
+    background-color: #4752e5;
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 20px rgba(88, 99, 248, 0.25);
+}
+
+form button:active {
+    transform: translateY(0);
+}
+
+form button .material-symbols-outlined {
+    font-size: 19px;
+
+}
+
+
+.cadastro {
+    margin-top: 28px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 13px;
+
+}
+
+.cadastro a {
+    color: #29bbc5;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.cadastro a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 600px) {
+
+
+    main {
+
+        padding: 70px 20px 30px;
+
+    }
+
+
+    .back-button {
+
+        top: 25px;
+
+        left: 20px;
+
+    }
+
+
+    .formLogin {
+
+        padding: 35px 25px;
+
+    }
+
+
+    .login-header h1 {
+
+        font-size: 25px;
+
+    }
+
+}

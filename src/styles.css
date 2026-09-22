@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    --background: #171d1c;
+
+    --background-secondary: #121817;
+
+    --card: #202625;
+
+    --card-hover: #252c2a;
+
+    --cyan: #16bac5;
+
+    --blue: #5863f8;
+
+    --gray: #2f3137;
+
+    --border: #303a38;
+
+    --text: #ffffff;
+
+    --text-secondary: #aeb8b6;
+
+    --green: #39d98a;
+
+    --orange: #f4a340;
+
+}
+
+body {
+
+    font-family: "Mona sans", sans-serif;
+}
