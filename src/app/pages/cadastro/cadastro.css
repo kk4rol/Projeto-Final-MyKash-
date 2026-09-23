@@ -1,0 +1,637 @@
+/* ========================================
+   PÁGINA
+======================================== */
+
+.register-page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    background-color: #171d1c;
+
+    color: #edf2ef;
+}
+
+
+/* ========================================
+   LADO ESQUERDO
+======================================== */
+
+.register-intro {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 8%;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(22, 186, 197, 0.12),
+            transparent 35%
+        ),
+        #171d1c;
+}
+
+
+/* detalhe decorativo */
+
+.register-intro::after {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    right: -230px;
+    bottom: -180px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(88, 99, 248, 0.15);
+}
+
+
+.intro-content {
+    width: 100%;
+    max-width: 500px;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.register-logo {
+    width: 200px;
+    height: auto;
+
+    display: block;
+
+    margin-bottom: 70px;
+
+    object-fit: contain;
+}
+
+
+/* ========================================
+   INTRODUÇÃO
+======================================== */
+
+.intro-label {
+    display: block;
+
+    margin-bottom: 13px;
+
+    color: #16BAC5;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 0.15em;
+}
+
+
+.intro-content h1 {
+    max-width: 460px;
+
+    margin: 0 0 18px;
+
+    color: #edf2ef;
+
+    font-size: 40px;
+    line-height: 1.12;
+    font-weight: 700;
+}
+
+
+.intro-content > p {
+    max-width: 440px;
+
+    margin: 0;
+
+    color: #87938e;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   BENEFÍCIOS
+======================================== */
+
+.intro-features {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin-top: 45px;
+}
+
+
+.feature {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+.feature-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background-color: rgba(22, 186, 197, 0.08);
+
+    color: #16BAC5;
+}
+
+
+.feature-icon .material-symbols-outlined {
+    font-size: 20px;
+}
+
+
+.feature > div:last-child {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.feature strong {
+    color: #dce3df;
+
+    font-size: 13px;
+}
+
+
+.feature span {
+    color: #68746f;
+
+    font-size: 12px;
+}
+
+
+/* ========================================
+   LADO DIREITO
+======================================== */
+
+.register-form-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px 7%;
+
+    box-sizing: border-box;
+
+    background-color: #202624;
+}
+
+
+.register-form-container {
+    width: 100%;
+    max-width: 450px;
+}
+
+
+/* ========================================
+   CABEÇALHO DO FORMULÁRIO
+======================================== */
+
+.register-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 30px;
+}
+
+
+.heading-icon {
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(22, 186, 197, 0.13),
+            rgba(88, 99, 248, 0.14)
+        );
+
+    color: #16BAC5;
+}
+
+
+.heading-icon .material-symbols-outlined {
+    font-size: 22px;
+}
+
+
+.heading-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #8d91ff;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+}
+
+
+.register-heading h2 {
+    margin: 0 0 4px;
+
+    color: #edf2ef;
+
+    font-size: 24px;
+}
+
+
+.register-heading p {
+    margin: 0;
+
+    color: #75817c;
+
+    font-size: 12px;
+}
+
+
+/* ========================================
+   FORMULÁRIO
+======================================== */
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 17px;
+}
+
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.form-field label {
+    color: #aeb8b4;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+.input-container {
+    height: 47px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 13px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 8px;
+
+    background-color: #181d1c;
+
+    transition: 0.2s ease;
+}
+
+
+.input-container:focus-within {
+    border-color: #5863f8;
+
+    box-shadow:
+        0 0 0 3px rgba(88, 99, 248, 0.08);
+}
+
+
+.input-container > .material-symbols-outlined {
+    color: #5f6b66;
+
+    font-size: 19px;
+
+    transition: 0.2s ease;
+}
+
+
+.input-container:focus-within > .material-symbols-outlined {
+    color: #5863f8;
+}
+
+
+.input-container input {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #e5ebe8;
+
+    font-family: inherit;
+    font-size: 13px;
+}
+
+
+.input-container input::placeholder {
+    color: #505b57;
+}
+
+
+/* ========================================
+   TERMOS
+======================================== */
+
+.terms {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 9px;
+
+    margin-top: 2px;
+
+    color: #68746f;
+
+    font-size: 11px;
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+
+.terms input {
+    width: 15px;
+    height: 15px;
+
+    flex-shrink: 0;
+
+    margin: 1px 0 0;
+
+    accent-color: #5863f8;
+
+    cursor: pointer;
+}
+
+
+.terms a {
+    color: #8d91ff;
+
+    text-decoration: none;
+}
+
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   ERRO
+======================================== */
+
+.register-error {
+    margin: -4px 0 0;
+
+    color: #ed7474;
+
+    font-size: 12px;
+}
+
+
+/* ========================================
+   BOTÃO
+======================================== */
+
+.register-button {
+    width: 100%;
+    height: 47px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-top: 4px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #16BAC5,
+            #5863f8
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.register-button:hover {
+    filter: brightness(1.08);
+
+    transform: translateY(-1px);
+}
+
+
+.register-button .material-symbols-outlined {
+    font-size: 18px;
+}
+
+
+/* ========================================
+   LINK PARA LOGIN
+======================================== */
+
+.login-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    margin-top: 25px;
+
+    font-size: 12px;
+}
+
+
+.login-link span {
+    color: #68746f;
+}
+
+
+.login-link a {
+    color: #16BAC5;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 950px) {
+
+    .register-page {
+        grid-template-columns: 0.85fr 1.15fr;
+    }
+
+    .register-intro {
+        padding: 50px 7%;
+    }
+
+    .intro-content h1 {
+        font-size: 33px;
+    }
+
+    .register-form-section {
+        padding: 40px 6%;
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .register-page {
+        display: block;
+    }
+
+
+    .register-intro {
+        min-height: auto;
+
+        padding: 40px 7% 35px;
+    }
+
+
+    .register-logo {
+        width: 120px;
+
+        margin-bottom: 35px;
+    }
+
+
+    .intro-content h1 {
+        font-size: 30px;
+    }
+
+
+    .intro-features {
+        display: none;
+    }
+
+
+    .register-form-section {
+        padding: 40px 7% 55px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .register-intro {
+        padding: 30px 6% 30px;
+    }
+
+
+    .register-logo {
+        width: 105px;
+
+        margin-bottom: 28px;
+    }
+
+
+    .intro-label {
+        font-size: 9px;
+    }
+
+
+    .intro-content h1 {
+        font-size: 27px;
+    }
+
+
+    .intro-content > p {
+        font-size: 13px;
+    }
+
+
+    .register-form-section {
+        padding: 35px 6% 45px;
+    }
+
+
+    .register-heading h2 {
+        font-size: 21px;
+    }
+
+}

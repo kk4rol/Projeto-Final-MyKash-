@@ -8,7 +8,7 @@
 
         <div class="header-left">
 
-            <img src="img/logo cy bg.png" class="logo">
+            <img src="img/logo cy bg.png">
 
         </div>
 
@@ -31,7 +31,11 @@
 
             <!-- PERFIL -->
 
-            <button class="profile">
+            <button 
+                class="profile-button"
+                type="button"
+                (click)="abrirMenuPerfil()"
+                aria-label="Abrir menu do perfil">
 
                 <div class="profile-avatar">
 
@@ -60,6 +64,49 @@
                 </span>
 
             </button>
+
+            <div
+                class="profile-menu"
+                *ngIf="menuPerfilAberto">
+
+                <!-- ALTERAR TEMA -->
+
+                <button
+                    type="button"
+                    class="profile-menu-item"
+                    (click)="alterarTema()">
+
+                    <span class="material-symbols-outlined">
+
+                        {{ temaClaro ? 'dark_mode' : 'light_mode' }}
+
+                    </span>
+
+                    <span>
+                        Alterar tema
+                    </span>
+
+                </button>
+
+
+                <!-- SAIR -->
+
+                <button
+                    type="button"
+                    class="profile-menu-item logout"
+                    (click)="sair()">
+
+                    <span class="material-symbols-outlined">
+                        logout
+                    </span>
+
+                    <span>
+                        Sair
+                    </span>
+
+                </button>
+
+            </div>
 
         </div>
 

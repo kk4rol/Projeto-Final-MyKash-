@@ -44,7 +44,7 @@
 
 
 
-            <form action="">
+            <form (ngSubmit)="entrar()">
 
 
                 <div class="campo">
@@ -111,8 +111,16 @@
 
                 </div>
 
+                <p
+                    class="login-error"
+                    *ngIf="mensagemErro">
 
-                <button type="submit">
+                    {{ mensagemErro }}
+
+                </p>
+
+
+                <button type="submit" class="login-button">
 
                     Entrar
 
@@ -129,7 +137,7 @@
 
                 Ainda não possui uma conta?
 
-                <a href="#">
+                <a routerLink="/cadastro">
                     Cadastre-se
                 </a>
 

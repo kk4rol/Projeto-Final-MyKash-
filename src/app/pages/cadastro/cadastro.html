@@ -1,0 +1,333 @@
+<main class="register-page">
+
+    <!-- LADO ESQUERDO -->
+    <section class="register-intro">
+
+        <div class="intro-content">
+
+            <img
+                src="img/logo mykash.png"
+                alt="logo"
+                class="register-logo">
+
+            <span class="intro-label">
+                ORGANIZE. PLANEJE. CONQUISTE.
+            </span>
+
+            <h1>
+                Comece a cuidar melhor
+                do seu dinheiro.
+            </h1>
+
+            <p>
+                Crie sua conta e tenha uma visão
+                mais clara dos seus gastos, metas e
+                investimentos em um só lugar.
+            </p>
+
+
+            <div class="intro-features">
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        <span class="material-symbols-outlined">
+                            account_balance_wallet
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong>
+                            Organize suas finanças
+                        </strong>
+
+                        <span>
+                            Acompanhe entradas e gastos.
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        <span class="material-symbols-outlined">
+                            flag
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong>
+                            Defina seus objetivos
+                        </strong>
+
+                        <span>
+                            Transforme planos em metas.
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        <span class="material-symbols-outlined">
+                            trending_up
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong>
+                            Acompanhe seu patrimônio
+                        </strong>
+
+                        <span>
+                            Visualize seus investimentos.
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        <span class="material-symbols-outlined">
+                            insights
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong>
+                            Conheça seus hábitos financeiros
+                        </strong>
+
+                        <span>
+                            Entenda como você gasta.
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LADO DIREITO -->
+    <section class="register-form-section">
+
+        <div class="register-form-container">
+
+            <div class="register-heading">
+
+                <span class="heading-icon">
+                    <span class="material-symbols-outlined">
+                        person_add
+                    </span>
+                </span>
+
+                <div>
+                    <span class="heading-label">
+                        NOVA CONTA
+                    </span>
+
+                    <h2>
+                        Crie sua conta
+                    </h2>
+
+                    <p>
+                        Preencha os dados abaixo para começar.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <form
+                class="register-form"
+                (ngSubmit)="cadastrar()">
+
+
+                <!-- NOME -->
+
+                <div class="form-field">
+
+                    <label for="nome">
+                        Nome
+                    </label>
+
+                    <div class="input-container">
+
+                        <span class="material-symbols-outlined">
+                            person
+                        </span>
+
+                        <input
+                            id="nome"
+                            type="text"
+                            name="nome"
+                            [(ngModel)]="nome"
+                            placeholder="Como podemos te chamar?"
+                            autocomplete="name">
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-field">
+
+                    <label for="email">
+                        E-mail
+                    </label>
+
+                    <div class="input-container">
+
+                        <span class="material-symbols-outlined">
+                            mail
+                        </span>
+
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            [(ngModel)]="email"
+                            placeholder="seuemail@email.com"
+                            autocomplete="email">
+
+                    </div>
+
+                </div>
+
+
+                <!-- SENHA -->
+
+                <div class="form-field">
+
+                    <label for="senha">
+                        Senha
+                    </label>
+
+                    <div class="input-container">
+
+                        <span class="material-symbols-outlined">
+                            lock
+                        </span>
+
+                        <input
+                            id="senha"
+                            type="password"
+                            name="senha"
+                            [(ngModel)]="senha"
+                            placeholder="Crie uma senha"
+                            autocomplete="new-password">
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONFIRMAÇÃO -->
+
+                <div class="form-field">
+
+                    <label for="confirmarSenha">
+                        Confirmar senha
+                    </label>
+
+                    <div class="input-container">
+
+                        <span class="material-symbols-outlined">
+                            lock_reset
+                        </span>
+
+                        <input
+                            id="confirmarSenha"
+                            type="password"
+                            name="confirmarSenha"
+                            [(ngModel)]="confirmarSenha"
+                            placeholder="Digite a senha novamente"
+                            autocomplete="new-password">
+
+                    </div>
+
+                </div>
+
+
+                <!-- TERMOS -->
+
+                <label class="terms">
+
+                    <input
+                        type="checkbox"
+                        name="termos"
+                        [(ngModel)]="aceitouTermos">
+
+                    <span>
+                        Li e concordo com os
+                        <a href="#">
+                            termos de uso
+                        </a>
+                        e a
+                        <a href="#">
+                            política de privacidade
+                        </a>.
+                    </span>
+
+                </label>
+
+
+                <!-- ERRO -->
+
+                <p
+                    class="register-error"
+                    *ngIf="mensagemErro">
+
+                    {{ mensagemErro }}
+
+                </p>
+
+
+                <!-- BOTÃO -->
+
+                <button
+                    type="submit"
+                    class="register-button">
+
+                    Criar minha conta
+
+                    <span class="material-symbols-outlined">
+                        arrow_forward
+                    </span>
+
+                </button>
+
+            </form>
+
+
+            <!-- LOGIN -->
+
+            <div class="login-link">
+
+                <span>
+                    Já possui uma conta?
+                </span>
+
+                <a routerLink="/login">
+                    Entrar
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
