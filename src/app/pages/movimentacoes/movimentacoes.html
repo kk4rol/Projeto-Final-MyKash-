@@ -1,1 +1,966 @@
-<p>movimentacoes works!</p>
+<!-- =====================================================
+         HEADER
+====================================================== -->
+
+<app-cabecalho></app-cabecalho>
+
+
+<div class="layout">
+
+    <app-menu-lateral></app-menu-lateral>
+
+    <main>
+
+        <!-- ========================= -->
+        <!-- CABEÇALHO -->
+        <!-- ========================= -->
+
+        <section class="page-header">
+
+            <div>
+                <span class="eyebrow">
+                    <span class="material-symbols-outlined">account_balance_wallet</span>
+                    Movimentações
+                </span>
+
+                <h1>Seu dinheiro em movimento</h1>
+
+                <p>
+                    Acompanhe suas entradas, saídas e como sua renda está sendo distribuída.
+                </p>
+            </div>
+
+            <div class="period-selector">
+                <span class="material-symbols-outlined">calendar_month</span>
+
+                <select>
+                    <option>Setembro de 2026</option>
+                    <option>Agosto de 2026</option>
+                    <option>Julho de 2026</option>
+                </select>
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- OPEN FINANCE -->
+        <!-- ========================= -->
+
+        <div class="open-finance-status">
+
+            <div class="open-finance-icon">
+                <span class="material-symbols-outlined">sync</span>
+            </div>
+
+            <div class="open-finance-content">
+
+                <strong>Dados sincronizados via Open Finance</strong>
+
+                <span>
+                    Suas movimentações são atualizadas automaticamente a partir das
+                    instituições financeiras conectadas.
+                </span>
+
+            </div>
+
+            <div class="sync-status">
+                <span class="status-dot"></span>
+                Atualizado hoje
+            </div>
+
+        </div>
+
+        <!-- ========================= -->
+        <!-- INSTITUIÇÕES CONECTADAS -->
+        <!-- ========================= -->
+
+        <section class="connected-banks">
+
+            <div class="connected-banks-header">
+
+                <div>
+                    <h2>Instituições conectadas</h2>
+                </div>
+
+                <span class="connected-count">
+                    1 instituição
+                </span>
+
+            </div>
+
+
+            <div class="banks-list">
+
+                <!-- BANCO CONECTADO -->
+
+                <div class="bank-card">
+
+                    <div class="bank-logo itau-logo">
+                        <span>itau</span>
+                    </div>
+
+                    <div class="bank-info">
+                        <strong>Itaú</strong>
+                        <span>Conta corrente</span>
+                    </div>
+
+                    <span class="material-symbols-outlined bank-check">
+                        check_circle
+                    </span>
+
+                </div>
+
+
+                <!-- CONECTAR OUTRO BANCO -->
+
+                <button
+                    type="button"
+                    class="add-bank-card"
+                    (click)="abrirPremium()">
+
+                    <div class="add-bank-icon">
+                        <span class="material-symbols-outlined">
+                            add
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong>Conectar outros bancos</strong>
+
+                        <span>
+                            Adicione mais instituições
+                        </span>
+                    </div>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- RESUMO FINANCEIRO -->
+        <!-- ========================= -->
+
+        <section class="summary-section">
+
+            <div class="summary-card income">
+
+                <div class="summary-icon">
+                    <span class="material-symbols-outlined">
+                        north_east
+                    </span>
+                </div>
+
+                <div class="summary-info">
+
+                    <span>Entradas</span>
+
+                    <strong>R$ 3.500,00</strong>
+
+                    <small>
+                        <span class="material-symbols-outlined">trending_up</span>
+                        8,4% em relação ao mês anterior
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card expense">
+
+                <div class="summary-icon">
+                    <span class="material-symbols-outlined">
+                        south_west
+                    </span>
+                </div>
+
+                <div class="summary-info">
+
+                    <span>Saídas</span>
+
+                    <strong>R$ 2.142,00</strong>
+
+                    <small>
+                        <span class="material-symbols-outlined">trending_down</span>
+                        4,2% em relação ao mês anterior
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card balance">
+
+                <div class="summary-icon">
+                    <span class="material-symbols-outlined">
+                        account_balance_wallet
+                    </span>
+                </div>
+
+                <div class="summary-info">
+
+                    <span>Saldo do período</span>
+
+                    <strong>R$ 1.358,00</strong>
+
+                    <small>
+                        Disponível após as movimentações
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- ORÇAMENTO -->
+        <!-- ========================= -->
+
+        <section class="budget-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <div class="section-title">
+
+                        <div class="section-icon purple">
+                            <span class="material-symbols-outlined">
+                                pie_chart
+                            </span>
+                        </div>
+
+                        <div>
+                            <h2>Orçamento mensal</h2>
+
+                            <p>
+                                Defina quanto pretende gastar em cada categoria.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button class="edit-budget-button">
+                    <span class="material-symbols-outlined">tune</span>
+                    Ajustar orçamento
+                </button>
+
+            </div>
+
+
+            <!-- TOTAL DO ORÇAMENTO -->
+
+            <div class="budget-overview">
+
+                <div class="budget-overview-text">
+
+                    <span>Orçamento planejado</span>
+
+                    <strong>R$ 3.200,00</strong>
+
+                    <small>
+                        R$ 2.142,00 utilizados
+                    </small>
+
+                </div>
+
+                <div class="budget-overview-progress">
+
+                    <div class="progress-label">
+                        <span>Utilizado</span>
+                        <strong>67%</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div
+                            class="progress-fill"
+                            style="width: 67%;">
+                        </div>
+                    </div>
+
+                    <span class="remaining-budget">
+                        R$ 1.058,00 restantes
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- CATEGORIAS -->
+
+            <div class="budget-grid">
+
+
+                <!-- ALIMENTAÇÃO -->
+
+                <article class="budget-card">
+
+                    <div class="budget-card-header">
+
+                        <div class="category-info">
+
+                            <div class="category-icon food">
+                                <span class="material-symbols-outlined">
+                                    restaurant
+                                </span>
+                            </div>
+
+                            <div>
+                                <strong>Alimentação</strong>
+                                <span>Gastos do mês</span>
+                            </div>
+
+                        </div>
+
+                        <span class="budget-percentage normal">
+                            70%
+                        </span>
+
+                    </div>
+
+
+                    <div class="budget-values">
+
+                        <strong>R$ 420,00</strong>
+
+                        <span>de R$ 600,00</span>
+
+                    </div>
+
+
+                    <div class="category-progress">
+                        <div
+                            class="category-progress-fill normal"
+                            style="width: 70%;">
+                        </div>
+                    </div>
+
+
+                    <div class="budget-footer">
+                        <span>Restam</span>
+                        <strong>R$ 180,00</strong>
+                    </div>
+
+                </article>
+
+
+                <!-- LAZER -->
+
+                <article class="budget-card warning-card">
+
+                    <div class="budget-card-header">
+
+                        <div class="category-info">
+
+                            <div class="category-icon leisure">
+                                <span class="material-symbols-outlined">
+                                    sports_esports
+                                </span>
+                            </div>
+
+                            <div>
+                                <strong>Lazer</strong>
+                                <span>Gastos do mês</span>
+                            </div>
+
+                        </div>
+
+                        <span class="budget-percentage warning">
+                            82%
+                        </span>
+
+                    </div>
+
+
+                    <div class="budget-values">
+
+                        <strong>R$ 492,00</strong>
+
+                        <span>de R$ 600,00</span>
+
+                    </div>
+
+
+                    <div class="category-progress">
+                        <div
+                            class="category-progress-fill warning"
+                            style="width: 82%;">
+                        </div>
+                    </div>
+
+
+                    <div class="budget-footer">
+                        <span>Restam</span>
+                        <strong>R$ 108,00</strong>
+                    </div>
+
+                </article>
+
+
+                <!-- TRANSPORTE -->
+
+                <article class="budget-card">
+
+                    <div class="budget-card-header">
+
+                        <div class="category-info">
+
+                            <div class="category-icon transport">
+                                <span class="material-symbols-outlined">
+                                    directions_car
+                                </span>
+                            </div>
+
+                            <div>
+                                <strong>Transporte</strong>
+                                <span>Gastos do mês</span>
+                            </div>
+
+                        </div>
+
+                        <span class="budget-percentage normal">
+                            63%
+                        </span>
+
+                    </div>
+
+
+                    <div class="budget-values">
+
+                        <strong>R$ 252,00</strong>
+
+                        <span>de R$ 400,00</span>
+
+                    </div>
+
+
+                    <div class="category-progress">
+                        <div
+                            class="category-progress-fill normal"
+                            style="width: 63%;">
+                        </div>
+                    </div>
+
+
+                    <div class="budget-footer">
+                        <span>Restam</span>
+                        <strong>R$ 148,00</strong>
+                    </div>
+
+                </article>
+
+
+                <!-- COMPRAS -->
+
+                <article class="budget-card">
+
+                    <div class="budget-card-header">
+
+                        <div class="category-info">
+
+                            <div class="category-icon shopping">
+                                <span class="material-symbols-outlined">
+                                    shopping_bag
+                                </span>
+                            </div>
+
+                            <div>
+                                <strong>Compras</strong>
+                                <span>Gastos do mês</span>
+                            </div>
+
+                        </div>
+
+                        <span class="budget-percentage normal">
+                            70%
+                        </span>
+
+                    </div>
+
+
+                    <div class="budget-values">
+
+                        <strong>R$ 280,00</strong>
+
+                        <span>de R$ 400,00</span>
+
+                    </div>
+
+
+                    <div class="category-progress">
+                        <div
+                            class="category-progress-fill normal"
+                            style="width: 70%;">
+                        </div>
+                    </div>
+
+
+                    <div class="budget-footer">
+                        <span>Restam</span>
+                        <strong>R$ 120,00</strong>
+                    </div>
+
+                </article>
+
+
+                <!-- CONTAS -->
+
+                <article class="budget-card">
+
+                    <div class="budget-card-header">
+
+                        <div class="category-info">
+
+                            <div class="category-icon bills">
+                                <span class="material-symbols-outlined">
+                                    receipt_long
+                                </span>
+                            </div>
+
+                            <div>
+                                <strong>Contas</strong>
+                                <span>Gastos do mês</span>
+                            </div>
+
+                        </div>
+
+                        <span class="budget-percentage normal">
+                            67%
+                        </span>
+
+                    </div>
+
+
+                    <div class="budget-values">
+
+                        <strong>R$ 600,00</strong>
+
+                        <span>de R$ 900,00</span>
+
+                    </div>
+
+
+                    <div class="category-progress">
+                        <div
+                            class="category-progress-fill normal"
+                            style="width: 67%;">
+                        </div>
+                    </div>
+
+
+                    <div class="budget-footer">
+                        <span>Restam</span>
+                        <strong>R$ 300,00</strong>
+                    </div>
+
+                </article>
+
+
+                <!-- OUTROS -->
+
+                <article class="budget-card">
+
+                    <div class="budget-card-header">
+
+                        <div class="category-info">
+
+                            <div class="category-icon other">
+                                <span class="material-symbols-outlined">
+                                    more_horiz
+                                </span>
+                            </div>
+
+                            <div>
+                                <strong>Outros</strong>
+                                <span>Gastos do mês</span>
+                            </div>
+
+                        </div>
+
+                        <span class="budget-percentage normal">
+                            63%
+                        </span>
+
+                    </div>
+
+
+                    <div class="budget-values">
+
+                        <strong>R$ 188,00</strong>
+
+                        <span>de R$ 300,00</span>
+
+                    </div>
+
+
+                    <div class="category-progress">
+                        <div
+                            class="category-progress-fill normal"
+                            style="width: 63%;">
+                        </div>
+                    </div>
+
+
+                    <div class="budget-footer">
+                        <span>Restam</span>
+                        <strong>R$ 112,00</strong>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- MOVIMENTAÇÕES -->
+        <!-- ========================= -->
+
+        <section class="transactions-section">
+
+            <div class="section-header">
+
+                <div class="section-title">
+
+                    <div class="section-icon cyan">
+                        <span class="material-symbols-outlined">
+                            swap_vert
+                        </span>
+                    </div>
+
+                    <div>
+                        <h2>Movimentações recentes</h2>
+
+                        <p>
+                            Transações identificadas nas contas conectadas.
+                        </p>
+                    </div>
+
+                </div>
+
+                <button class="filter-button">
+                    <span class="material-symbols-outlined">filter_list</span>
+                    Filtrar
+                </button>
+
+            </div>
+
+
+            <div class="transactions-card">
+
+                <!-- MOVIMENTAÇÃO -->
+
+                <div class="transaction">
+
+                    <div class="transaction-icon food">
+                        <span class="material-symbols-outlined">
+                            restaurant
+                        </span>
+                    </div>
+
+                    <div class="transaction-description">
+                        <strong>iFood</strong>
+                        <span>Alimentação · Hoje</span>
+                    </div>
+
+                    <span class="transaction-account">
+                        Nubank
+                    </span>
+
+                    <strong class="transaction-value expense-value">
+                        - R$ 42,90
+                    </strong>
+
+                </div>
+
+
+                <div class="transaction">
+
+                    <div class="transaction-icon shopping">
+                        <span class="material-symbols-outlined">
+                            shopping_bag
+                        </span>
+                    </div>
+
+                    <div class="transaction-description">
+                        <strong>Amazon</strong>
+                        <span>Compras · Hoje</span>
+                    </div>
+
+                    <span class="transaction-account">
+                        Nubank
+                    </span>
+
+                    <strong class="transaction-value expense-value">
+                        - R$ 129,90
+                    </strong>
+
+                </div>
+
+
+                <div class="transaction">
+
+                    <div class="transaction-icon income-icon">
+                        <span class="material-symbols-outlined">
+                            payments
+                        </span>
+                    </div>
+
+                    <div class="transaction-description">
+                        <strong>Salário</strong>
+                        <span>Entrada · 05/09</span>
+                    </div>
+
+                    <span class="transaction-account">
+                        Itaú
+                    </span>
+
+                    <strong class="transaction-value income-value">
+                        + R$ 3.500,00
+                    </strong>
+
+                </div>
+
+
+                <div class="transaction">
+
+                    <div class="transaction-icon transport">
+                        <span class="material-symbols-outlined">
+                            directions_car
+                        </span>
+                    </div>
+
+                    <div class="transaction-description">
+                        <strong>Uber</strong>
+                        <span>Transporte · 04/09</span>
+                    </div>
+
+                    <span class="transaction-account">
+                        Nubank
+                    </span>
+
+                    <strong class="transaction-value expense-value">
+                        - R$ 28,50
+                    </strong>
+
+                </div>
+
+
+                <div class="transaction">
+
+                    <div class="transaction-icon leisure">
+                        <span class="material-symbols-outlined">
+                            sports_esports
+                        </span>
+                    </div>
+
+                    <div class="transaction-description">
+                        <strong>Steam</strong>
+                        <span>Lazer · 03/09</span>
+                    </div>
+
+                    <span class="transaction-account">
+                        Inter
+                    </span>
+
+                    <strong class="transaction-value expense-value">
+                        - R$ 89,90
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- DISTRIBUIÇÃO DA RENDA -->
+        <!-- ========================= -->
+
+        <section class="distribution-section">
+
+            <div class="section-header">
+
+                <div class="section-title">
+
+                    <div class="section-icon green">
+                        <span class="material-symbols-outlined">
+                            account_balance
+                        </span>
+                    </div>
+
+                    <div>
+                        <h2>Distribuição da sua renda</h2>
+
+                        <p>
+                            Veja como sua renda está sendo direcionada neste mês.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="distribution-card">
+
+                <div class="distribution-total">
+
+                    <span>Renda recebida</span>
+
+                    <strong>R$ 3.500,00</strong>
+
+                    <small>
+                        Setembro de 2026
+                    </small>
+
+                </div>
+
+
+                <div class="distribution-bars">
+
+                    <div class="distribution-item">
+
+                        <div class="distribution-label">
+                            <span>
+                                <i class="dot food-dot"></i>
+                                Alimentação
+                            </span>
+
+                            <strong>12%</strong>
+                        </div>
+
+                        <div class="distribution-bar">
+                            <div style="width: 12%;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="distribution-item">
+
+                        <div class="distribution-label">
+                            <span>
+                                <i class="dot leisure-dot"></i>
+                                Lazer
+                            </span>
+
+                            <strong>14%</strong>
+                        </div>
+
+                        <div class="distribution-bar">
+                            <div style="width: 14%;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="distribution-item">
+
+                        <div class="distribution-label">
+                            <span>
+                                <i class="dot transport-dot"></i>
+                                Transporte
+                            </span>
+
+                            <strong>10%</strong>
+                        </div>
+
+                        <div class="distribution-bar">
+                            <div style="width: 10%;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="distribution-item">
+
+                        <div class="distribution-label">
+                            <span>
+                                <i class="dot shopping-dot"></i>
+                                Compras
+                            </span>
+
+                            <strong>8%</strong>
+                        </div>
+
+                        <div class="distribution-bar">
+                            <div style="width: 8%;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="distribution-item">
+
+                        <div class="distribution-label">
+                            <span>
+                                <i class="dot bills-dot"></i>
+                                Contas
+                            </span>
+
+                            <strong>17%</strong>
+                        </div>
+
+                        <div class="distribution-bar">
+                            <div style="width: 17%;"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="distribution-summary">
+
+                    <div>
+                        <span class="material-symbols-outlined">savings</span>
+
+                        <div>
+                            <small>Disponível / não comprometido</small>
+                            <strong>39%</strong>
+                        </div>
+                    </div>
+
+                    <span>
+                        R$ 1.365,00
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- RODAPÉ -->
+        <!-- ========================= -->
+
+        <footer>
+
+            <span>
+                Dados financeiros fornecidos pelas instituições conectadas via Open Finance.
+            </span>
+
+            <span>
+                Última sincronização: hoje
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>

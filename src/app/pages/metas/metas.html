@@ -2,45 +2,7 @@
          HEADER
 ====================================================== -->
 
-<header>
-
-    <div>
-        <img src="img/logo mykash.png" alt="logo" class="logo">
-    </div>
-
-
-    <div class="header-right">
-
-        <button class="header-button" aria-label="Notificações">
-
-            <span class="material-symbols-outlined">
-                notifications
-            </span>
-
-            <span class="notification-dot"></span>
-
-        </button>
-
-
-        <button class="profile-button">
-
-            <span class="material-symbols-outlined profile-icon">
-                person
-            </span>
-
-            <div class="profile-info">
-
-                <strong>Letícia</strong>
-
-                <small>Minha conta</small>
-
-            </div>
-
-        </button>
-
-    </div>
-
-</header>
+<app-cabecalho></app-cabecalho>
 
 <div class="layout">
 
@@ -217,7 +179,7 @@
                         <button
                             type="button"
                             class="delete-button"
-                            (click)="excluirMeta(meta.id)"
+                            (click)="confirmarExclusao(meta)"
                             aria-label="Excluir meta">
 
                             <span class="material-symbols-outlined">
@@ -616,6 +578,52 @@
 
         </form>
 
+    </div>
+
+    <!-- MODAL DE CONFIRMAÇÃO DE EXCLUSÃO -->
+    <div
+        class="delete-modal-overlay"
+        *ngIf="modalExclusaoAberto"
+        (click)="cancelarExclusao()">
+
+        <div
+            class="delete-modal"
+            (click)="$event.stopPropagation()">
+
+            <div class="delete-modal-icon">
+                <span class="material-symbols-outlined">delete</span>
+            </div>
+
+            <h2>Excluir meta?</h2>
+
+            <p>
+                Tem certeza de que deseja excluir
+                <strong>{{ metaParaExcluir?.nome }}</strong>?
+            </p>
+
+            <span class="delete-warning">
+                Essa ação não poderá ser desfeita.
+            </span>
+
+            <div class="delete-modal-actions">
+
+                <button
+                    type="button"
+                    class="cancel-delete"
+                    (click)="cancelarExclusao()">
+                    Cancelar
+                </button>
+
+                <button
+                    type="button"
+                    class="confirm-delete"
+                    (click)="excluirMeta()">
+                    Excluir meta
+                </button>
+
+            </div>
+
+        </div>
     </div>
 
 </div>

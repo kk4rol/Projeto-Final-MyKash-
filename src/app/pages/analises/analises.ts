@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { MenuLateral } from '../../componentes/menu-lateral/menu-lateral';
 import { CommonModule } from '@angular/common';
+import { Cabecalho } from '../../componentes/cabecalho/cabecalho';
 
 @Component({
   selector: 'app-analises',
-  imports: [MenuLateral, CommonModule],
+  imports: [MenuLateral, CommonModule, Cabecalho],
   templateUrl: './analises.html',
   styleUrl: './analises.css',
 })

@@ -1,0 +1,908 @@
+/* ========================================
+   ESTRUTURA
+======================================== */
+
+.layout {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 76px);
+}
+
+main {
+    flex: 1;
+    min-width: 0;
+    padding: 45px 4% 70px;
+    box-sizing: border-box;
+    background-color: var(--background);
+}
+
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+.page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.page-label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--cyan);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+}
+
+.page-header h1 {
+    margin: 0 0 7px;
+    color: #edf2ef;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.page-header p {
+    margin: 0;
+    color: #78847f;
+    font-size: 12px;
+}
+
+.period-selector {
+    height: 38px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--background-secondary);
+    color: #7d8984;
+}
+
+.period-selector .material-symbols-outlined {
+    font-size: 18px;
+}
+
+.period-selector select {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #adb6b2;
+    font-family: inherit;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+
+/* ========================================
+   RESUMO
+======================================== */
+
+.investment-summary {
+    display: grid;
+    grid-template-columns: 1.3fr repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.investment-summary-card {
+    min-height: 145px;
+    padding: 19px;
+    box-sizing: border-box;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: var(--background-secondary);
+}
+
+.summary-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 19px;
+}
+
+.summary-card-top > span {
+    color: #77837e;
+    font-size: 10px;
+}
+
+.summary-icon {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+}
+
+.summary-icon .material-symbols-outlined {
+    font-size: 19px;
+}
+
+.summary-icon.cyan {
+    color: var(--cyan);
+    background-color: rgba(22, 186, 197, 0.09);
+}
+
+.summary-icon.purple {
+    color: #8d91ff;
+    background-color: rgba(88, 99, 248, 0.10);
+}
+
+.summary-icon.green {
+    color: #62d99b;
+    background-color: rgba(98, 217, 155, 0.09);
+}
+
+.summary-icon.orange {
+    color: #e8a35c;
+    background-color: rgba(232, 163, 92, 0.09);
+}
+
+.investment-summary-card > strong {
+    display: block;
+    color: #edf2ef;
+    font-size: 22px;
+    line-height: 1;
+}
+
+.investment-summary-card .positive-value {
+    color: #62d99b;
+}
+
+.investment-summary-card p {
+    margin: 9px 0 0;
+    color: #606c67;
+    font-size: 9px;
+}
+
+.summary-footer {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 10px;
+    font-size: 9px;
+}
+
+.summary-footer .material-symbols-outlined {
+    font-size: 14px;
+}
+
+.positive {
+    color: #62d99b;
+}
+
+.negative {
+    color: #ed7474;
+}
+
+
+/* ========================================
+   GRÁFICOS
+======================================== */
+
+.investment-overview {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(300px, 0.9fr);
+    gap: 18px;
+    margin-bottom: 42px;
+}
+
+.chart-card {
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background-color: var(--background-secondary);
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    margin: 0 0 5px;
+    color: #dce3df;
+    font-size: 14px;
+}
+
+.section-heading p {
+    margin: 0;
+    color: #68746f;
+    font-size: 9px;
+}
+
+.chart-value {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+}
+
+.chart-value strong {
+    color: #e8eeeb;
+    font-size: 15px;
+}
+
+.chart-value span {
+    color: #606c67;
+    font-size: 8px;
+}
+
+
+/* ========================================
+   GRÁFICO DE EVOLUÇÃO
+======================================== */
+
+.investment-chart {
+    display: flex;
+    height: 245px;
+}
+
+.chart-y-axis {
+    width: 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px 0 23px;
+    box-sizing: border-box;
+}
+
+.chart-y-axis span {
+    color: #505c57;
+    font-size: 8px;
+}
+
+.chart-area {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+}
+
+.chart-grid {
+    position: absolute;
+    inset: 0 0 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chart-grid span {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.045);
+}
+
+.line-chart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 25px);
+    overflow: visible;
+}
+
+.chart-area-fill {
+    fill: url(#investmentGradient);
+}
+
+.chart-line {
+    fill: none;
+    stroke: var(--cyan);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.line-chart circle {
+    fill: var(--cyan);
+    stroke: #202624;
+    stroke-width: 4;
+}
+
+.chart-months {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart-months span {
+    color: #505c57;
+    font-size: 8px;
+}
+
+
+/* ========================================
+   DISTRIBUIÇÃO
+======================================== */
+
+.distribution-content {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    min-height: 205px;
+}
+
+.donut-chart {
+    position: relative;
+    width: 145px;
+    height: 145px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background:
+        conic-gradient(
+            var(--cyan) 0 45%,
+            #5863f8 45% 70%,
+            #e8a35c 70% 90%,
+            #62d99b 90% 100%
+        );
+}
+
+.donut-chart::after {
+    content: "";
+    position: absolute;
+    inset: 24px;
+    border-radius: 50%;
+    background-color: var(--background-secondary);
+}
+
+.donut-center {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.donut-center strong {
+    color: #e8eeeb;
+    font-size: 20px;
+}
+
+.donut-center span {
+    margin-top: 2px;
+    color: #626e69;
+    font-size: 8px;
+}
+
+.distribution-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.distribution-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.distribution-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #9ba6a2;
+    font-size: 9px;
+}
+
+.distribution-item > strong {
+    color: #dce3df;
+    font-size: 10px;
+}
+
+.legend {
+    width: 7px;
+    height: 7px;
+    border-radius: 2px;
+}
+
+.legend.cyan {
+    background-color: var(--cyan);
+}
+
+.legend.purple {
+    background-color: #5863f8;
+}
+
+.legend.orange {
+    background-color: #e8a35c;
+}
+
+.legend.green {
+    background-color: #62d99b;
+}
+
+
+/* ========================================
+   TÍTULO DA SEÇÃO
+======================================== */
+
+.investments-section {
+    margin-bottom: 42px;
+}
+
+.section-title {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 17px;
+}
+
+.section-title h2 {
+    margin: 0 0 5px;
+    color: #dce3df;
+    font-size: 15px;
+}
+
+.section-title p {
+    margin: 0;
+    color: #68746f;
+    font-size: 9px;
+}
+
+.add-investment-button {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 13px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--cyan);
+    color: #111817;
+    font-family: inherit;
+    font-size: 9px;
+    font-weight: 750;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.add-investment-button:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+.add-investment-button .material-symbols-outlined {
+    font-size: 16px;
+}
+
+
+/* ========================================
+   CARDS DOS INVESTIMENTOS
+======================================== */
+
+.investments-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.investment-card {
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: var(--background-secondary);
+    transition: 0.2s ease;
+}
+
+.investment-card:hover {
+    border-color: rgba(255, 255, 255, 0.10);
+    transform: translateY(-2px);
+}
+
+.investment-card-header {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.investment-type-icon {
+    width: 39px;
+    height: 39px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+}
+
+.investment-type-icon .material-symbols-outlined {
+    font-size: 20px;
+}
+
+.investment-type-icon.fixed {
+    color: var(--cyan);
+    background-color: rgba(22, 186, 197, 0.09);
+}
+
+.investment-type-icon.purple {
+    color: #8d91ff;
+    background-color: rgba(88, 99, 248, 0.10);
+}
+
+.investment-type-icon.orange {
+    color: #e8a35c;
+    background-color: rgba(232, 163, 92, 0.10);
+}
+
+.investment-type-icon.green {
+    color: #62d99b;
+    background-color: rgba(98, 217, 155, 0.09);
+}
+
+.investment-title {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.investment-title strong {
+    overflow: hidden;
+    color: #dce3df;
+    font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.investment-title span {
+    color: #626e69;
+    font-size: 8px;
+}
+
+.investment-menu {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: #68746f;
+    cursor: pointer;
+}
+
+.investment-menu:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #b9c3bf;
+}
+
+.investment-menu .material-symbols-outlined {
+    font-size: 18px;
+}
+
+
+/* ========================================
+   VALORES
+======================================== */
+
+.investment-values {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 24px 0 20px;
+}
+
+.investment-values div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.investment-values span {
+    color: #626e69;
+    font-size: 8px;
+}
+
+.investment-values strong {
+    color: #e5ebe8;
+    font-size: 17px;
+}
+
+.investment-return {
+    align-items: flex-end;
+}
+
+.investment-return strong {
+    font-size: 14px;
+}
+
+
+/* ========================================
+   BARRAS
+======================================== */
+
+.investment-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress-info span {
+    color: #5e6a65;
+    font-size: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #303734;
+}
+
+.progress-bar span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background-color: var(--cyan);
+}
+
+.progress-bar.purple-bar span {
+    background-color: #5863f8;
+}
+
+.progress-bar.orange-bar span {
+    background-color: #e8a35c;
+}
+
+.progress-bar.green-bar span {
+    background-color: #62d99b;
+}
+
+
+/* ========================================
+   INSIGHT
+======================================== */
+
+.investment-insight {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid rgba(88, 99, 248, 0.15);
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(88, 99, 248, 0.08),
+            rgba(22, 186, 197, 0.04)
+        );
+}
+
+.insight-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: rgba(88, 99, 248, 0.12);
+    color: #8d91ff;
+}
+
+.insight-icon .material-symbols-outlined {
+    font-size: 21px;
+}
+
+.investment-insight > div:last-child {
+    flex: 1;
+}
+
+.investment-insight > div:last-child > span {
+    color: #8d91ff;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
+
+.investment-insight h3 {
+    margin: 6px 0 6px;
+    color: #dfe6e2;
+    font-size: 12px;
+}
+
+.investment-insight p {
+    max-width: 850px;
+    margin: 0;
+    color: #75817c;
+    font-size: 9px;
+    line-height: 1.65;
+}
+
+
+/* ========================================
+   OPEN FINANCE
+======================================== */
+
+.investment-open-finance {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 16px;
+    border: 1px solid rgba(22, 186, 197, 0.10);
+    border-radius: 11px;
+    background-color: rgba(22, 186, 197, 0.035);
+}
+
+.open-finance-icon {
+    width: 37px;
+    height: 37px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background-color: rgba(22, 186, 197, 0.08);
+    color: var(--cyan);
+}
+
+.open-finance-icon .material-symbols-outlined {
+    font-size: 19px;
+}
+
+.investment-open-finance > div:nth-child(2) {
+    flex: 1;
+}
+
+.investment-open-finance strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #aab5b1;
+    font-size: 9px;
+}
+
+.investment-open-finance p {
+    margin: 0;
+    color: #5f6b66;
+    font-size: 8px;
+    line-height: 1.5;
+}
+
+.sync-status {
+    padding: 5px 8px;
+    border-radius: 5px;
+    background-color: rgba(98, 217, 155, 0.07);
+    color: #62b98c;
+    font-size: 8px;
+    white-space: nowrap;
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 1100px) {
+
+    .investment-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .investment-overview {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    main {
+        padding: 35px 5% 55px;
+    }
+
+    .page-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .period-selector {
+        align-self: flex-start;
+    }
+
+    .investments-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .distribution-content {
+        justify-content: center;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .investment-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .investment-summary-card {
+        min-height: 125px;
+    }
+
+    .section-title {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .add-investment-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .investment-chart {
+        height: 200px;
+    }
+
+    .distribution-content {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .distribution-list {
+        width: 100%;
+    }
+
+    .investment-open-finance {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .sync-status {
+        margin-left: 50px;
+    }
+
+}
+
+
+@media (max-width: 430px) {
+
+    main {
+        padding: 30px 4% 45px;
+    }
+
+    .page-header h1 {
+        font-size: 23px;
+    }
+
+    .chart-card {
+        padding: 17px;
+    }
+
+    .investment-card {
+        padding: 15px;
+    }
+
+    .investment-values strong {
+        font-size: 15px;
+    }
+
+}

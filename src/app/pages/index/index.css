@@ -29,8 +29,7 @@ header img {
     gap: 10px;
 }
 
-.profile-button,
-.theme-button {
+.profile-button {
     width: 48px;
     height: 48px;
     display: flex;
@@ -40,19 +39,10 @@ header img {
     color: white;
     background-color: var(--gray);
     transition: 0.2s;
-}
-
-.profile-button {
     text-decoration: none;
 }
 
-.theme-button {
-    border: none;
-    cursor: pointer;
-}
-
-.profile-button:hover,
-.theme-button:hover {
+.profile-button:hover {
     background-color: #22252a;
     transform: translateY(-2px);
 }

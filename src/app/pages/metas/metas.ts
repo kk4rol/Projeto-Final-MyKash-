@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuLateral } from '../../componentes/menu-lateral/menu-lateral';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Cabecalho } from '../../componentes/cabecalho/cabecalho';
 
 interface Meta {
   id: number;
@@ -15,7 +16,7 @@ interface Meta {
 
 @Component({
   selector: 'app-metas',
-  imports: [MenuLateral, CommonModule, FormsModule],
+  imports: [MenuLateral, CommonModule, FormsModule, Cabecalho],
   templateUrl: './metas.html',
   styleUrl: './metas.css',
 })
@@ -43,6 +44,12 @@ export class Metas implements OnInit {
 
   novaMeta: Meta = this.metaVazia();
 
+  /* ==================================================
+     EXCLUIR META
+  ================================================== */
+
+  modalExclusaoAberto = false;
+  metaParaExcluir: Meta | null = null;
 
   /* ==================================================
      INICIALIZAÇÃO
@@ -323,14 +330,29 @@ export class Metas implements OnInit {
      EXCLUIR META
   ================================================== */
 
-  excluirMeta(id: number): void {
+  confirmarExclusao(meta: Meta): void {
+    this.metaParaExcluir = meta;
+    this.modalExclusaoAberto = true;
+  }
+
+  cancelarExclusao(): void {
+    this.modalExclusaoAberto = false;
+    this.metaParaExcluir = null;
+  }
+
+  excluirMeta(): void {
+    if (!this.metaParaExcluir) {
+      return;
+    }
 
     this.metas = this.metas.filter(
-      meta => meta.id !== id
+      meta => meta.id !== this.metaParaExcluir!.id
     );
 
     this.salvarMetas();
 
+    this.modalExclusaoAberto = false;
+    this.metaParaExcluir = null;
   }
 
 

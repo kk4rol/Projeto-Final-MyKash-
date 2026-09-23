@@ -1,0 +1,90 @@
+<header>
+
+        <div>
+            <img src="img/logo mykash.png" alt="logo" class="logo">
+        </div>
+
+
+        <div class="header-right">
+
+            <button class="header-button" aria-label="Notificações">
+
+                <span class="material-symbols-outlined">
+                    notifications
+                </span>
+
+                <span class="notification-dot"></span>
+
+            </button>
+
+
+            <button 
+                class="profile-button"
+                type="button"
+                (click)="abrirMenuPerfil()"
+                aria-label="Abrir menu do perfil">
+
+                <span class="material-symbols-outlined profile-icon">
+                    person
+                </span>
+
+                <div class="profile-info">
+
+                    <strong>Letícia</strong>
+
+                    <small>Minha conta</small>
+
+                </div>
+
+                <span class="material-symbols-outlined profile-arrow">
+                    expand_more
+                </span>
+
+            </button>
+
+            <div
+                class="profile-menu"
+                *ngIf="menuPerfilAberto">
+
+                <!-- ALTERAR TEMA -->
+
+                <button
+                    type="button"
+                    class="profile-menu-item"
+                    (click)="alterarTema()">
+
+                    <span class="material-symbols-outlined">
+
+                        {{ temaClaro ? 'dark_mode' : 'light_mode' }}
+
+                    </span>
+
+                    <span>
+                        Alterar tema
+                    </span>
+
+                </button>
+
+
+                <!-- SAIR -->
+
+                <button
+                    type="button"
+                    class="profile-menu-item logout"
+                    (click)="sair()">
+
+                    <span class="material-symbols-outlined">
+                        logout
+                    </span>
+
+                    <span>
+                        Sair
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>

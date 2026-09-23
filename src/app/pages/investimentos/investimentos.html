@@ -1,1 +1,681 @@
-<p>investimentos works!</p>
+<!-- =====================================================
+         HEADER
+====================================================== -->
+
+<app-cabecalho></app-cabecalho>
+
+
+<div class="layout">
+
+    <app-menu-lateral></app-menu-lateral>
+
+    <main>
+
+        <!-- CABEÇALHO -->
+        <section class="page-header">
+
+            <div>
+
+                <h1>Seus investimentos</h1>
+
+                <p>
+                    Acompanhe seu patrimônio, seus rendimentos
+                    e a distribuição da sua carteira.
+                </p>
+            </div>
+
+            <div class="period-selector">
+                <span class="material-symbols-outlined">
+                    calendar_month
+                </span>
+
+                <select>
+                    <option>Este mês</option>
+                    <option>Últimos 3 meses</option>
+                    <option>Últimos 6 meses</option>
+                    <option>Este ano</option>
+                </select>
+            </div>
+
+        </section>
+
+
+        <!-- RESUMO -->
+        <section class="investment-summary">
+
+            <article class="investment-summary-card main-value">
+
+                <div class="summary-card-top">
+                    <span>Patrimônio investido</span>
+
+                    <div class="summary-icon cyan">
+                        <span class="material-symbols-outlined">
+                            account_balance
+                        </span>
+                    </div>
+                </div>
+
+                <strong>R$ 12.480,00</strong>
+
+                <div class="summary-footer positive">
+
+                    <span class="material-symbols-outlined">
+                        trending_up
+                    </span>
+
+                    <span>+8,4% no período</span>
+
+                </div>
+
+            </article>
+
+
+            <article class="investment-summary-card">
+
+                <div class="summary-card-top">
+                    <span>Rentabilidade</span>
+
+                    <div class="summary-icon purple">
+                        <span class="material-symbols-outlined">
+                            percent
+                        </span>
+                    </div>
+                </div>
+
+                <strong class="positive-value">+8,4%</strong>
+
+                <p>Rentabilidade acumulada</p>
+
+            </article>
+
+
+            <article class="investment-summary-card">
+
+                <div class="summary-card-top">
+                    <span>Rendimentos</span>
+
+                    <div class="summary-icon green">
+                        <span class="material-symbols-outlined">
+                            monetization_on
+                        </span>
+                    </div>
+                </div>
+
+                <strong>R$ 968,40</strong>
+
+                <p>Ganhos acumulados</p>
+
+            </article>
+
+
+            <article class="investment-summary-card">
+
+                <div class="summary-card-top">
+                    <span>Aportes</span>
+
+                    <div class="summary-icon orange">
+                        <span class="material-symbols-outlined">
+                            add_card
+                        </span>
+                    </div>
+                </div>
+
+                <strong>R$ 1.200,00</strong>
+
+                <p>Adicionados este mês</p>
+
+            </article>
+
+        </section>
+
+
+        <!-- EVOLUÇÃO + DISTRIBUIÇÃO -->
+        <section class="investment-overview">
+
+            <!-- EVOLUÇÃO -->
+            <article class="chart-card evolution-card">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Evolução do patrimônio</h2>
+
+                        <p>
+                            Acompanhe o crescimento dos seus investimentos.
+                        </p>
+                    </div>
+
+                    <div class="chart-value">
+                        <strong>R$ 12.480</strong>
+                        <span>valor atual</span>
+                    </div>
+
+                </div>
+
+
+                <div class="investment-chart">
+
+                    <div class="chart-y-axis">
+                        <span>14k</span>
+                        <span>12k</span>
+                        <span>10k</span>
+                        <span>8k</span>
+                        <span>6k</span>
+                    </div>
+
+                    <div class="chart-area">
+
+                        <div class="chart-grid">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <svg
+                            class="line-chart"
+                            viewBox="0 0 700 250"
+                            preserveAspectRatio="none">
+
+                            <defs>
+
+                                <linearGradient
+                                    id="investmentGradient"
+                                    x1="0"
+                                    y1="0"
+                                    x2="0"
+                                    y2="1">
+
+                                    <stop
+                                        offset="0%"
+                                        stop-color="#16BAC5"
+                                        stop-opacity="0.25" />
+
+                                    <stop
+                                        offset="100%"
+                                        stop-color="#16BAC5"
+                                        stop-opacity="0" />
+
+                                </linearGradient>
+
+                            </defs>
+
+                            <path
+                                class="chart-area-fill"
+                                d="
+                                M0,210
+                                L100,190
+                                L200,175
+                                L300,150
+                                L400,135
+                                L500,105
+                                L600,90
+                                L700,55
+                                L700,250
+                                L0,250
+                                Z
+                                " />
+
+                            <path
+                                class="chart-line"
+                                d="
+                                M0,210
+                                L100,190
+                                L200,175
+                                L300,150
+                                L400,135
+                                L500,105
+                                L600,90
+                                L700,55
+                                " />
+
+                            <circle cx="700" cy="55" r="5" />
+
+                        </svg>
+
+                        <div class="chart-months">
+                            <span>Mai</span>
+                            <span>Jun</span>
+                            <span>Jul</span>
+                            <span>Ago</span>
+                            <span>Set</span>
+                            <span>Out</span>
+                            <span>Nov</span>
+                            <span>Dez</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- DISTRIBUIÇÃO -->
+            <article class="chart-card distribution-card">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Distribuição da carteira</h2>
+
+                        <p>Onde seu dinheiro está investido.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="distribution-content">
+
+                    <div class="donut-chart">
+
+                        <div class="donut-center">
+                            <strong>100%</strong>
+                            <span>Carteira</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="distribution-list">
+
+                        <div class="distribution-item">
+
+                            <div class="distribution-name">
+                                <span class="legend cyan"></span>
+                                <span>Renda fixa</span>
+                            </div>
+
+                            <strong>45%</strong>
+
+                        </div>
+
+
+                        <div class="distribution-item">
+
+                            <div class="distribution-name">
+                                <span class="legend purple"></span>
+                                <span>Fundos</span>
+                            </div>
+
+                            <strong>25%</strong>
+
+                        </div>
+
+
+                        <div class="distribution-item">
+
+                            <div class="distribution-name">
+                                <span class="legend orange"></span>
+                                <span>Ações</span>
+                            </div>
+
+                            <strong>20%</strong>
+
+                        </div>
+
+
+                        <div class="distribution-item">
+
+                            <div class="distribution-name">
+                                <span class="legend green"></span>
+                                <span>Criptoativos</span>
+                            </div>
+
+                            <strong>10%</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- MEUS INVESTIMENTOS -->
+        <section class="investments-section">
+
+            <div class="section-title">
+
+                <div>
+                    <h2>Meus investimentos</h2>
+
+                    <p>
+                        Veja como cada investimento está performando.
+                    </p>
+                </div>
+
+                <button class="add-investment-button">
+
+                    <span class="material-symbols-outlined">
+                        add
+                    </span>
+
+                    Adicionar investimento
+
+                </button>
+
+            </div>
+
+
+            <div class="investments-grid">
+
+
+                <!-- INVESTIMENTO 1 -->
+                <article class="investment-card">
+
+                    <div class="investment-card-header">
+
+                        <div class="investment-type-icon fixed">
+
+                            <span class="material-symbols-outlined">
+                                account_balance
+                            </span>
+
+                        </div>
+
+                        <div class="investment-title">
+
+                            <strong>CDB Banco Inter</strong>
+
+                            <span>Renda fixa</span>
+
+                        </div>
+
+                        <button class="investment-menu">
+                            <span class="material-symbols-outlined">
+                                more_vert
+                            </span>
+                        </button>
+
+                    </div>
+
+
+                    <div class="investment-values">
+
+                        <div>
+                            <span>Valor atual</span>
+                            <strong>R$ 4.860,00</strong>
+                        </div>
+
+                        <div class="investment-return positive">
+                            <span>Rentabilidade</span>
+                            <strong>+8,2%</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="investment-progress">
+
+                        <div class="progress-info">
+                            <span>Valor aplicado</span>
+                            <span>R$ 4.500,00</span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <span style="width: 82%;"></span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- INVESTIMENTO 2 -->
+                <article class="investment-card">
+
+                    <div class="investment-card-header">
+
+                        <div class="investment-type-icon purple">
+
+                            <span class="material-symbols-outlined">
+                                pie_chart
+                            </span>
+
+                        </div>
+
+                        <div class="investment-title">
+
+                            <strong>Fundo Multimercado</strong>
+
+                            <span>Fundos</span>
+
+                        </div>
+
+                        <button class="investment-menu">
+                            <span class="material-symbols-outlined">
+                                more_vert
+                            </span>
+                        </button>
+
+                    </div>
+
+
+                    <div class="investment-values">
+
+                        <div>
+                            <span>Valor atual</span>
+                            <strong>R$ 3.120,00</strong>
+                        </div>
+
+                        <div class="investment-return positive">
+                            <span>Rentabilidade</span>
+                            <strong>+6,8%</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="investment-progress">
+
+                        <div class="progress-info">
+                            <span>Valor aplicado</span>
+                            <span>R$ 2.924,00</span>
+                        </div>
+
+                        <div class="progress-bar purple-bar">
+                            <span style="width: 68%;"></span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- INVESTIMENTO 3 -->
+                <article class="investment-card">
+
+                    <div class="investment-card-header">
+
+                        <div class="investment-type-icon orange">
+
+                            <span class="material-symbols-outlined">
+                                show_chart
+                            </span>
+
+                        </div>
+
+                        <div class="investment-title">
+
+                            <strong>Ações</strong>
+
+                            <span>Renda variável</span>
+
+                        </div>
+
+                        <button class="investment-menu">
+                            <span class="material-symbols-outlined">
+                                more_vert
+                            </span>
+                        </button>
+
+                    </div>
+
+
+                    <div class="investment-values">
+
+                        <div>
+                            <span>Valor atual</span>
+                            <strong>R$ 2.500,00</strong>
+                        </div>
+
+                        <div class="investment-return positive">
+                            <span>Rentabilidade</span>
+                            <strong>+12,4%</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="investment-progress">
+
+                        <div class="progress-info">
+                            <span>Valor aplicado</span>
+                            <span>R$ 2.223,00</span>
+                        </div>
+
+                        <div class="progress-bar orange-bar">
+                            <span style="width: 74%;"></span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- INVESTIMENTO 4 -->
+                <article class="investment-card">
+
+                    <div class="investment-card-header">
+
+                        <div class="investment-type-icon green">
+
+                            <span class="material-symbols-outlined">
+                                currency_bitcoin
+                            </span>
+
+                        </div>
+
+                        <div class="investment-title">
+
+                            <strong>Bitcoin</strong>
+
+                            <span>Criptoativos</span>
+
+                        </div>
+
+                        <button class="investment-menu">
+                            <span class="material-symbols-outlined">
+                                more_vert
+                            </span>
+                        </button>
+
+                    </div>
+
+
+                    <div class="investment-values">
+
+                        <div>
+                            <span>Valor atual</span>
+                            <strong>R$ 2.000,00</strong>
+                        </div>
+
+                        <div class="investment-return negative">
+                            <span>Rentabilidade</span>
+                            <strong>-2,1%</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="investment-progress">
+
+                        <div class="progress-info">
+                            <span>Valor aplicado</span>
+                            <span>R$ 2.043,00</span>
+                        </div>
+
+                        <div class="progress-bar green-bar">
+                            <span style="width: 55%;"></span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- INSIGHT -->
+        <section class="investment-insight">
+
+            <div class="insight-icon">
+
+                <span class="material-symbols-outlined">
+                    lightbulb
+                </span>
+
+            </div>
+
+            <div>
+
+                <span>VISÃO DA SUA CARTEIRA</span>
+
+                <h3>
+                    Sua carteira está concentrada em renda fixa.
+                </h3>
+
+                <p>
+                    Atualmente, 45% do seu patrimônio investido
+                    está em renda fixa. Acompanhe a distribuição
+                    dos seus investimentos para entender como seu
+                    dinheiro está dividido entre diferentes tipos
+                    de ativos.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- OPEN FINANCE -->
+        <section class="investment-open-finance">
+
+            <div class="open-finance-icon">
+
+                <span class="material-symbols-outlined">
+                    sync
+                </span>
+
+            </div>
+
+            <div>
+
+                <strong>
+                    Dados sincronizados via Open Finance
+                </strong>
+
+                <p>
+                    No MyKash, seus investimentos podem ser
+                    centralizados junto às demais movimentações
+                    financeiras das instituições conectadas.
+                </p>
+
+            </div>
+
+            <span class="sync-status">
+                Sincronizado hoje
+            </span>
+
+        </section>
+
+    </main>
+
+</div>

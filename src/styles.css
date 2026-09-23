@@ -38,3 +38,40 @@ body {
 
     font-family: "Mona sans", sans-serif;
 }
+
+p {
+
+    font-size: 13px;
+
+}
+
+.text-secondary {
+
+    font-size: 13px;
+
+}
+
+body.tema-claro {
+
+    /* FUNDO */
+    --background: #f4f7f6;
+    --background-secondary: #ffffff;
+
+    /* CARDS */
+    --card: #eef2f1;
+
+    /* TEXTOS */
+    --text: #202725;
+    --text-secondary: #68736f;
+
+    /* BORDAS */
+    --border: rgba(30, 40, 37, 0.10);
+
+    /* CORES DO MYKASH */
+    --cyan: #129ca6;
+    --blue: #5863f8;
+
+    /* HEADER */
+    --header: #ffffff;
+
+}
