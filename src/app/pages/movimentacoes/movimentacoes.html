@@ -137,6 +137,18 @@
 
             </div>
 
+            <button
+                type="button"
+                class="sync-button"
+                (click)="simularSincronizacao()">
+
+                <span class="material-symbols-outlined">
+                    sync
+                </span>
+
+                Simular nova sincronização
+            </button>
+
         </section>
 
 
@@ -158,7 +170,7 @@
 
                     <span>Entradas</span>
 
-                    <strong>R$ 3.500,00</strong>
+                    <strong>R$ {{ dadosFinanceiros.totalEntradas | number:'1.2-2' }}</strong>
 
                     <small>
                         <span class="material-symbols-outlined">trending_up</span>
@@ -182,7 +194,7 @@
 
                     <span>Saídas</span>
 
-                    <strong>R$ 2.142,00</strong>
+                    <strong>R$ {{ dadosFinanceiros.totalSaidas | number:'1.2-2' }}</strong>
 
                     <small>
                         <span class="material-symbols-outlined">trending_down</span>
@@ -206,7 +218,7 @@
 
                     <span>Saldo do período</span>
 
-                    <strong>R$ 1.358,00</strong>
+                    <strong>R$ {{ dadosFinanceiros.saldo | number:'1.2-2' }}</strong>
 
                     <small>
                         Disponível após as movimentações
@@ -659,288 +671,225 @@
 
             <div class="transactions-card">
 
-                <!-- MOVIMENTAÇÃO -->
+                <div
+                    class="transaction"
+                    *ngFor="let movimentacao of dadosFinanceiros.movimentacoes">
 
-                <div class="transaction">
+                    <div
+                        class="transaction-icon"
+                        [ngClass]="{
+                            'food': movimentacao.categoria === 'Alimentação',
+                            'shopping': movimentacao.categoria === 'Compras',
+                            'transport': movimentacao.categoria === 'Transporte',
+                            'leisure': movimentacao.categoria === 'Lazer',
+                            'income-icon': movimentacao.tipo === 'entrada'
+                        }">
 
-                    <div class="transaction-icon food">
                         <span class="material-symbols-outlined">
-                            restaurant
+                            {{
+                                movimentacao.tipo === 'entrada'
+                                    ? 'payments'
+                                    : movimentacao.categoria === 'Alimentação'
+                                        ? 'restaurant'
+                                        : movimentacao.categoria === 'Compras'
+                                            ? 'shopping_bag'
+                                            : movimentacao.categoria === 'Transporte'
+                                                ? 'directions_car'
+                                                : movimentacao.categoria === 'Lazer'
+                                                    ? 'sports_esports'
+                                                    : 'payments'
+                            }}
                         </span>
+
                     </div>
 
                     <div class="transaction-description">
-                        <strong>iFood</strong>
-                        <span>Alimentação · Hoje</span>
-                    </div>
 
-                    <span class="transaction-account">
-                        Nubank
-                    </span>
+                        <strong>
+                            {{ movimentacao.descricao }}
+                        </strong>
 
-                    <strong class="transaction-value expense-value">
-                        - R$ 42,90
-                    </strong>
-
-                </div>
-
-
-                <div class="transaction">
-
-                    <div class="transaction-icon shopping">
-                        <span class="material-symbols-outlined">
-                            shopping_bag
+                        <span>
+                            {{ movimentacao.categoria }} · {{ formatarData(movimentacao.data) }}
                         </span>
+
                     </div>
 
-                    <div class="transaction-description">
-                        <strong>Amazon</strong>
-                        <span>Compras · Hoje</span>
-                    </div>
+                    <strong
+                        class="transaction-value"
+                        [ngClass]="{
+                            'income-value': movimentacao.tipo === 'entrada',
+                            'expense-value': movimentacao.tipo === 'saida'
+                        }">
 
-                    <span class="transaction-account">
-                        Nubank
-                    </span>
+                        {{ movimentacao.tipo === 'entrada' ? '+' : '-' }}
+                        R$ {{ movimentacao.valor | number:'1.2-2' }}
 
-                    <strong class="transaction-value expense-value">
-                        - R$ 129,90
-                    </strong>
-
-                </div>
-
-
-                <div class="transaction">
-
-                    <div class="transaction-icon income-icon">
-                        <span class="material-symbols-outlined">
-                            payments
-                        </span>
-                    </div>
-
-                    <div class="transaction-description">
-                        <strong>Salário</strong>
-                        <span>Entrada · 05/09</span>
-                    </div>
-
-                    <span class="transaction-account">
-                        Itaú
-                    </span>
-
-                    <strong class="transaction-value income-value">
-                        + R$ 3.500,00
-                    </strong>
-
-                </div>
-
-
-                <div class="transaction">
-
-                    <div class="transaction-icon transport">
-                        <span class="material-symbols-outlined">
-                            directions_car
-                        </span>
-                    </div>
-
-                    <div class="transaction-description">
-                        <strong>Uber</strong>
-                        <span>Transporte · 04/09</span>
-                    </div>
-
-                    <span class="transaction-account">
-                        Nubank
-                    </span>
-
-                    <strong class="transaction-value expense-value">
-                        - R$ 28,50
-                    </strong>
-
-                </div>
-
-
-                <div class="transaction">
-
-                    <div class="transaction-icon leisure">
-                        <span class="material-symbols-outlined">
-                            sports_esports
-                        </span>
-                    </div>
-
-                    <div class="transaction-description">
-                        <strong>Steam</strong>
-                        <span>Lazer · 03/09</span>
-                    </div>
-
-                    <span class="transaction-account">
-                        Inter
-                    </span>
-
-                    <strong class="transaction-value expense-value">
-                        - R$ 89,90
                     </strong>
 
                 </div>
 
             </div>
 
-        </section>
+                    </section>
 
 
-        <!-- ========================= -->
-        <!-- DISTRIBUIÇÃO DA RENDA -->
-        <!-- ========================= -->
+                    <!-- ========================= -->
+                    <!-- DISTRIBUIÇÃO DA RENDA -->
+                    <!-- ========================= -->
 
-        <section class="distribution-section">
+                    <section class="distribution-section">
 
-            <div class="section-header">
+                        <div class="section-header">
 
-                <div class="section-title">
+                            <div class="section-title">
 
-                    <div class="section-icon green">
-                        <span class="material-symbols-outlined">
-                            account_balance
-                        </span>
-                    </div>
+                                <div class="section-icon green">
+                                    <span class="material-symbols-outlined">
+                                        account_balance
+                                    </span>
+                                </div>
 
-                    <div>
-                        <h2>Distribuição da sua renda</h2>
+                                <div>
+                                    <h2>Distribuição da sua renda</h2>
 
-                        <p>
-                            Veja como sua renda está sendo direcionada neste mês.
-                        </p>
-                    </div>
+                                    <p>
+                                        Veja como sua renda está sendo direcionada neste mês.
+                                    </p>
+                                </div>
 
-                </div>
+                            </div>
 
-            </div>
-
-
-            <div class="distribution-card">
-
-                <div class="distribution-total">
-
-                    <span>Renda recebida</span>
-
-                    <strong>R$ 3.500,00</strong>
-
-                    <small>
-                        Setembro de 2026
-                    </small>
-
-                </div>
-
-
-                <div class="distribution-bars">
-
-                    <div class="distribution-item">
-
-                        <div class="distribution-label">
-                            <span>
-                                <i class="dot food-dot"></i>
-                                Alimentação
-                            </span>
-
-                            <strong>12%</strong>
                         </div>
 
-                        <div class="distribution-bar">
-                            <div style="width: 12%;"></div>
+
+                        <div class="distribution-card">
+
+                            <div class="distribution-total">
+
+                                <span>Renda recebida</span>
+
+                                <strong>R$ 3.500,00</strong>
+
+                                <small>
+                                    Setembro de 2026
+                                </small>
+
+                            </div>
+
+
+                            <div class="distribution-bars">
+
+                                <div class="distribution-item">
+
+                                    <div class="distribution-label">
+                                        <span>
+                                            <i class="dot food-dot"></i>
+                                            Alimentação
+                                        </span>
+
+                                        <strong>12%</strong>
+                                    </div>
+
+                                    <div class="distribution-bar">
+                                        <div style="width: 12%;"></div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="distribution-item">
+
+                                    <div class="distribution-label">
+                                        <span>
+                                            <i class="dot leisure-dot"></i>
+                                            Lazer
+                                        </span>
+
+                                        <strong>14%</strong>
+                                    </div>
+
+                                    <div class="distribution-bar">
+                                        <div style="width: 14%;"></div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="distribution-item">
+
+                                    <div class="distribution-label">
+                                        <span>
+                                            <i class="dot transport-dot"></i>
+                                            Transporte
+                                        </span>
+
+                                        <strong>10%</strong>
+                                    </div>
+
+                                    <div class="distribution-bar">
+                                        <div style="width: 10%;"></div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="distribution-item">
+
+                                    <div class="distribution-label">
+                                        <span>
+                                            <i class="dot shopping-dot"></i>
+                                            Compras
+                                        </span>
+
+                                        <strong>8%</strong>
+                                    </div>
+
+                                    <div class="distribution-bar">
+                                        <div style="width: 8%;"></div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="distribution-item">
+
+                                    <div class="distribution-label">
+                                        <span>
+                                            <i class="dot bills-dot"></i>
+                                            Contas
+                                        </span>
+
+                                        <strong>17%</strong>
+                                    </div>
+
+                                    <div class="distribution-bar">
+                                        <div style="width: 17%;"></div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="distribution-summary">
+
+                                <div>
+                                    <span class="material-symbols-outlined">savings</span>
+
+                                    <div>
+                                        <small>Disponível / não comprometido</small>
+                                        <strong>39%</strong>
+                                    </div>
+                                </div>
+
+                                <span>
+                                    R$ 1.365,00
+                                </span>
+
+                            </div>
+
                         </div>
-
-                    </div>
-
-
-                    <div class="distribution-item">
-
-                        <div class="distribution-label">
-                            <span>
-                                <i class="dot leisure-dot"></i>
-                                Lazer
-                            </span>
-
-                            <strong>14%</strong>
-                        </div>
-
-                        <div class="distribution-bar">
-                            <div style="width: 14%;"></div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="distribution-item">
-
-                        <div class="distribution-label">
-                            <span>
-                                <i class="dot transport-dot"></i>
-                                Transporte
-                            </span>
-
-                            <strong>10%</strong>
-                        </div>
-
-                        <div class="distribution-bar">
-                            <div style="width: 10%;"></div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="distribution-item">
-
-                        <div class="distribution-label">
-                            <span>
-                                <i class="dot shopping-dot"></i>
-                                Compras
-                            </span>
-
-                            <strong>8%</strong>
-                        </div>
-
-                        <div class="distribution-bar">
-                            <div style="width: 8%;"></div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="distribution-item">
-
-                        <div class="distribution-label">
-                            <span>
-                                <i class="dot bills-dot"></i>
-                                Contas
-                            </span>
-
-                            <strong>17%</strong>
-                        </div>
-
-                        <div class="distribution-bar">
-                            <div style="width: 17%;"></div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="distribution-summary">
-
-                    <div>
-                        <span class="material-symbols-outlined">savings</span>
-
-                        <div>
-                            <small>Disponível / não comprometido</small>
-                            <strong>39%</strong>
-                        </div>
-                    </div>
-
-                    <span>
-                        R$ 1.365,00
-                    </span>
-
-                </div>
-
-            </div>
 
         </section>
 
@@ -962,5 +911,95 @@
         </footer>
 
     </main>
+
+</div>
+
+<!-- MODAL PREMIUM -->
+
+<div
+    class="premium-overlay"
+    *ngIf="premiumAberto"
+    (click)="fecharPremium()">
+
+    <div
+        class="premium-modal"
+        (click)="$event.stopPropagation()">
+
+        <button
+            type="button"
+            class="close-premium"
+            (click)="fecharPremium()"
+            aria-label="Fechar">
+
+            <span class="material-symbols-outlined">
+                close
+            </span>
+
+        </button>
+
+        <div class="premium-icon">
+            <span class="material-symbols-outlined">
+                account_balance
+            </span>
+        </div>
+
+        <h2>
+            Conecte mais instituições
+        </h2>
+
+        <p class="premium-description">
+            Centralize suas contas e tenha uma visão ainda mais completa
+            da sua vida financeira.
+        </p>
+
+        <div class="premium-benefits">
+
+            <div>
+                <span class="material-symbols-outlined">
+                    account_balance
+                </span>
+
+                <span>
+                    Conecte múltiplos bancos
+                </span>
+            </div>
+
+            <div>
+                <span class="material-symbols-outlined">
+                    analytics
+                </span>
+
+                <span>
+                    Análises financeiras mais completas
+                </span>
+            </div>
+
+            <div>
+                <span class="material-symbols-outlined">
+                    history
+                </span>
+
+                <span>
+                    Histórico financeiro ampliado
+                </span>
+            </div>
+
+        </div>
+
+        <div class="premium-price">
+            <strong>R$ 29,90</strong>
+            <span>/ mês</span>
+        </div>
+
+        <button
+            type="button"
+            class="premium-button"
+            (click)="fecharPremium()">
+
+            Assinar o Premium
+
+        </button>
+
+    </div>
 
 </div>

@@ -48,7 +48,7 @@ main {
 .page-header p {
     margin: 0;
     color: #78847f;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .period-selector {
@@ -107,7 +107,7 @@ main {
 
 .summary-card-top > span {
     color: #77837e;
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .summary-icon {
@@ -157,7 +157,7 @@ main {
 .investment-summary-card p {
     margin: 9px 0 0;
     color: #606c67;
-    font-size: 9px;
+    font-size: 11px;
 }
 
 .summary-footer {
@@ -165,7 +165,7 @@ main {
     align-items: center;
     gap: 4px;
     margin-top: 10px;
-    font-size: 9px;
+    font-size: 11px;
 }
 
 .summary-footer .material-symbols-outlined {
@@ -217,7 +217,7 @@ main {
 .section-heading p {
     margin: 0;
     color: #68746f;
-    font-size: 9px;
+    font-size: 11px;
 }
 
 .chart-value {
@@ -234,7 +234,7 @@ main {
 
 .chart-value span {
     color: #606c67;
-    font-size: 8px;
+    font-size: 11px;
 }
 
 
@@ -258,7 +258,7 @@ main {
 
 .chart-y-axis span {
     color: #505c57;
-    font-size: 8px;
+    font-size: 10px;
 }
 
 .chart-area {
@@ -319,7 +319,7 @@ main {
 
 .chart-months span {
     color: #505c57;
-    font-size: 8px;
+    font-size: 10px;
 }
 
 
@@ -375,7 +375,7 @@ main {
 .donut-center span {
     margin-top: 2px;
     color: #626e69;
-    font-size: 8px;
+    font-size: 10px;
 }
 
 .distribution-list {
@@ -397,7 +397,7 @@ main {
     align-items: center;
     gap: 8px;
     color: #9ba6a2;
-    font-size: 9px;
+    font-size: 11px;
 }
 
 .distribution-item > strong {
@@ -447,13 +447,13 @@ main {
 .section-title h2 {
     margin: 0 0 5px;
     color: #dce3df;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .section-title p {
     margin: 0;
     color: #68746f;
-    font-size: 9px;
+    font-size: 12px;
 }
 
 .add-investment-button {
@@ -467,7 +467,7 @@ main {
     background-color: var(--cyan);
     color: #111817;
     font-family: inherit;
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 750;
     cursor: pointer;
     transition: 0.2s ease;
@@ -557,14 +557,14 @@ main {
 .investment-title strong {
     overflow: hidden;
     color: #dce3df;
-    font-size: 11px;
+    font-size: 12px;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .investment-title span {
     color: #626e69;
-    font-size: 8px;
+    font-size: 11px;
 }
 
 .investment-menu {
@@ -610,7 +610,7 @@ main {
 
 .investment-values span {
     color: #626e69;
-    font-size: 8px;
+    font-size: 11px;
 }
 
 .investment-values strong {
@@ -644,7 +644,7 @@ main {
 
 .progress-info span {
     color: #5e6a65;
-    font-size: 8px;
+    font-size: 11px;
 }
 
 .progress-bar {
@@ -717,7 +717,7 @@ main {
 
 .investment-insight > div:last-child > span {
     color: #8d91ff;
-    font-size: 8px;
+    font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.1em;
 }
@@ -732,7 +732,7 @@ main {
     max-width: 850px;
     margin: 0;
     color: #75817c;
-    font-size: 9px;
+    font-size: 11px;
     line-height: 1.65;
 }
 
@@ -775,13 +775,13 @@ main {
     display: block;
     margin-bottom: 4px;
     color: #aab5b1;
-    font-size: 9px;
+    font-size: 12px;
 }
 
 .investment-open-finance p {
     margin: 0;
     color: #5f6b66;
-    font-size: 8px;
+    font-size: 11px;
     line-height: 1.5;
 }
 
@@ -790,7 +790,7 @@ main {
     border-radius: 5px;
     background-color: rgba(98, 217, 155, 0.07);
     color: #62b98c;
-    font-size: 8px;
+    font-size: 11px;
     white-space: nowrap;
 }
 

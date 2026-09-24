@@ -561,7 +561,7 @@ h1 span {
 
 .footer {
     width: 100%;
-    margin-top: 100px;
+    /* margin-top: 100px; */
     padding: 45px 6% 25px;
 
     background: rgba(10, 15, 25, 0.92);

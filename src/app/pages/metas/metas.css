@@ -1,134 +1,4 @@
 /* =====================================================
-   HEADER
-===================================================== */
-
-header {
-    height: 76px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 2%;
-
-    background-color: #151b1a;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.logo {
-    width: 150px;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.header-button {
-    position: relative;
-
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #dce2e1;
-    background-color: #202725;
-
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 50%;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
-}
-
-.header-button:hover {
-    color: var(--cyan);
-    background-color: #262e2c;
-    border-color: rgba(22, 186, 197, 0.25);
-}
-
-.notification-dot {
-    position: absolute;
-
-    top: 7px;
-    right: 7px;
-
-    width: 7px;
-    height: 7px;
-
-    background-color: var(--cyan);
-
-    border-radius: 50%;
-}
-
-.profile-button {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-
-    padding: 6px 11px 6px 6px;
-
-    color: white;
-    background-color: #202725;
-
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 30px;
-
-    cursor: pointer;
-}
-
-.profile-icon {
-    width: 31px;
-    height: 31px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: linear-gradient(
-        135deg,
-        var(--cyan),
-        #5863f8
-    );
-
-    border-radius: 50%;
-
-    font-size: 18px;
-}
-
-.profile-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.profile-info strong {
-    font-size: 12px;
-}
-
-.profile-info small {
-    margin-top: 2px;
-
-    color: #7f8a88;
-
-    font-size: 9px;
-}
-
-.profile-arrow {
-
-    color: var(--text-secondary);
-
-    font-size: 18px;
-
-}
-
-
-/* =====================================================
    MATERIAL SYMBOLS
 ===================================================== */
 
@@ -395,7 +265,7 @@ main {
 .summary-label {
     color: #7f8b88;
 
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .summary-card strong {
@@ -803,7 +673,7 @@ main {
 
     border-radius: 5px;
 
-    font-size: 9px;
+    font-size: 11px;
 }
 
 
@@ -827,7 +697,7 @@ main {
 .goal-values span {
     color: #737f7c;
 
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .goal-values strong {
@@ -864,7 +734,7 @@ main {
 .progress-header span {
     color: #737f7c;
 
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .progress-header strong {
@@ -923,7 +793,7 @@ main {
 
     color: #737f7c;
 
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .goal-footer span {

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cabecalho',
@@ -11,6 +12,8 @@ export class Cabecalho implements OnInit {
 
   menuPerfilAberto = false;
   temaClaro = false;
+
+  constructor(private router:Router) {}
 
   ngOnInit(): void {
 
@@ -49,10 +52,9 @@ export class Cabecalho implements OnInit {
 
   sair(): void {
 
-    // Aqui você pode colocar posteriormente
-    // a lógica de logout do sistema.
+    localStorage.removeItem('mykash-usuario-logado');
 
-    console.log('Usuário saiu');
+    this.router.navigate(['/index']);
 
   }
 

@@ -96,7 +96,7 @@ main {
 
     color: var(--cyan);
 
-    font-size: 9px;
+    font-size: 11px;
 
     font-weight: 700;
 
@@ -285,7 +285,7 @@ main {
 
     color: var(--secondary);
 
-    font-size: 8px;
+    font-size: 9px;
 
     font-weight: 700;
 
@@ -311,7 +311,7 @@ main {
 
     color: var(--secondary);
 
-    font-size: 10px;
+    font-size: 12px;
 
     line-height: 1.55;
 
@@ -337,7 +337,7 @@ main {
 
     color: var(--secondary);
 
-    font-size: 8px;
+    font-size: 11px;
 
 }
 
@@ -408,7 +408,7 @@ main {
 
     color: var(--secondary);
 
-    font-size: 8px;
+    font-size: 10px;
 
 }
 
@@ -507,7 +507,7 @@ main {
 
     color: var(--secondary);
 
-    font-size: 9px;
+    font-size: 13px;
 
 }
 
@@ -838,7 +838,7 @@ main {
 
     gap: 8px;
 
-    margin-top: 18px;
+    margin: 18px 0;
 
 }
 
@@ -1010,7 +1010,7 @@ main {
 
     color: var(--cyan);
 
-    font-size: 7px;
+    font-size: 10px;
 
     font-weight: 700;
 
@@ -1040,7 +1040,7 @@ main {
 
     color: var(--secondary);
 
-    font-size: 10px;
+    font-size: 13px;
 
     line-height: 1.5;
 
@@ -1066,7 +1066,7 @@ main {
 
     margin-bottom: 5px;
 
-    font-size: 9px;
+    font-size: 12px;
 
 }
 
@@ -1171,7 +1171,7 @@ main {
 
     color: #cbd2d1;
 
-    font-size: 9px;
+    font-size: 12px;
 
     line-height: 1.4;
 
@@ -1239,7 +1239,7 @@ main {
 
     color: var(--secondary);
 
-    font-size: 9px;
+    font-size: 12px;
 
 }
 
@@ -1344,7 +1344,7 @@ main {
 
     color: var(--secondary);
 
-    font-size: 8px;
+    font-size: 10px;
 
     font-weight: 700;
 
@@ -1414,7 +1414,7 @@ main {
 
     color: var(--secondary);
 
-    font-size: 9px;
+    font-size: 11px;
 
     line-height: 1.5;
 
@@ -1494,7 +1494,7 @@ main {
 
     color: var(--secondary);
 
-    font-size: 10px;
+    font-size: 12px;
 
     line-height: 1.7;
 
@@ -1526,7 +1526,7 @@ main {
 
     border-radius: 7px;
 
-    font-size: 9px;
+    font-size: 12px;
 
 }
 
@@ -1563,7 +1563,7 @@ main {
 
     color: var(--secondary);
 
-    font-size: 8px;
+    font-size: 11px;
 
     font-weight: 700;
 
@@ -1587,7 +1587,7 @@ main {
 
     color: var(--green);
 
-    font-size: 8px;
+    font-size: 11px;
 
 }
 

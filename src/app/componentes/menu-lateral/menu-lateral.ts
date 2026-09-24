@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-menu-lateral',
@@ -8,5 +8,15 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './menu-lateral.css',
 })
 export class MenuLateral {
+
+  constructor(private router:Router){}
+
+  sair(): void {
+
+      localStorage.removeItem('mykash-usuario-logado');
+
+      this.router.navigate(['/index']);
+
+  }
 
 }

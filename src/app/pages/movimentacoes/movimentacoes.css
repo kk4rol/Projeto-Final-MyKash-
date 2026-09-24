@@ -337,13 +337,13 @@ main {
 .bank-info strong {
     color: #dce3df;
 
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .bank-info span {
     color: #68746f;
 
-    font-size: 9px;
+    font-size: 11px;
 }
 
 .bank-check {
@@ -412,13 +412,38 @@ main {
 .add-bank-card strong {
     color: #b9c3bf;
 
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .add-bank-card span {
     color: #66736e;
 
-    font-size: 9px;
+    font-size: 11px;
+}
+
+.sync-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: var(--cyan);
+    color: #171d1c;
+
+    font-family: inherit;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.sync-button:hover {
+    transform: translateY(-2px);
 }
 
 
@@ -575,7 +600,7 @@ main {
 }
 
 .premium-modal h2 {
-    margin: 0 auto 11px;
+    margin: 11px auto;
 
     max-width: 340px;
 
@@ -838,7 +863,7 @@ main {
 .summary-info > span {
     color: #8d9894;
 
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .summary-info strong {
@@ -855,7 +880,7 @@ main {
 
     color: #71807a;
 
-    font-size: 9px;
+    font-size: 11px;
 }
 
 .summary-info small .material-symbols-outlined {
@@ -1021,7 +1046,7 @@ main {
 .budget-overview-text > span {
     color: #89938f;
 
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .budget-overview-text strong {
@@ -1033,7 +1058,7 @@ main {
 .budget-overview-text small {
     color: #6f7b77;
 
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .budget-overview-progress {
@@ -1048,7 +1073,7 @@ main {
 
     color: #8d9894;
 
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .progress-label strong {
@@ -1087,7 +1112,7 @@ main {
 
     color: #71807a;
 
-    font-size: 10px;
+    font-size: 11px;
 }
 
 
@@ -1201,7 +1226,7 @@ main {
 .category-info span {
     color: #697570;
 
-    font-size: 9px;
+    font-size: 11px;
 }
 
 .budget-percentage {
@@ -1209,7 +1234,7 @@ main {
 
     border-radius: 5px;
 
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 700;
 }
 
@@ -1240,7 +1265,7 @@ main {
 .budget-values span {
     color: #697570;
 
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .category-progress {
@@ -1284,7 +1309,7 @@ main {
 
     color: #66726e;
 
-    font-size: 9px;
+    font-size: 11px;
 }
 
 .budget-footer strong {
@@ -1363,19 +1388,7 @@ main {
 .transaction-description span {
     color: #68746f;
 
-    font-size: 9px;
-}
-
-.transaction-account {
-    padding: 5px 8px;
-
-    background-color: rgba(255, 255, 255, 0.035);
-
-    border-radius: 5px;
-
-    color: #78837f;
-
-    font-size: 9px;
+    font-size: 11px;
 }
 
 .transaction-value {
@@ -1435,7 +1448,7 @@ main {
 .distribution-total span {
     color: #84908c;
 
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .distribution-total strong {
@@ -1447,7 +1460,7 @@ main {
 .distribution-total small {
     color: #697570;
 
-    font-size: 9px;
+    font-size: 11px;
 }
 
 
@@ -1473,7 +1486,7 @@ main {
 
     color: #89938f;
 
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .distribution-label span {
@@ -1486,7 +1499,7 @@ main {
 .distribution-label strong {
     color: #b2bbb7;
 
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .dot {
@@ -1581,7 +1594,7 @@ main {
 .distribution-summary small {
     color: #68746f;
 
-    font-size: 9px;
+    font-size: 11px;
 }
 
 .distribution-summary strong {
@@ -1613,7 +1626,7 @@ footer {
 
     color: #56625e;
 
-    font-size: 9px;
+    font-size: 11px;
 }
 
 
