@@ -290,7 +290,7 @@
 
 
                     <strong class="summary-value">
-                        R$ 4.280,00
+                        R$ {{ dadosFinanceiros.saldo | number:'1.2-2' }}
                     </strong>
 
 
@@ -324,12 +324,12 @@
 
 
                     <strong class="summary-value green-text">
-                        R$ 5.800,00
+                        R$ {{ dadosFinanceiros.totalEntradas | number:'1.2-2' }}
                     </strong>
 
 
                     <span class="summary-description">
-                        3 entradas registradas
+                        {{ quantidadeEntradas }} entradas registradas
                     </span>
 
                 </article>
@@ -358,12 +358,12 @@
 
 
                     <strong class="summary-value orange-text">
-                        R$ 1.520,00
+                         R$ {{ dadosFinanceiros.totalSaidas | number:'1.2-2' }}
                     </strong>
 
 
                     <span class="summary-description">
-                        26,2% das suas entradas
+                        {{ percentualGastos | number:'1.1-1' }}% das suas entradas
                     </span>
 
                 </article>
@@ -392,12 +392,12 @@
 
 
                     <strong class="summary-value purple-text">
-                        R$ 2.450,00
+                        R$ {{ economiaProjetada | number:'1.2-2' }}
                     </strong>
 
 
                     <span class="summary-description positive">
-                        +12% em relação ao mês anterior
+                        Projeção para o fim do mês
                     </span>
 
                 </article>
@@ -637,7 +637,28 @@
                     <div class="donut-container">
 
 
-                        <div class="donut-chart">
+                        <div
+                            class="donut-chart"
+                            [style.background]="
+                                'conic-gradient(' +
+                                '#16BAC5 0% ' +
+                                despesasPorCategoria[0].percentual + '%, ' +
+
+                                '#5863F8 ' +
+                                despesasPorCategoria[0].percentual + '% ' +
+                                (despesasPorCategoria[0].percentual + despesasPorCategoria[1].percentual) + '%, ' +
+
+                                '#54B97A ' +
+                                (despesasPorCategoria[0].percentual + despesasPorCategoria[1].percentual) + '% ' +
+                                (despesasPorCategoria[0].percentual + despesasPorCategoria[1].percentual + despesasPorCategoria[2].percentual) + '%, ' +
+
+                                '#F4A340 ' +
+                                (despesasPorCategoria[0].percentual + despesasPorCategoria[1].percentual + despesasPorCategoria[2].percentual) + '% ' +
+                                (despesasPorCategoria[0].percentual + despesasPorCategoria[1].percentual + despesasPorCategoria[2].percentual + despesasPorCategoria[3].percentual) + '%, ' +
+
+                                '#8B5CF6 ' +
+                                (despesasPorCategoria[0].percentual + despesasPorCategoria[1].percentual + despesasPorCategoria[2].percentual + despesasPorCategoria[3].percentual) + '% 100%)'
+                            ">
 
                             <div class="donut-center">
 
@@ -646,7 +667,7 @@
                                 </span>
 
                                 <strong>
-                                    R$ 1.520
+                                    R$ {{ dadosFinanceiros.totalSaidas | number:'1.2-2' }}
                                 </strong>
 
                             </div>
@@ -662,72 +683,31 @@
 
                     <div class="category-list">
 
-
-                        <div class="category-item">
+                        <div
+                            class="category-item"
+                            *ngFor="let categoria of despesasPorCategoria">
 
                             <span class="category-name">
-                                <i class="category-dot housing"></i>
-                                Moradia
+
+                                <i
+                                    class="category-dot"
+                                    [ngClass]="{
+                                        'food': categoria.categoria === 'Alimentação',
+                                        'shopping': categoria.categoria === 'Compras',
+                                        'transport': categoria.categoria === 'Transporte',
+                                        'leisure': categoria.categoria === 'Lazer',
+                                        'others': categoria.categoria === 'Outros'
+                                    }">
+                                </i>
+
+                                {{ categoria.categoria }}
+
                             </span>
 
                             <span>
-                                R$ 520 · 34%
-                            </span>
-
-                        </div>
-
-
-                        <div class="category-item">
-
-                            <span class="category-name">
-                                <i class="category-dot food"></i>
-                                Alimentação
-                            </span>
-
-                            <span>
-                                R$ 330 · 22%
-                            </span>
-
-                        </div>
-
-
-                        <div class="category-item">
-
-                            <span class="category-name">
-                                <i class="category-dot transport"></i>
-                                Transporte
-                            </span>
-
-                            <span>
-                                R$ 250 · 16%
-                            </span>
-
-                        </div>
-
-
-                        <div class="category-item">
-
-                            <span class="category-name">
-                                <i class="category-dot leisure"></i>
-                                Lazer
-                            </span>
-
-                            <span>
-                                R$ 220 · 14%
-                            </span>
-
-                        </div>
-
-
-                        <div class="category-item">
-
-                            <span class="category-name">
-                                <i class="category-dot others"></i>
-                                Outros
-                            </span>
-
-                            <span>
-                                R$ 200 · 14%
+                                R$ {{ categoria.valor | number:'1.2-2' }}
+                                ·
+                                {{ categoria.percentual | number:'1.0-0' }}%
                             </span>
 
                         </div>

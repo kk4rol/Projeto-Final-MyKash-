@@ -34,4 +34,8 @@ export class Movimentacoes {
       return `${partes[2]}/${partes[1]}`;
   }
 
+  resetarSimulacao(): void {
+  this.dadosFinanceiros.resetarSimulacao();
+}
+
 }

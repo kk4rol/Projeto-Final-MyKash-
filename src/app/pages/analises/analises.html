@@ -88,12 +88,12 @@
 
 
                     <h2>
-                        R$ 420,00
+                         R$ {{ totalAlimentacao | number:'1.2-2' }}
                     </h2>
 
                     <p>
                         Você gasta em média
-                        <strong>R$ 420 por mês</strong>
+                        <strong>R$ {{ totalAlimentacao | number:'1.2-2' }}</strong>
                         com alimentação.
                     </p>
 
@@ -176,12 +176,12 @@
 
 
                     <h2>
-                        82%
+                        {{ percentualLazer | number:'1.0-0' }}%
                     </h2>
 
                     <p>
                         Você já utilizou
-                        <strong>82% do orçamento</strong>
+                        <strong>{{ percentualLazer | number:'1.0-0' }}% do orçamento</strong>
                         destinado ao lazer.
                     </p>
 
@@ -190,7 +190,7 @@
 
                         <div
                             class="progress-bar orange-bar"
-                            style="width: 82%;">
+                            [style.width.%]="percentualLazer">
                         </div>
 
                     </div>

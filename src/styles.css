@@ -39,17 +39,6 @@ body {
     font-family: "Mona sans", sans-serif;
 }
 
-p {
-
-    font-size: 13px;
-
-}
-
-.text-secondary {
-
-    font-size: 13px;
-
-}
 
 body.tema-claro {
 
@@ -59,9 +48,10 @@ body.tema-claro {
 
     /* CARDS */
     --card: #eef2f1;
+    --card-hover: transparent;
 
     /* TEXTOS */
-    --text: #202725;
+    --text: #202725 !important;
     --text-secondary: #68736f;
 
     /* BORDAS */

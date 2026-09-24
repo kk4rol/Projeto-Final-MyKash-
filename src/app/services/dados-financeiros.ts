@@ -17,54 +17,9 @@ export class DadosFinanceiros {
 
   private chaveLocalStorage = 'mykash-dados-financeiros';
 
-  movimentacoes: Movimentacao[] = [
-    {
-      id: 1,
-      descricao: 'Salário',
-      valor: 3500,
-      tipo: 'entrada',
-      categoria: 'Renda',
-      conta: 'Itaú',
-      data: '2026-09-05'
-    },
-    {
-      id: 2,
-      descricao: 'iFood',
-      valor: 42.90,
-      tipo: 'saida',
-      categoria: 'Alimentação',
-      conta: 'Itaú',
-      data: '2026-09-06'
-    },
-    {
-      id: 3,
-      descricao: 'Amazon',
-      valor: 129.90,
-      tipo: 'saida',
-      categoria: 'Compras',
-      conta: 'Itaú',
-      data: '2026-09-08'
-    },
-    {
-      id: 4,
-      descricao: 'Uber',
-      valor: 28.50,
-      tipo: 'saida',
-      categoria: 'Transporte',
-      conta: 'Itaú',
-      data: '2026-09-10'
-    },
-    {
-      id: 5,
-      descricao: 'Steam',
-      valor: 89.90,
-      tipo: 'saida',
-      categoria: 'Lazer',
-      conta: 'Itaú',
-      data: '2026-09-12'
-    }
-  ];
+  private numeroSincronizacao = 0;
 
+  movimentacoes: Movimentacao[] = [];
 
   constructor() {
 
@@ -72,10 +27,75 @@ export class DadosFinanceiros {
       localStorage.getItem(this.chaveLocalStorage);
 
     if (dadosSalvos) {
+
       this.movimentacoes = JSON.parse(dadosSalvos);
+
     } else {
+
+      this.movimentacoes = this.dadosIniciais();
+
       this.salvarDados();
+
     }
+
+  }
+
+
+  private dadosIniciais(): Movimentacao[] {
+
+    return [
+
+      {
+        id: 1,
+        descricao: 'Salário',
+        valor: 3500,
+        tipo: 'entrada',
+        categoria: 'Renda',
+        conta: 'Itaú',
+        data: '2026-09-05'
+      },
+
+      {
+        id: 2,
+        descricao: 'iFood',
+        valor: 42.90,
+        tipo: 'saida',
+        categoria: 'Alimentação',
+        conta: 'Itaú',
+        data: '2026-09-06'
+      },
+
+      {
+        id: 3,
+        descricao: 'Amazon',
+        valor: 129.90,
+        tipo: 'saida',
+        categoria: 'Compras',
+        conta: 'Itaú',
+        data: '2026-09-08'
+      },
+
+      {
+        id: 4,
+        descricao: 'Uber',
+        valor: 28.50,
+        tipo: 'saida',
+        categoria: 'Transporte',
+        conta: 'Itaú',
+        data: '2026-09-10'
+      },
+
+      {
+        id: 5,
+        descricao: 'Steam',
+        valor: 89.90,
+        tipo: 'saida',
+        categoria: 'Lazer',
+        conta: 'Itaú',
+        data: '2026-09-12'
+      }
+
+    ];
 
   }
 
@@ -93,7 +113,10 @@ export class DadosFinanceiros {
   get totalEntradas(): number {
 
     return this.movimentacoes
-      .filter(movimentacao => movimentacao.tipo === 'entrada')
+      .filter(
+        movimentacao =>
+          movimentacao.tipo === 'entrada'
+      )
       .reduce(
         (total, movimentacao) =>
           total + movimentacao.valor,
@@ -106,7 +129,10 @@ export class DadosFinanceiros {
   get totalSaidas(): number {
 
     return this.movimentacoes
-      .filter(movimentacao => movimentacao.tipo === 'saida')
+      .filter(
+        movimentacao =>
+          movimentacao.tipo === 'saida'
+      )
       .reduce(
         (total, movimentacao) =>
           total + movimentacao.valor,
@@ -125,39 +151,137 @@ export class DadosFinanceiros {
 
   simularSincronizacao(): void {
 
-    this.movimentacoes.push(
+    this.numeroSincronizacao++;
 
-      {
-        id: Date.now(),
-        descricao: 'Pagamento recebido',
-        valor: 300,
-        tipo: 'entrada',
-        categoria: 'Renda',
-        conta: 'Itaú',
-        data: '2026-09-23'
-      },
+    const agora = Date.now();
 
-      {
-        id: Date.now() + 1,
-        descricao: 'iFood',
-        valor: 42.90,
-        tipo: 'saida',
-        categoria: 'Alimentação',
-        conta: 'Itaú',
-        data: '2026-09-23'
-      },
+    let novasMovimentacoes: Movimentacao[] = [];
 
-      {
-        id: Date.now() + 2,
-        descricao: 'Steam',
-        valor: 89.90,
-        tipo: 'saida',
-        categoria: 'Lazer',
-        conta: 'Itaú',
-        data: '2026-09-23'
-      }
+    if (this.numeroSincronizacao === 1) {
 
+      novasMovimentacoes = [
+
+        {
+          id: agora,
+          descricao: 'Pagamento recebido',
+          valor: 300,
+          tipo: 'entrada',
+          categoria: 'Renda',
+          conta: 'Itaú',
+          data: '2026-09-23'
+        },
+
+        {
+          id: agora + 1,
+          descricao: 'Mercado',
+          valor: 76.40,
+          tipo: 'saida',
+          categoria: 'Alimentação',
+          conta: 'Itaú',
+          data: '2026-09-23'
+        },
+
+        {
+          id: agora + 2,
+          descricao: 'Netflix',
+          valor: 39.90,
+          tipo: 'saida',
+          categoria: 'Lazer',
+          conta: 'Itaú',
+          data: '2026-09-23'
+        }
+
+      ];
+
+    } else if (this.numeroSincronizacao === 2) {
+
+      novasMovimentacoes = [
+
+        {
+          id: agora,
+          descricao: 'Freelance',
+          valor: 450,
+          tipo: 'entrada',
+          categoria: 'Renda',
+          conta: 'Itaú',
+          data: '2026-09-24'
+        },
+
+        {
+          id: agora + 1,
+          descricao: 'Uber',
+          valor: 32.80,
+          tipo: 'saida',
+          categoria: 'Transporte',
+          conta: 'Itaú',
+          data: '2026-09-24'
+        },
+
+        {
+          id: agora + 2,
+          descricao: 'Café',
+          valor: 14.50,
+          tipo: 'saida',
+          categoria: 'Alimentação',
+          conta: 'Itaú',
+          data: '2026-09-24'
+        }
+
+      ];
+
+    } else {
+
+      novasMovimentacoes = [
+
+        {
+          id: agora,
+          descricao: 'Pix recebido',
+          valor: 180,
+          tipo: 'entrada',
+          categoria: 'Renda',
+          conta: 'Itaú',
+          data: '2026-09-25'
+        },
+
+        {
+          id: agora + 1,
+          descricao: 'PlayStation Store',
+          valor: 119.90,
+          tipo: 'saida',
+          categoria: 'Lazer',
+          conta: 'Itaú',
+          data: '2026-09-25'
+        },
+
+        {
+          id: agora + 2,
+          descricao: 'Farmácia',
+          valor: 27.50,
+          tipo: 'saida',
+          categoria: 'Outros',
+          conta: 'Itaú',
+          data: '2026-09-25'
+        }
+
+      ];
+
+    }
+
+    this.movimentacoes.push(...novasMovimentacoes);
+
+    this.movimentacoes.sort(
+      (a, b) =>
+        b.data.localeCompare(a.data)
     );
+
+    this.salvarDados();
+
+  }
+
+
+  resetarSimulacao(): void {
+
+    this.movimentacoes = this.dadosIniciais();
 
     this.salvarDados();
 

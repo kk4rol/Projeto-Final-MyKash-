@@ -421,6 +421,10 @@ main {
     font-size: 11px;
 }
 
+
+/* BOTÃO DE SINCRONIZAÇÃO */
+
+
 .sync-button {
     display: inline-flex;
     align-items: center;
@@ -443,6 +447,37 @@ main {
 }
 
 .sync-button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* BOTÃO DE RESETAR SINCRONIZAÇÃO */
+
+
+.reset-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background-color: transparent;
+    color: var(--text-secondary);
+
+    font-family: inherit;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.reset-button:hover {
+    color: var(--text);
+    border-color: var(--text-secondary);
     transform: translateY(-2px);
 }
 

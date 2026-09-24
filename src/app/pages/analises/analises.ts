@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MenuLateral } from '../../componentes/menu-lateral/menu-lateral';
 import { CommonModule } from '@angular/common';
 import { Cabecalho } from '../../componentes/cabecalho/cabecalho';
+import { DadosFinanceiros } from '../../services/dados-financeiros';
 
 @Component({
   selector: 'app-analises',
@@ -10,6 +11,8 @@ import { Cabecalho } from '../../componentes/cabecalho/cabecalho';
   styleUrl: './analises.css',
 })
 export class Analises {
+
+  constructor(public dadosFinanceiros:DadosFinanceiros) {}
 
   indiceAtual: number = 0;
 
@@ -111,6 +114,43 @@ export class Analises {
         clearInterval(this.intervaloCarrossel);
       }
     }
+
+  
+  get totalAlimentacao(): number {
+  return this.dadosFinanceiros.movimentacoes
+    .filter(
+      movimentacao =>
+        movimentacao.tipo === 'saida' &&
+        movimentacao.categoria === 'Alimentação'
+    )
+    .reduce(
+      (total, movimentacao) =>
+        total + movimentacao.valor,
+      0
+    );
 }
 
+  get totalLazer(): number {
+    return this.dadosFinanceiros.movimentacoes
+      .filter(
+        movimentacao =>
+          movimentacao.tipo === 'saida' &&
+          movimentacao.categoria === 'Lazer'
+      )
+      .reduce(
+        (total, movimentacao) =>
+          total + movimentacao.valor,
+        0
+      );
+  }
+  
+  get percentualLazer(): number {
+
+    const percentual =
+      (this.totalLazer / 600) * 100;
+
+    return Math.min(percentual, 100);
+  }
+
+}
 
