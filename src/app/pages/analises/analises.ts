@@ -291,6 +291,16 @@ export class Analises implements OnInit, OnDestroy {
 
     }
 
+    alertas.push({
+      tipo: 'cyan',
+      icone: 'receipt_long',
+      categoria: 'MOVIMENTAÇÕES',
+      titulo:
+        'Muitas compras em plataformas de jogos.',
+      descricao:
+        'Foram registradas 6 compras nos últimos 7 dias.'
+    });
+
     return alertas;
   }
 

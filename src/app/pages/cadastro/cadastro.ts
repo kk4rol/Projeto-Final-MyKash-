@@ -80,6 +80,14 @@ export class Cadastro {
         JSON.stringify(usuarios)
       );
 
+      localStorage.setItem(
+        'mykash-usuario-atual',
+        JSON.stringify({
+            nome: this.nome,
+            email: this.email
+        })
+    );
+
       // Vai para a tela de login
       this.router.navigate(['/login']);
   

@@ -13,10 +13,18 @@ export class Cabecalho implements OnInit {
   menuPerfilAberto = false;
   temaClaro = false;
   emailUsuario = '';
+  nomeUsuario = '';
 
   constructor(private router:Router) {}
 
   ngOnInit(): void {
+
+    const usuarioSalvo = localStorage.getItem('mykash-usuario-atual');
+
+    if (usuarioSalvo) {
+        const usuario = JSON.parse(usuarioSalvo);
+        this.nomeUsuario = usuario.nome;
+    }
 
     const temaSalvo = localStorage.getItem('mykash-tema');
 

@@ -49,6 +49,14 @@ export class Login {
             usuarioEncontrado.email
         );
 
+        localStorage.setItem(
+            'mykash-usuario-atual',
+            JSON.stringify({
+                nome: usuarioEncontrado.nome,
+                email: usuarioEncontrado.email
+            })
+        );
+
         this.router.navigate(['/dashboard']);
 
     } else {

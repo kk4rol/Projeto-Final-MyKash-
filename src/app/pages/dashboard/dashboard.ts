@@ -16,10 +16,18 @@ export class Dashboard implements OnInit {
   menuPerfilAberto = false;
   temaClaro = false;
   emailUsuario = '';
+  nomeUsuario = '';
 
   constructor(public dadosFinanceiros:DadosFinanceiros, private router:Router) {}
 
   ngOnInit(): void {
+
+    const usuarioSalvo = localStorage.getItem('mykash-usuario-atual');
+
+    if (usuarioSalvo) {
+        const usuario = JSON.parse(usuarioSalvo);
+        this.nomeUsuario = usuario.nome;
+    }
 
     const temaSalvo = localStorage.getItem('mykash-tema');
 
