@@ -1,305 +1,191 @@
 html {
-
     scroll-behavior: smooth;
-
 }
-
 
 body {
-
     min-height: 100vh;
-
     background-color: var(--background);
-
     color: var(--text);
-
+    overflow-x: hidden;
 }
-
 
 /* ==================================================
    MATERIAL SYMBOLS
 ================================================== */
 
 .material-symbols-outlined {
-
     font-variation-settings:
-
         'FILL' 0,
-
         'wght' 400,
-
         'GRAD' 0,
-
         'opsz' 24;
-
 }
-
 
 /* ==================================================
    HEADER
 ================================================== */
 
 header {
-
+    min-height: 72px;
     height: 72px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
+    gap: 15px;
     padding: 0 2%;
-
     background-color: var(--cyan);
-
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
+    box-sizing: border-box;
 }
 
-
-/* ==================================================
-   HEADER ESQUERDA
-================================================== */
-
 .header-left {
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
+    min-width: 0;
 }
 
 .header-left img {
-
     width: 130px;
-
+    max-width: 100%;
 }
-
-
-/* ==================================================
-   HEADER DIREITA
-================================================== */
 
 .header-right {
-    
     position: relative;
-
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
+    min-width: 0;
 }
 
-
-/* BOTÃO DE NOTIFICAÇÃO */
+/* ==================================================
+   BOTÃO DE NOTIFICAÇÃO
+================================================== */
 
 .header-button {
-
     position: relative;
-
     width: 44px;
-
     height: 44px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
+    flex-shrink: 0;
     border: none;
-
     border-radius: 50%;
-
     background-color: var(--gray);
-
     color: white;
-
     cursor: pointer;
-
     transition: 0.2s;
-
 }
-
 
 .header-button:hover {
-
     background-color: #24272c;
-
     transform: translateY(-2px);
-
 }
-
-
-/* PONTO DE NOTIFICAÇÃO */
 
 .notification-dot {
-
     position: absolute;
-
     top: 9px;
-
     right: 9px;
-
     width: 7px;
-
     height: 7px;
-
     border-radius: 50%;
-
     background-color: var(--cyan);
-
     border: 1px solid var(--gray);
-
 }
-
 
 /* ==================================================
    PERFIL
 ================================================== */
 
 .profile-button {
-
     display: flex;
-
     align-items: center;
-
     gap: 10px;
-
+    max-width: 220px;
     padding: 5px 8px 5px 5px;
-
     border: none;
-
     border-radius: 30px;
-
     background-color: var(--gray);
-
     color: white;
-
     cursor: pointer;
-
     text-align: left;
-
 }
-
 
 .profile-avatar {
-
     width: 34px;
-
     height: 34px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
+    flex-shrink: 0;
     border-radius: 50%;
-
     background-color: var(--cyan);
-
     color: #171d1c;
-
 }
-
 
 .profile-avatar .material-symbols-outlined {
-
     font-size: 21px;
-
 }
-
 
 .profile-info {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 2px;
-
+    min-width: 0;
 }
-
 
 .profile-info strong {
-
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     font-size: 12px;
-
 }
-
 
 .profile-info small {
-
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     color: var(--text-secondary);
-
     font-size: 9px;
-
 }
-
 
 .profile-arrow {
-
+    flex-shrink: 0;
     color: var(--text-secondary);
-
     font-size: 18px;
-
 }
 
-
-/* ========================================
+/* ==================================================
    MENU DO PERFIL
-======================================== */
+================================================== */
 
 .profile-menu {
     position: absolute;
-
     top: calc(100% + 10px);
     right: 0;
-
-    width: 200px;
-
+    width: min(200px, calc(100vw - 30px));
     padding: 7px;
-
     box-sizing: border-box;
-
     background-color: var(--background-secondary);
-
     border: 1px solid var(--border);
-
     border-radius: 11px;
-
-    box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.25);
-
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
     z-index: 1000;
-
     animation: profileMenuAppear 0.18s ease;
 }
 
-
 @keyframes profileMenuAppear {
-
     from {
         opacity: 0;
         transform: translateY(-5px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
-
-
-/* ========================================
-   ITENS
-======================================== */
 
 .account-info {
     display: flex;
@@ -330,1347 +216,675 @@ header {
 }
 
 .profile-menu-item {
-
     width: 100%;
-    height: 42px;
-
+    min-height: 42px;
     display: flex;
     align-items: center;
-
     gap: 11px;
-
-    padding: 0 11px;
-
+    padding: 8px 11px;
+    box-sizing: border-box;
     border: none;
     border-radius: 7px;
-
     background: transparent;
-
     color: var(--text-secondary);
-
     font-family: inherit;
     font-size: 12px;
-
     text-align: left;
-
     cursor: pointer;
-
     transition: 0.2s ease;
 }
 
-
 .profile-menu-item:hover {
-
     background-color: var(--card);
-
     color: var(--text);
-
 }
-
 
 .profile-menu-item .material-symbols-outlined {
-
     font-size: 19px;
-
 }
-
-
-/* SAIR */
 
 .profile-menu-item.logout:hover {
-
     color: #ed7474;
-
     background-color: rgba(237, 116, 116, 0.07);
-
 }
-
 
 /* ==================================================
    LAYOUT
 ================================================== */
 
 .layout {
-
     display: flex;
-
-    min-height: calc(100vh - 76px);
-
+    min-height: calc(100vh - 72px);
+    min-width: 0;
 }
-
 
 /* ==================================================
    DASHBOARD
 ================================================== */
 
 .dashboard {
-
     flex: 1;
-
     min-width: 0;
-
     padding: 35px 4% 60px;
-
     box-sizing: border-box;
-
 }
-
 
 /* ==================================================
    CABEÇALHO DA PÁGINA
 ================================================== */
 
 .page-heading {
-
     display: flex;
-
     align-items: flex-end;
-
     justify-content: space-between;
-
     gap: 30px;
-
     margin-bottom: 25px;
-
 }
 
+.page-heading > div:first-child {
+    min-width: 0;
+}
 
 .page-label {
-
     color: var(--cyan);
-
     font-size: 11px;
-
     font-weight: 700;
-
     letter-spacing: 1.5px;
-
 }
-
 
 .page-heading h1 {
-
     margin-top: 7px;
-
-    font-size: 28px;
-
+    font-size: clamp(23px, 2vw, 28px);
     font-weight: 650;
-
 }
-
 
 .page-heading p {
-
     margin-top: 7px;
-
     color: var(--text-secondary);
-
     font-size: 13px;
-
+    line-height: 1.5;
 }
-
 
 /* ==================================================
    BOTÃO DE PERÍODO
 ================================================== */
 
 .period-button {
-
     display: flex;
-
     align-items: center;
-
+    justify-content: center;
+    flex-shrink: 0;
     gap: 8px;
-
     padding: 10px 14px;
-
     border: 1px solid var(--border);
-
     border-radius: 8px;
-
     background-color: var(--card);
-
     color: var(--text-secondary);
-
     font-family: inherit;
-
     font-size: 12px;
-
     cursor: pointer;
-
 }
-
 
 .period-button .material-symbols-outlined {
-
     font-size: 17px;
-
 }
-
 
 /* ==================================================
    CARD DE BOAS-VINDAS
 ================================================== */
 
 .welcome-card {
-
     min-height: 150px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     gap: 30px;
-
     padding: 25px 30px;
-
     margin-bottom: 18px;
-
+    box-sizing: border-box;
     border: 1px solid var(--border);
-
     border-radius: 12px;
-
     background-color: var(--card);
-
 }
-
 
 .welcome-content {
-
+    min-width: 0;
     display: flex;
-
     align-items: center;
-
     gap: 18px;
-
 }
-
 
 .welcome-icon {
-
     width: 48px;
-
     height: 48px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     flex-shrink: 0;
-
     border-radius: 10px;
-
     background-color: rgba(22, 186, 197, 0.12);
-
     color: var(--cyan);
-
 }
-
 
 .small-label {
-
     color: var(--cyan);
-
     font-size: 10px;
-
     font-weight: 700;
-
     letter-spacing: 1px;
-
 }
-
 
 .welcome-content h2 {
-
     margin: 4px 0 7px;
-
     font-size: 19px;
-
 }
-
 
 .welcome-content p {
-
     max-width: 600px;
-
     color: var(--text-secondary);
-
     font-size: 12px;
-
     line-height: 1.5;
-
 }
-
 
 /* ==================================================
    SAÚDE FINANCEIRA
 ================================================== */
 
 .financial-health {
-
     display: flex;
-
     align-items: center;
-
     gap: 15px;
-
+    flex-shrink: 0;
     padding-left: 30px;
-
     border-left: 1px solid var(--border);
-
 }
-
 
 .health-circle {
-
     width: 82px;
-
     height: 82px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
+    flex-shrink: 0;
     border-radius: 50%;
-
-    background:
-
-        conic-gradient(
-
-            var(--cyan) 0% 84%,
-
-            #303a38 84% 100%
-
-        );
-
+    background: conic-gradient(var(--cyan) 0% 84%, #303a38 84% 100%);
 }
-
 
 .health-inner {
-
     width: 65px;
-
     height: 65px;
-
     display: flex;
-
     align-items: baseline;
-
     justify-content: center;
-
     border-radius: 50%;
-
     background-color: var(--card);
-
 }
-
 
 .health-inner strong {
-
     align-self: center;
-
     font-size: 24px;
-
 }
-
 
 .health-inner span {
-
     align-self: center;
-
     color: var(--text-secondary);
-
     font-size: 10px;
-
 }
-
 
 .health-info {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 4px;
-
 }
-
 
 .health-info span {
-
     color: var(--text-secondary);
-
     font-size: 11px;
-
     font-weight: 600;
-
 }
-
 
 .health-info strong {
-
     color: var(--cyan);
-
     font-size: 18px;
-
 }
-
 
 .health-info small {
-
     color: var(--green);
-
     font-size: 11px;
-
 }
-
 
 /* ==================================================
    CARDS DE RESUMO
 ================================================== */
 
 .summary-grid {
-
     display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 15px;
-
     margin-bottom: 18px;
-
 }
-
 
 .summary-card {
-
     min-width: 0;
-
     padding: 20px;
-
+    box-sizing: border-box;
     border: 1px solid var(--border);
-
     border-radius: 10px;
-
     background-color: var(--card);
-
     transition: 0.2s;
-
 }
-
 
 .summary-card:hover {
-
     transform: translateY(-2px);
-
     background-color: var(--card-hover);
-
 }
-
 
 .summary-top {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
+    gap: 10px;
     margin-bottom: 14px;
-
 }
-
 
 .summary-top > span {
-
+    min-width: 0;
     color: var(--text-secondary);
-
     font-size: 11px;
-
     font-weight: 600;
-
     letter-spacing: 0.5px;
-
 }
-
 
 .summary-icon {
-
     width: 31px;
-
     height: 31px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
+    flex-shrink: 0;
     border-radius: 7px;
-
 }
-
 
 .summary-icon .material-symbols-outlined {
-
     font-size: 17px;
-
 }
-
 
 .summary-icon.cyan {
-
     color: var(--cyan);
-
     background-color: rgba(22, 186, 197, 0.12);
-
 }
-
 
 .summary-icon.green {
-
     color: var(--green);
-
     background-color: rgba(57, 217, 138, 0.1);
-
 }
-
 
 .summary-icon.orange {
-
     color: var(--orange);
-
     background-color: rgba(244, 163, 64, 0.1);
-
 }
-
 
 .summary-icon.purple {
-
     color: var(--blue);
-
     background-color: rgba(88, 99, 248, 0.12);
-
 }
-
 
 .summary-value {
-
     display: block;
-
     margin-bottom: 7px;
-
-    font-size: 22px;
-
+    font-size: clamp(18px, 2vw, 22px);
+    overflow-wrap: anywhere;
 }
-
 
 .green-text {
-
     color: var(--green);
-
 }
-
 
 .orange-text {
-
     color: var(--orange);
-
 }
-
 
 .purple-text {
-
     color: var(--blue);
-
 }
-
 
 .summary-description {
-
     color: var(--text-secondary);
-
     font-size: 11px;
-
+    line-height: 1.4;
 }
-
 
 .summary-description.positive {
-
     color: var(--green);
-
 }
-
 
 /* ==================================================
    INSIGHT
 ================================================== */
 
 .insight-card {
-
     display: flex;
-
     align-items: center;
-
     gap: 15px;
-
     padding: 18px;
-
     margin-bottom: 18px;
-
+    box-sizing: border-box;
     border: 1px solid rgba(22, 186, 197, 0.35);
-
     border-radius: 10px;
-
     background-color: rgba(22, 186, 197, 0.05);
-
 }
-
 
 .insight-icon {
-
     width: 38px;
-
     height: 38px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     flex-shrink: 0;
-
     border-radius: 7px;
-
     background-color: rgba(22, 186, 197, 0.15);
-
     color: var(--cyan);
-
 }
-
 
 .insight-icon .material-symbols-outlined {
-
     font-size: 20px;
-
 }
-
 
 .insight-content {
-
     flex: 1;
-
+    min-width: 0;
 }
-
 
 .insight-label {
-
     color: var(--cyan);
-
     font-size: 11px;
-
     font-weight: 700;
-
     letter-spacing: 1px;
-
 }
-
 
 .insight-content h3 {
-
     margin: 4px 0;
-
     font-size: 13px;
-
 }
-
 
 .insight-content p {
-
     color: var(--text-secondary);
-
     font-size: 12px;
-
     line-height: 1.5;
-
 }
-
 
 .insight-content strong {
-
     color: white;
-
 }
-
 
 .insight-button {
-
+    flex-shrink: 0;
     padding: 8px 13px;
-
     border: 1px solid var(--border);
-
     border-radius: 6px;
-
     background-color: var(--card);
-
     color: var(--text-secondary);
-
     font-family: inherit;
-
     font-size: 10px;
-
     cursor: pointer;
-
 }
-
 
 /* ==================================================
    GRÁFICOS
 ================================================== */
 
 .charts-grid {
-
     display: grid;
-
-    grid-template-columns: 2fr 1fr;
-
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
     gap: 15px;
-
 }
-
 
 .chart-card {
-
     min-width: 0;
-
     padding: 22px;
-
+    box-sizing: border-box;
     border: 1px solid var(--border);
-
     border-radius: 10px;
-
     background-color: var(--card);
-
 }
-
 
 .chart-header {
-
     display: flex;
-
     align-items: flex-start;
-
     justify-content: space-between;
-
     gap: 20px;
-
 }
 
+.chart-header > div:first-child {
+    min-width: 0;
+}
 
 .chart-label {
-
     color: var(--text-secondary);
-
     font-size: 10px;
-
     font-weight: 600;
-
     letter-spacing: 0.8px;
-
 }
-
 
 .chart-header h2 {
-
     margin-top: 5px;
-
     font-size: 16px;
-
 }
-
 
 .chart-header p {
-
     margin-top: 5px;
-
     color: var(--text-secondary);
-
     font-size: 12px;
-
+    line-height: 1.4;
 }
-
 
 /* ==================================================
    LEGENDA
 ================================================== */
 
 .chart-legend {
-
     display: flex;
-
+    flex-wrap: wrap;
     gap: 14px;
-
     padding-top: 5px;
-
 }
-
 
 .chart-legend span {
-
     display: flex;
-
     align-items: center;
-
     gap: 5px;
-
     color: var(--text-secondary);
-
     font-size: 12px;
-
+    white-space: nowrap;
 }
-
 
 .legend-dot {
-
     width: 7px;
-
     height: 7px;
-
     display: inline-block;
-
+    flex-shrink: 0;
     border-radius: 50%;
-
 }
-
 
 .legend-dot.cyan {
-
     background-color: var(--cyan);
-
 }
-
 
 .legend-dot.purple {
-
     background-color: var(--blue);
-
 }
-
 
 /* ==================================================
    GRÁFICO DE LINHAS
 ================================================== */
 
 .line-chart {
-
     position: relative;
-
     height: 260px;
-
     margin-top: 20px;
-
     padding-bottom: 25px;
-
+    box-sizing: border-box;
+    overflow: hidden;
 }
-
 
 .line-chart svg {
-
     width: 100%;
-
     height: 220px;
-
     position: relative;
-
     z-index: 2;
-
 }
-
-
-/* LINHAS DE FUNDO */
 
 .grid-line {
-
     position: absolute;
-
     left: 0;
-
     right: 0;
-
     height: 1px;
-
     background-color: rgba(255, 255, 255, 0.06);
-
 }
-
 
 .line-1 {
-
     top: 25px;
-
 }
-
 
 .line-2 {
-
     top: 75px;
-
 }
-
 
 .line-3 {
-
     top: 125px;
-
 }
-
 
 .line-4 {
-
     top: 175px;
-
 }
-
-
-/* MESES */
 
 .chart-months {
-
     display: flex;
-
     justify-content: space-between;
-
+    gap: 5px;
     color: var(--text-secondary);
-
     font-size: 11px;
-
 }
 
+.chart-months span {
+    min-width: 0;
+    text-align: center;
+}
 
 /* ==================================================
    GRÁFICO DONUT
 ================================================== */
 
 .month-label {
-
     color: var(--text-secondary);
-
     font-size: 10px;
-
 }
-
 
 .donut-container {
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     padding: 25px 0;
-
 }
-
 
 .donut-chart {
-
     width: 155px;
-
     height: 155px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
+    flex-shrink: 0;
     border-radius: 50%;
-
-    background:
-
-        conic-gradient(
-
-            #16bac5 0% 34%,
-
-            #5863f8 34% 56%,
-
-            #39d98a 56% 72%,
-
-            #f4a340 72% 86%,
-
-            #68716f 86% 100%
-
-        );
-
+    background: conic-gradient(
+        #16bac5 0% 34%,
+        #5863f8 34% 56%,
+        #39d98a 56% 72%,
+        #f4a340 72% 86%,
+        #68716f 86% 100%
+    );
 }
-
 
 .donut-chart::before {
-
     content: "";
-
     position: absolute;
-
 }
-
 
 .donut-center {
-
     width: 105px;
-
     height: 105px;
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     justify-content: center;
-
     border-radius: 50%;
-
     background-color: var(--card);
-
 }
-
 
 .donut-center span {
-
     color: var(--text-secondary);
-
     font-size: 9px;
-
 }
-
 
 .donut-center strong {
-
     margin-top: 4px;
-
     font-size: 17px;
-
 }
-
 
 /* ==================================================
    CATEGORIAS
 ================================================== */
 
 .category-list {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 10px;
-
 }
-
 
 .category-item {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
+    gap: 10px;
     color: var(--text-secondary);
-
     font-size: 11px;
-
 }
-
 
 .category-name {
-
     display: flex;
-
     align-items: center;
-
     gap: 7px;
-
+    min-width: 0;
 }
 
+.category-name span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .category-dot {
-
     width: 7px;
-
     height: 7px;
-
+    flex-shrink: 0;
     border-radius: 2px;
-
 }
-
 
 .category-dot.housing {
-
     background-color: var(--cyan);
-
 }
-
 
 .category-dot.food {
-
     background-color: var(--blue);
-
 }
-
 
 .category-dot.transport {
-
     background-color: var(--green);
-
 }
-
 
 .category-dot.leisure {
-
     background-color: var(--orange);
-
 }
-
 
 .category-dot.others {
-
     background-color: #68716f;
-
-}
-
-
-/* ==================================================
-   RESPONSIVIDADE
-================================================== */
-
-@media (max-width: 1200px) {
-
-
-    .sidebar {
-
-        width: 200px;
-
-    }
-
-
-    .summary-grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-
-    .charts-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-}
-
-
-@media (max-width: 900px) {
-
-
-    .sidebar {
-
-        width: 70px;
-
-        padding: 20px 10px;
-
-    }
-
-
-    .menu-item {
-
-        justify-content: center;
-
-        padding: 0;
-
-    }
-
-
-    .menu-item > span:last-child {
-
-        display: none;
-
-    }
-
-
-    .dashboard {
-
-        padding: 30px 3%;
-
-    }
-
-
-    .welcome-card {
-
-        align-items: flex-start;
-
-        flex-direction: column;
-
-    }
-
-
-    .financial-health {
-
-        width: 100%;
-
-        padding: 20px 0 0;
-
-        border-left: none;
-
-        border-top: 1px solid var(--border);
-
-    }
-
-}
-
-
-@media (max-width: 650px) {
-
-
-    header {
-
-        padding: 0 5%;
-
-    }
-
-
-    .profile-info,
-    .profile-arrow {
-
-        display: none;
-
-    }
-
-
-    .profile {
-
-        padding: 5px;
-
-    }
-
-
-    .page-heading {
-
-        align-items: flex-start;
-
-        flex-direction: column;
-
-    }
-
-
-    .summary-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .welcome-content {
-
-        align-items: flex-start;
-
-    }
-
-
-    .insight-card {
-
-        align-items: flex-start;
-
-        flex-wrap: wrap;
-
-    }
-
-
-    .insight-button {
-
-        width: 100%;
-
-    }
-
-
-    .chart-legend {
-
-        flex-direction: column;
-
-        gap: 5px;
-
-    }
-
-
-    .chart-card {
-
-        padding: 17px;
-
-    }
-
-
-}
-
-
-@media (max-width: 450px) {
-
-
-    .sidebar {
-
-        display: none;
-
-    }
-
-
-    .dashboard {
-
-        padding: 25px 5%;
-
-    }
-
-
-    .welcome-card {
-
-        padding: 20px;
-
-    }
-
-
-    .welcome-content {
-
-        flex-direction: column;
-
-    }
-
-
-    .financial-health {
-
-        justify-content: center;
-
-    }
-
-
-    .profile {
-
-        background: transparent;
-
-    }
-
-
-    .header-button {
-
-        background-color: var(--gray);
-
-    }
-
 }
 
 /* ==================================================
@@ -1678,638 +892,751 @@ header {
 ================================================== */
 
 .bottom-cards {
-
     display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 15px;
-
     margin-top: 18px;
-
 }
-
 
 /* ==================================================
    CARD BASE
 ================================================== */
 
 .quick-card {
-
     display: block;
-
+    min-width: 0;
     padding: 20px;
-
+    box-sizing: border-box;
     border: 1px solid var(--border);
-
     border-radius: 10px;
-
     background-color: var(--card);
-
     color: var(--text);
-
     text-decoration: none;
-
     transition:
         transform 0.2s,
         background-color 0.2s,
         border-color 0.2s;
-
 }
-
 
 .quick-card:hover {
-
     transform: translateY(-3px);
-
     background-color: var(--card-hover);
-
     border-color: rgba(22, 186, 197, 0.4);
-
 }
-
 
 /* ==================================================
    CABEÇALHO DOS CARDS
 ================================================== */
 
 .quick-card-header {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
+    gap: 15px;
     margin-bottom: 20px;
-
 }
-
 
 .quick-card-title {
-
+    min-width: 0;
     display: flex;
-
     align-items: center;
-
     gap: 10px;
-
 }
-
 
 .quick-card-title h2 {
-
     font-size: 16px;
-
     font-weight: 600;
-
 }
-
 
 .view-all {
-
+    flex-shrink: 0;
     color: var(--cyan);
-
     font-size: 11px;
-
     font-weight: 700;
-
     letter-spacing: 0.6px;
-
 }
-
 
 /* ==================================================
    ÍCONE DO CARD
 ================================================== */
 
 .quick-card-icon {
-
     width: 32px;
-
     height: 32px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
+    flex-shrink: 0;
     border-radius: 7px;
-
 }
-
 
 .quick-card-icon .material-symbols-outlined {
-
     font-size: 18px;
-
 }
-
 
 .cyan-icon {
-
     color: var(--cyan);
-
     background-color: rgba(22, 186, 197, 0.12);
-
 }
-
 
 .purple-icon {
-
     color: var(--blue);
-
     background-color: rgba(88, 99, 248, 0.12);
-
 }
-
 
 /* ==================================================
    METAS
 ================================================== */
 
 .goal {
-
     padding: 13px 0;
-
     border-top: 1px solid rgba(255, 255, 255, 0.06);
-
 }
-
 
 .goal:first-of-type {
-
     border-top: none;
-
     padding-top: 0;
-
 }
-
 
 .goal-info {
-
     display: flex;
-
     align-items: flex-start;
-
     justify-content: space-between;
-
     gap: 15px;
-
 }
-
 
 .goal-info > div {
-
+    min-width: 0;
     display: flex;
-
     flex-direction: column;
-
     gap: 4px;
-
 }
-
 
 .goal-info strong {
-
     font-size: 12px;
-
     font-weight: 600;
-
+    overflow-wrap: anywhere;
 }
-
 
 .goal-info small {
-
     color: var(--text-secondary);
-
     font-size: 11px;
-
 }
-
 
 /* ==================================================
    PORCENTAGEM
 ================================================== */
 
 .goal-percentage {
-
+    flex-shrink: 0;
     padding: 3px 6px;
-
     border-radius: 4px;
-
     font-size: 11px;
-
     font-weight: 700;
-
 }
-
 
 .cyan-percentage {
-
     color: var(--cyan);
-
     background-color: rgba(22, 186, 197, 0.1);
-
 }
-
 
 .purple-percentage {
-
     color: var(--blue);
-
     background-color: rgba(88, 99, 248, 0.1);
-
 }
-
 
 /* ==================================================
    BARRA DE PROGRESSO
 ================================================== */
 
 .progress-bar {
-
     width: 100%;
-
     height: 5px;
-
     margin: 9px 0;
-
     overflow: hidden;
-
     border-radius: 10px;
-
     background-color: #303a38;
-
 }
-
 
 .progress-fill {
-
     height: 100%;
-
     border-radius: 10px;
-
 }
-
 
 .cyan-progress {
-
     background-color: var(--cyan);
-
 }
-
 
 .purple-progress {
-
     background-color: var(--blue);
-
 }
-
 
 /* ==================================================
    RODAPÉ DA META
 ================================================== */
 
 .goal-footer {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
+    gap: 10px;
     color: var(--text-secondary);
-
     font-size: 11px;
-
 }
-
 
 .goal-footer strong {
-
     color: white;
-
     font-size: 11px;
-
 }
-
 
 /* ==================================================
    INVESTIMENTOS
 ================================================== */
 
 .investment-total {
-
     display: flex;
-
     flex-direction: column;
-
     padding-bottom: 16px;
-
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-
 }
-
 
 .investment-total > span {
-
     color: var(--text-secondary);
-
     font-size: 11px;
-
     font-weight: 600;
-
     letter-spacing: 0.7px;
-
 }
-
 
 .investment-total > strong {
-
     margin: 5px 0;
-
     font-size: 22px;
-
+    overflow-wrap: anywhere;
 }
-
 
 .investment-total small {
-
     display: flex;
-
     align-items: center;
-
     gap: 3px;
-
     color: var(--green);
-
     font-size: 11px;
-
 }
-
 
 .investment-total small .material-symbols-outlined {
-
     font-size: 13px;
-
 }
-
 
 /* ==================================================
    INVESTIMENTOS — CONTEÚDO
 ================================================== */
 
 .investment-content {
-
     display: flex;
-
     align-items: center;
-
     gap: 25px;
-
     padding: 18px 0;
-
 }
-
-
-/* ==================================================
-   DONUT DOS INVESTIMENTOS
-================================================== */
 
 .investment-donut {
-
     width: 115px;
-
     height: 115px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     flex-shrink: 0;
-
     border-radius: 50%;
-
-    background:
-
-        conic-gradient(
-
-            var(--cyan) 0% 48%,
-
-            var(--blue) 48% 75%,
-
-            var(--green) 75% 90%,
-
-            var(--orange) 90% 100%
-
-        );
-
+    background: conic-gradient(
+        var(--cyan) 0% 48%,
+        var(--blue) 48% 75%,
+        var(--green) 75% 90%,
+        var(--orange) 90% 100%
+    );
 }
-
 
 .investment-donut-center {
-
     width: 76px;
-
     height: 76px;
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     justify-content: center;
-
     border-radius: 50%;
-
     background-color: var(--card);
-
 }
-
 
 .investment-donut-center strong {
-
     font-size: 15px;
-
 }
-
 
 .investment-donut-center span {
-
     color: var(--text-secondary);
-
     font-size: 9px;
-
 }
-
 
 /* ==================================================
    LISTA DE INVESTIMENTOS
 ================================================== */
 
 .investment-list {
-
     flex: 1;
-
+    min-width: 0;
     display: flex;
-
     flex-direction: column;
-
     gap: 11px;
-
 }
-
 
 .investment-item {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
+    gap: 10px;
     color: var(--text-secondary);
-
     font-size: 12px;
-
 }
-
 
 .investment-item > div {
-
+    min-width: 0;
     display: flex;
-
     align-items: center;
-
     gap: 7px;
-
 }
 
+.investment-item > div span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 .investment-item strong {
-
     color: white;
-
     font-size: 12px;
-
+    white-space: nowrap;
 }
-
 
 .investment-dot {
-
     width: 7px;
-
     height: 7px;
-
+    flex-shrink: 0;
     border-radius: 2px;
-
 }
-
 
 .cyan-dot {
-
     background-color: var(--cyan);
-
 }
-
 
 .purple-dot {
-
     background-color: var(--blue);
-
 }
-
 
 .green-dot {
-
     background-color: var(--green);
-
 }
-
 
 .orange-dot {
-
     background-color: var(--orange);
-
 }
-
 
 /* ==================================================
    RODAPÉ DOS INVESTIMENTOS
 ================================================== */
 
 .investment-footer {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
+    gap: 10px;
     padding-top: 13px;
-
     border-top: 1px solid rgba(255, 255, 255, 0.06);
-
     color: var(--text-secondary);
-
     font-size: 11px;
-
 }
-
 
 .investment-footer strong {
-
     color: var(--green);
-
     font-size: 10px;
-
 }
 
+/* ==================================================
+   RESPONSIVIDADE — 1200PX
+================================================== */
+
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .dashboard {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .charts-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
 
 /* ==================================================
-   RESPONSIVIDADE
+   RESPONSIVIDADE — 1000PX
 ================================================== */
 
 @media (max-width: 1000px) {
-
     .bottom-cards {
-
-        grid-template-columns: 1fr;
-
+        grid-template-columns: minmax(0, 1fr);
     }
 
+    .welcome-card {
+        gap: 25px;
+    }
+
+    .financial-health {
+        padding-left: 20px;
+    }
 }
 
+/* ==================================================
+   RESPONSIVIDADE — 900PX
+================================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
+    .sidebar {
+        width: 70px;
+        padding: 20px 10px;
+    }
+
+    .menu-item {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .menu-item > span:last-child {
+        display: none;
+    }
+
+    .dashboard {
+        padding: 30px 3%;
+    }
+
+    .welcome-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .financial-health {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px 0 0;
+        border-left: none;
+        border-top: 1px solid var(--border);
+    }
+}
+
+/* ==================================================
+   RESPONSIVIDADE — 700PX
+================================================== */
+
+@media (max-width: 700px) {
+    header {
+        padding: 0 4%;
+    }
+
+    .header-left img {
+        width: 120px;
+    }
+
+    .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .period-button {
+        width: 100%;
+    }
+
+    .welcome-card {
+        padding: 22px;
+    }
+
+    .insight-card {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .insight-button {
+        width: 100%;
+    }
+
+    .chart-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .chart-legend {
+        padding-top: 0;
+    }
+
+    .chart-card {
+        padding: 18px;
+    }
+
+    .bottom-cards {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* ==================================================
+   RESPONSIVIDADE — 650PX
+================================================== */
+
+@media (max-width: 650px) {
+    .profile-info,
+    .profile-arrow {
+        display: none;
+    }
+
+    .profile-button {
+        padding: 5px;
+    }
+
+    .summary-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .welcome-content {
+        align-items: flex-start;
+    }
+
+    .chart-legend {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
 
     .investment-content {
+        gap: 18px;
+    }
+}
 
-        gap: 15px;
+/* ==================================================
+   RESPONSIVIDADE — 500PX
+================================================== */
 
+@media (max-width: 500px) {
+    header {
+        min-height: 66px;
+        height: 66px;
     }
 
+    .header-left img {
+        width: 110px;
+    }
+
+    .header-right {
+        gap: 7px;
+    }
+
+    .header-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .profile-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .dashboard {
+        padding: 25px 5% 45px;
+    }
+
+    .page-heading h1 {
+        font-size: 23px;
+    }
+
+    .page-heading p {
+        font-size: 12px;
+    }
+
+    .welcome-card {
+        padding: 20px;
+    }
+
+    .welcome-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .financial-health {
+        justify-content: center;
+    }
+
+    .summary-card {
+        padding: 17px;
+    }
+
+    .chart-card {
+        padding: 16px;
+    }
+
+    .line-chart {
+        height: 235px;
+    }
+
+    .line-chart svg {
+        height: 195px;
+    }
+
+    .quick-card {
+        padding: 17px;
+    }
+
+    .quick-card-header {
+        gap: 10px;
+    }
+
+    .investment-content {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 
     .investment-donut {
-
-        width: 95px;
-
-        height: 95px;
-
+        width: 105px;
+        height: 105px;
+        align-self: center;
     }
-
 
     .investment-donut-center {
-
-        width: 63px;
-
-        height: 63px;
-
+        width: 69px;
+        height: 69px;
     }
 
+    .investment-list {
+        width: 100%;
+    }
+}
+
+/* ==================================================
+   RESPONSIVIDADE — 450PX
+================================================== */
+
+@media (max-width: 450px) {
+    .sidebar {
+        display: none;
+    }
+
+    .profile-button {
+        background: transparent;
+    }
+
+    .header-button {
+        background-color: var(--gray);
+    }
+
+    .health-circle {
+        width: 72px;
+        height: 72px;
+    }
+
+    .health-inner {
+        width: 57px;
+        height: 57px;
+    }
+
+    .health-inner strong {
+        font-size: 21px;
+    }
+
+    .health-info strong {
+        font-size: 16px;
+    }
+
+    .goal-info {
+        gap: 8px;
+    }
+
+    .goal-footer {
+        font-size: 10px;
+    }
+
+    .goal-footer strong {
+        font-size: 10px;
+    }
+
+    .investment-item {
+        font-size: 11px;
+    }
+
+    .investment-item strong {
+        font-size: 11px;
+    }
+
+    .investment-footer {
+        font-size: 10px;
+    }
+}
+
+/* ==================================================
+   RESPONSIVIDADE — 380PX
+================================================== */
+
+@media (max-width: 380px) {
+    .header-left img {
+        width: 100px;
+    }
+
+    .dashboard {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .welcome-card {
+        padding: 17px;
+    }
+
+    .financial-health {
+        gap: 10px;
+    }
+
+    .health-info span {
+        font-size: 10px;
+    }
+
+    .health-info strong {
+        font-size: 15px;
+    }
+
+    .health-info small {
+        font-size: 10px;
+    }
+
+    .chart-card {
+        padding: 14px;
+    }
+
+    .chart-header h2 {
+        font-size: 15px;
+    }
+
+    .chart-header p {
+        font-size: 11px;
+    }
+
+    .chart-months {
+        font-size: 9px;
+    }
+
+    .quick-card {
+        padding: 15px;
+    }
+
+    .quick-card-title h2 {
+        font-size: 14px;
+    }
+
+    .view-all {
+        font-size: 10px;
+    }
 }

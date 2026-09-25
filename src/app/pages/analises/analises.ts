@@ -242,39 +242,6 @@ export class Analises implements OnInit, OnDestroy {
 
 
   // ==================================================
-  // PEQUENOS GASTOS
-  // ==================================================
-
-  get pequenosGastos(): number {
-
-    return this.dadosFinanceiros.movimentacoes
-      .filter(
-        m =>
-          m.tipo === 'saida' &&
-          m.valor < 30
-      )
-      .length;
-
-  }
-
-
-  get valorPequenosGastos(): number {
-
-    return this.dadosFinanceiros.movimentacoes
-      .filter(
-        m =>
-          m.tipo === 'saida' &&
-          m.valor < 30
-      )
-      .reduce(
-        (total, m) => total + m.valor,
-        0
-      );
-
-  }
-
-
-  // ==================================================
   // ALERTAS
   // ==================================================
 
@@ -292,22 +259,6 @@ export class Analises implements OnInit, OnDestroy {
           `Sua maior categoria de gastos é ${this.categoriaMaiorGasto.categoria}.`,
         descricao:
           `Ela representa ${this.percentualMaiorCategoria.toFixed(0)}% das suas saídas.`
-      });
-
-    }
-
-    if (this.pequenosGastos > 0) {
-
-      alertas.push({
-        tipo: 'purple',
-        icone: 'payments',
-        categoria: 'COMPORTAMENTO',
-        titulo:
-          `${this.pequenosGastos} pequenos gastos foram registrados.`,
-        descricao:
-          `Juntos, eles representam R$ ${this.valorPequenosGastos
-            .toFixed(2)
-            .replace('.', ',')}.`
       });
 
     }

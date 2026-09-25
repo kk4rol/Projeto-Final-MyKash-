@@ -1,38 +1,22 @@
 body {
-
     min-height: 100vh;
-
     background:
-
-        radial-gradient(
-            circle at 10% 0%,
-            rgba(22, 186, 197, 0.09),
-            transparent 35%
-        ),
-
+        radial-gradient(circle at 10% 0%, rgba(22, 186, 197, 0.09), transparent 35%),
         var(--background);
-
     color: var(--text);
-
+    overflow-x: hidden;
 }
-
 
 /* =====================================================
    MATERIAL SYMBOLS
 ===================================================== */
 
 .material-symbols-outlined {
-
     font-variation-settings:
-
         'FILL' 0,
-
         'wght' 400,
-
         'GRAD' 0,
-
         'opsz' 24;
-
 }
 
 /* ==================================================
@@ -40,477 +24,284 @@ body {
 ================================================== */
 
 .layout {
-
     display: flex;
-
     min-height: calc(100vh - 76px);
-
     width: 100%;
-
+    min-width: 0;
 }
-
 
 /* =====================================================
    MAIN
 ===================================================== */
 
 main {
-
     flex: 1;
-
     width: auto;
-
     min-width: 0;
-
     padding: 45px 4% 70px;
-
     box-sizing: border-box;
-
 }
-
 
 /* =====================================================
    CABEÇALHO DA PÁGINA
 ===================================================== */
 
 .page-heading {
-
     display: flex;
-
     align-items: flex-end;
-
     justify-content: space-between;
-
     gap: 30px;
-
     margin-bottom: 30px;
-
 }
 
+.page-heading > div:first-child {
+    min-width: 0;
+}
 
 .section-label {
-
     display: block;
-
     margin-bottom: 7px;
-
     color: var(--cyan);
-
     font-size: 11px;
-
     font-weight: 700;
-
     letter-spacing: 1.2px;
-
 }
-
 
 .page-heading h1 {
-
     font-size: clamp(27px, 3vw, 38px);
-
     font-weight: 650;
-
     letter-spacing: -1px;
-
 }
-
 
 .page-heading p {
-
     max-width: 620px;
-
     margin-top: 9px;
-
     color: var(--secondary);
-
     font-size: 13px;
-
     line-height: 1.6;
-
 }
-
 
 .period-selector {
-
     display: flex;
-
     align-items: center;
-
+    justify-content: center;
+    flex-shrink: 0;
     gap: 8px;
-
     padding: 11px 14px;
-
     color: #dce3e2;
-
     background-color: var(--card);
-
     border: 1px solid var(--border);
-
     border-radius: 8px;
-
     font-size: 10px;
-
     white-space: nowrap;
-
 }
-
 
 .period-selector .material-symbols-outlined {
-
     color: var(--cyan);
-
     font-size: 17px;
-
 }
-
 
 /* =====================================================
    CARDS DE ANÁLISE
 ===================================================== */
 
 .analysis-grid {
-
     display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 15px;
-
     margin-bottom: 35px;
-
 }
-
 
 .analysis-card {
-
+    min-width: 0;
     min-height: 190px;
-
     padding: 20px;
-
+    box-sizing: border-box;
     background-color: var(--card);
-
     border: 1px solid var(--border);
-
     border-radius: 10px;
-
     transition: 0.2s;
-
 }
-
 
 .analysis-card:hover {
-
     transform: translateY(-2px);
-
     border-color: rgba(22, 186, 197, 0.3);
-
 }
-
 
 .analysis-card-header {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
+    gap: 10px;
     margin-bottom: 18px;
-
 }
-
 
 .analysis-icon {
-
     width: 35px;
-
     height: 35px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
+    flex-shrink: 0;
     border-radius: 8px;
-
 }
-
 
 .analysis-icon .material-symbols-outlined {
-
     font-size: 19px;
-
 }
-
 
 .analysis-icon.cyan {
-
     color: var(--cyan);
-
     background-color: rgba(22, 186, 197, 0.12);
-
 }
-
 
 .analysis-icon.purple {
-
     color: var(--blue);
-
     background-color: rgba(88, 99, 248, 0.12);
-
 }
-
 
 .analysis-icon.orange {
-
     color: var(--orange);
-
     background-color: rgba(255, 173, 77, 0.12);
-
 }
-
 
 .analysis-icon.green {
-
     color: var(--green);
-
     background-color: rgba(66, 211, 146, 0.12);
-
 }
-
 
 .analysis-label {
-
     color: var(--secondary);
-
     font-size: 9px;
-
     font-weight: 700;
-
     letter-spacing: 0.7px;
-
 }
-
 
 .analysis-card h2 {
-
     margin-bottom: 8px;
-
-    font-size: 25px;
-
+    font-size: clamp(21px, 2vw, 25px);
     font-weight: 650;
-
+    overflow-wrap: anywhere;
 }
-
 
 .analysis-card p {
-
     min-height: 42px;
-
     color: var(--secondary);
-
     font-size: 12px;
-
     line-height: 1.55;
-
 }
-
 
 .analysis-card p strong {
-
     color: #e8eeee;
-
 }
-
 
 .card-footer {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
+    gap: 10px;
     margin-top: 15px;
-
     color: var(--secondary);
-
     font-size: 11px;
-
 }
-
 
 .up {
-
     font-size: 14px;
-
 }
-
 
 .orange {
-
     color: var(--orange);
-
 }
-
 
 .green-text {
-
     color: var(--green);
-
 }
-
 
 /* =====================================================
    BARRA DE PROGRESSO
 ===================================================== */
 
 .progress {
-
     width: 100%;
-
     height: 5px;
-
     margin-top: 16px;
-
     overflow: hidden;
-
     background-color: #303937;
-
     border-radius: 10px;
-
 }
-
 
 .progress-bar {
-
     height: 100%;
-
     border-radius: 10px;
-
 }
-
 
 .orange-bar {
-
     background-color: var(--orange);
-
 }
-
 
 .progress-text {
-
     display: block;
-
     margin-top: 7px;
-
     color: var(--secondary);
-
     font-size: 10px;
-
 }
-
 
 /* =====================================================
    TÍTULOS DAS SEÇÕES
 ===================================================== */
 
 .section-heading {
-
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
     margin-bottom: 17px;
-
 }
-
 
 .section-heading-icon {
-
     width: 38px;
-
     height: 38px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     flex-shrink: 0;
-
     border-radius: 8px;
-
 }
-
 
 .section-heading-icon .material-symbols-outlined {
-
     font-size: 20px;
-
 }
-
 
 .warning {
-
     color: var(--orange);
-
     background-color: rgba(255, 173, 77, 0.12);
-
 }
-
 
 .cyan-icon {
-
     color: var(--cyan);
-
     background-color: rgba(22, 186, 197, 0.12);
-
 }
-
 
 .purple-icon {
-
     color: var(--blue);
-
     background-color: rgba(88, 99, 248, 0.12);
-
 }
-
 
 .green-icon {
-
     color: var(--green);
-
     background-color: rgba(66, 211, 146, 0.12);
-
 }
-
 
 .section-heading h2 {
-
     font-size: 17px;
-
     font-weight: 650;
-
 }
-
 
 .section-heading p {
-
     margin-top: 3px;
-
     color: var(--secondary);
-
     font-size: 13px;
-
+    line-height: 1.4;
 }
-
 
 /* ==================================================
    CARROSSEL DE ALERTAS
@@ -523,455 +314,203 @@ main {
     align-items: center;
 }
 
-
-/* ==================================================
-   ÁREA VISÍVEL
-================================================== */
-
 .carousel-viewport {
     width: 100%;
     overflow: hidden;
     border-radius: 14px;
 }
 
-
-/* ==================================================
-   TRACK
-================================================== */
-
 .carousel-track {
     display: flex;
     width: 100%;
-
     transition: transform 0.45s ease;
-
     will-change: transform;
 }
-
-
-/* ==================================================
-   CARD
-================================================== */
 
 .alert-card {
     min-width: 100%;
     width: 100%;
-
     box-sizing: border-box;
-
     display: flex;
     align-items: center;
     gap: 22px;
-
     padding: 28px 55px;
-
     border-radius: 14px;
-
     background-color: var(--background-secondary);
-
     border: 1px solid var(--border);
-
     transition: 0.3s ease;
 }
 
-
-/* ==================================================
-   ÍCONE DO ALERTA
-================================================== */
-
 .alert-icon {
-
     width: 54px;
     height: 54px;
-
-    flex-shrink: 0;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
+    flex-shrink: 0;
     border-radius: 12px;
-
 }
-
-
-/* tamanho do ícone */
 
 .alert-icon .material-symbols-outlined {
-
     font-size: 28px;
-
 }
-
-
-/* ==================================================
-   CONTEÚDO
-================================================== */
 
 .alert-content {
-
     flex: 1;
-
+    min-width: 0;
 }
-
 
 .alert-content > span {
-
     display: block;
-
     margin-bottom: 6px;
-
     font-size: 10px;
     font-weight: 700;
-
     letter-spacing: 1px;
-
 }
-
 
 .alert-content h3 {
-
     margin: 0 0 8px;
-
     font-size: 18px;
     font-weight: 600;
-
     line-height: 1.35;
-
 }
-
 
 .alert-content p {
-
     margin: 0;
-
     font-size: 13px;
-
     line-height: 1.5;
-
     color: var(--text-secondary);
-
+    overflow-wrap: anywhere;
 }
-
 
 /* ==================================================
    CORES DOS ALERTAS
 ================================================== */
 
-
-/* vermelho */
-
 .alert-card.red {
-
     border-left: 3px solid #ef5350;
-
 }
 
 .alert-card.red .alert-icon {
-
     background-color: rgba(239, 83, 80, 0.12);
-
     color: #ef5350;
-
 }
 
 .alert-card.red .alert-content > span {
-
     color: #ef5350;
-
 }
 
-
-/* laranja */
-
 .alert-card.orange {
-
     border-left: 3px solid #ff9800;
-
 }
 
 .alert-card.orange .alert-icon {
-
     background-color: rgba(255, 152, 0, 0.12);
-
     color: #ff9800;
-
 }
 
 .alert-card.orange .alert-content > span {
-
     color: #ff9800;
-
 }
 
-
-/* roxo */
-
 .alert-card.purple {
-
     border-left: 3px solid #9c6ade;
-
 }
 
 .alert-card.purple .alert-icon {
-
     background-color: rgba(156, 106, 222, 0.12);
-
     color: #9c6ade;
-
 }
 
 .alert-card.purple .alert-content > span {
-
     color: #9c6ade;
-
 }
 
-
-/* ciano */
-
 .alert-card.cyan {
-
     border-left: 3px solid var(--cyan);
-
 }
 
 .alert-card.cyan .alert-icon {
-
     background-color: rgba(22, 186, 197, 0.12);
-
     color: var(--cyan);
-
 }
 
 .alert-card.cyan .alert-content > span {
-
     color: var(--cyan);
-
 }
-
 
 /* ==================================================
    BOTÕES LATERAIS
 ================================================== */
 
 .carousel-button {
-
     position: absolute;
-
     z-index: 5;
-
     top: 50%;
-
     transform: translateY(-50%);
-
     width: 38px;
     height: 38px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
+    box-sizing: border-box;
     border: 1px solid var(--border);
-
     border-radius: 50%;
-
     background-color: var(--background-secondary);
-
     color: var(--text-secondary);
-
     cursor: pointer;
-
     transition: 0.2s ease;
-
 }
-
-
-/* ícone */
 
 .carousel-button .material-symbols-outlined {
-
     font-size: 22px;
-
 }
 
-
-/* posição */
-
 .carousel-button.previous {
-
     left: -19px;
-
 }
 
 .carousel-button.next {
-
     right: -19px;
-
 }
-
-
-/* hover */
 
 .carousel-button:hover {
-
     color: var(--cyan);
-
     border-color: var(--cyan);
-
     background-color: rgba(22, 186, 197, 0.08);
-
 }
-
 
 /* ==================================================
    BOLINHAS
 ================================================== */
 
 .carousel-dots {
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     gap: 8px;
-
     margin: 18px 0;
-
 }
-
 
 .carousel-dot {
-
     width: 8px;
     height: 8px;
-
     padding: 0;
-
     border: none;
-
     border-radius: 50%;
-
     background-color: #555;
-
     cursor: pointer;
-
     transition: all 0.3s ease;
-
 }
-
-
-/* bolinha ativa */
 
 .carousel-dot.active {
-
     width: 22px;
-
     border-radius: 10px;
-
     background-color: var(--cyan);
-
 }
-
-
-/* hover */
 
 .carousel-dot:hover {
-
     background-color: var(--cyan);
-
-}
-
-@media (max-width: 700px) {
-
-    .alert-card {
-
-        padding: 22px 35px;
-
-        gap: 15px;
-
-    }
-
-
-    .alert-icon {
-
-        width: 45px;
-        height: 45px;
-
-    }
-
-
-    .alert-icon .material-symbols-outlined {
-
-        font-size: 23px;
-
-    }
-
-
-    .alert-content h3 {
-
-        font-size: 15px;
-
-    }
-
-
-    .alert-content p {
-
-        font-size: 12px;
-
-    }
-
-
-    .carousel-button {
-
-        width: 32px;
-        height: 32px;
-
-    }
-
-
-    .carousel-button.previous {
-
-        left: -10px;
-
-    }
-
-
-    .carousel-button.next {
-
-        right: -10px;
-
-    }
-
-}
-
-
-@media (max-width: 480px) {
-
-    .alert-card {
-
-        padding: 20px 25px;
-
-    }
-
-
-    .alert-card {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-    }
-
-
-    .alert-content h3 {
-
-        font-size: 14px;
-
-    }
-
 }
 
 /* =====================================================
@@ -979,772 +518,664 @@ main {
 ===================================================== */
 
 .interpretation-section {
-
     display: grid;
-
-    grid-template-columns: 1.5fr 0.7fr;
-
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.7fr);
     gap: 15px;
-
     margin-bottom: 38px;
-
 }
-
 
 .profile-card {
-
+    min-width: 0;
     min-height: 350px;
-
     padding: 20px;
-
+    box-sizing: border-box;
     background-color: var(--card);
-
     border: 1px solid var(--border);
-
     border-radius: 10px;
-
 }
-
 
 .small-label {
-
     color: var(--cyan);
-
     font-size: 10px;
-
     font-weight: 700;
-
     letter-spacing: 1px;
-
 }
-
 
 .profile-description h3 {
-
     max-width: 600px;
-
     margin: 8px 0;
-
     font-size: 17px;
-
     line-height: 1.4;
-
 }
-
 
 .profile-description p {
-
     max-width: 600px;
-
     margin-bottom: 22px;
-
     color: var(--secondary);
-
     font-size: 13px;
-
     line-height: 1.5;
-
 }
-
 
 .category-list {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 13px;
-
 }
-
 
 .category-info {
-
     display: flex;
-
     justify-content: space-between;
-
+    gap: 10px;
     margin-bottom: 5px;
-
     font-size: 12px;
-
 }
-
 
 .category-info strong {
-
     color: #e7eeee;
-
 }
-
 
 .category-bar {
-
     width: 100%;
-
     height: 5px;
-
     overflow: hidden;
-
     background-color: #303937;
-
     border-radius: 10px;
-
 }
-
 
 .fill {
-
     height: 100%;
-
     border-radius: 10px;
-
 }
-
 
 .cyan-fill {
-
     background-color: var(--cyan);
-
 }
-
 
 .purple-fill {
-
     background-color: var(--blue);
-
 }
-
 
 .orange-fill {
-
     background-color: var(--orange);
-
 }
-
 
 .green-fill {
-
     background-color: var(--green);
-
 }
-
 
 .gray-fill {
-
     background-color: #7f8a88;
-
 }
-
 
 .profile-insight {
-
     display: flex;
-
     align-items: center;
-
     gap: 10px;
-
     margin-top: 22px;
-
     padding: 11px;
-
+    box-sizing: border-box;
     background-color: rgba(88, 99, 248, 0.08);
-
     border: 1px solid rgba(88, 99, 248, 0.15);
-
     border-radius: 7px;
-
 }
-
 
 .profile-insight .material-symbols-outlined {
-
     color: var(--blue);
-
     font-size: 18px;
-
+    flex-shrink: 0;
 }
-
 
 .profile-insight p {
-
     color: #cbd2d1;
-
     font-size: 12px;
-
     line-height: 1.4;
-
 }
-
 
 .profile-insight strong {
-
     color: white;
-
 }
-
 
 /* =====================================================
    COMPARAÇÃO
 ===================================================== */
 
 .comparison-card {
-
+    min-width: 0;
     padding: 10px 17px;
-
+    box-sizing: border-box;
     background-color: var(--card);
-
     border: 1px solid var(--border);
-
     border-radius: 10px;
-
 }
-
 
 .comparison-item {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
+    gap: 15px;
     padding: 14px 0;
-
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
-
 
 .comparison-item:last-child {
-
     border-bottom: none;
-
 }
-
 
 .comparison-item div {
-
+    min-width: 0;
     display: flex;
-
     flex-direction: column;
-
     gap: 4px;
-
 }
-
 
 .comparison-item span:first-child {
-
     color: var(--secondary);
-
     font-size: 12px;
-
 }
-
 
 .comparison-item strong {
-
     font-size: 13px;
-
+    overflow-wrap: anywhere;
 }
-
 
 .comparison-arrow {
-
+    flex-shrink: 0;
     font-size: 17px;
-
 }
-
 
 .red-text {
-
     color: var(--red);
-
 }
-
 
 .orange-text {
-
     color: var(--orange);
-
 }
-
 
 .green-text {
-
     color: var(--green);
-
 }
-
 
 /* =====================================================
    OPORTUNIDADES
 ===================================================== */
 
 .opportunities-section {
-
     margin-bottom: 38px;
-
 }
-
 
 .opportunities-grid {
-
     display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 13px;
-
 }
-
 
 .opportunity-card {
-
+    min-width: 0;
     min-height: 210px;
-
     padding: 19px;
-
+    box-sizing: border-box;
     background-color: var(--card);
-
     border: 1px solid var(--border);
-
     border-radius: 10px;
-
     transition: 0.2s;
-
 }
-
 
 .opportunity-card:hover {
-
     transform: translateY(-2px);
-
     border-color: rgba(66, 211, 146, 0.3);
-
 }
-
 
 .opportunity-top {
-
     display: flex;
-
     align-items: center;
-
     gap: 9px;
-
     margin-bottom: 18px;
-
 }
-
 
 .opportunity-top > span {
-
     color: var(--secondary);
-
     font-size: 10px;
-
     font-weight: 700;
-
     letter-spacing: 0.8px;
-
 }
-
 
 .opportunity-icon {
-
     width: 34px;
-
     height: 34px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
+    flex-shrink: 0;
     border-radius: 8px;
-
 }
-
 
 .orange-icon {
-
     color: var(--orange);
-
     background-color: rgba(255, 173, 77, 0.12);
-
 }
-
 
 .opportunity-icon.purple-icon {
-
     color: var(--blue);
-
     background-color: rgba(88, 99, 248, 0.12);
-
 }
-
 
 .opportunity-icon.green-icon {
-
     color: var(--green);
-
     background-color: rgba(66, 211, 146, 0.12);
-
 }
-
 
 .opportunity-card h3 {
-
     max-width: 270px;
-
     margin-bottom: 9px;
-
     font-size: 13px;
-
     line-height: 1.45;
-
 }
-
 
 .opportunity-card p {
-
     color: var(--secondary);
-
     font-size: 11px;
-
     line-height: 1.5;
-
 }
-
 
 .opportunity-value {
-
     display: block;
-
     margin-top: 18px;
-
     color: var(--green);
-
     font-size: 18px;
-
 }
-
 
 .green-value {
-
     color: var(--green);
-
 }
-
 
 /* =====================================================
    RESUMO DO MÊS
 ===================================================== */
 
 .monthly-summary {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     gap: 30px;
-
     padding: 25px;
-
+    box-sizing: border-box;
     background:
-
-        linear-gradient(
-            120deg,
-            rgba(22,186,197,0.08),
-            rgba(88,99,248,0.07)
-        ),
-
+        linear-gradient(120deg, rgba(22, 186, 197, 0.08), rgba(88, 99, 248, 0.07)),
         var(--card);
-
-    border: 1px solid rgba(22,186,197,0.18);
-
+    border: 1px solid rgba(22, 186, 197, 0.18);
     border-radius: 12px;
-
 }
-
 
 .summary-main {
-
     max-width: 700px;
-
+    min-width: 0;
 }
-
 
 .summary-main h2 {
-
     margin-bottom: 10px;
-
     font-size: 20px;
-
 }
-
 
 .summary-main > p {
-
     color: var(--secondary);
-
     font-size: 12px;
-
     line-height: 1.7;
-
 }
-
 
 .summary-main > p strong {
-
     color: white;
-
 }
-
 
 .summary-message {
-
     display: flex;
-
     align-items: center;
-
     gap: 8px;
-
     margin-top: 15px;
-
     padding: 10px 12px;
-
+    box-sizing: border-box;
     color: #dce4e2;
-
-    background-color: rgba(255,255,255,0.04);
-
+    background-color: rgba(255, 255, 255, 0.04);
     border-radius: 7px;
-
     font-size: 12px;
-
 }
-
 
 .summary-message .material-symbols-outlined {
-
     color: var(--cyan);
-
     font-size: 18px;
-
+    flex-shrink: 0;
 }
-
 
 .summary-number {
-
     min-width: 210px;
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     padding: 20px;
-
-    background-color: rgba(0,0,0,0.12);
-
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.12);
     border-radius: 10px;
-
 }
-
 
 .summary-number > span {
-
     color: var(--secondary);
-
     font-size: 11px;
-
     font-weight: 700;
-
     letter-spacing: 1px;
-
+    text-align: center;
 }
-
 
 .summary-number strong {
-
     margin: 7px 0;
-
     color: var(--cyan);
-
     font-size: 26px;
-
 }
-
 
 .summary-number small {
-
     color: var(--green);
-
     font-size: 11px;
-
+    text-align: center;
 }
-
 
 /* =====================================================
-   RESPONSIVIDADE
+   RESPONSIVIDADE — 1200PX
 ===================================================== */
 
-@media (max-width: 1100px) {
-
+@media (max-width: 1200px) {
     .analysis-grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-
 
     .interpretation-section {
-
-        grid-template-columns: 1fr;
-
+        grid-template-columns: minmax(0, 1fr);
     }
-
 
     .opportunities-grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-
-
-    .scenarios-grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
 }
 
+/* =====================================================
+   RESPONSIVIDADE — 900PX
+===================================================== */
 
-@media (max-width: 700px) {
-
-    header {
-
-        padding: 0 5%;
-
-    }
-
-
-    .profile-info {
-
-        display: none;
-
-    }
-
-
-    main {
-
-        width: 90%;
-
-        padding-top: 30px;
-
-    }
-
-
-    .page-heading {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-    }
-
-
-    .analysis-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .alerts-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .opportunities-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .scenarios-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .monthly-summary {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-    }
-
-
-    .summary-number {
-
-        width: 100%;
-
-    }
-
-}
-
-@media (max-width: 800px) {
-
+@media (max-width: 900px) {
     .sidebar {
-
         width: 70px;
-
         padding: 25px 10px;
-
     }
-
 
     .menu-item {
-
         justify-content: center;
-
         padding: 0;
-
     }
-
 
     .menu-item span:last-child {
-
         display: none;
-
     }
-
 
     .menu-item .material-symbols-outlined {
-
         font-size: 21px;
-
     }
-
 
     main {
-
         padding: 35px 3% 60px;
-
     }
 
+    .monthly-summary {
+        align-items: flex-start;
+    }
+
+    .summary-number {
+        min-width: 180px;
+    }
+}
+
+/* =====================================================
+   RESPONSIVIDADE — 700PX
+===================================================== */
+
+@media (max-width: 700px) {
+    main {
+        width: 100%;
+        padding: 30px 5% 50px;
+    }
+
+    .page-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .period-selector {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .analysis-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .opportunities-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .alert-card {
+        padding: 22px 35px;
+        gap: 15px;
+    }
+
+    .alert-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .alert-icon .material-symbols-outlined {
+        font-size: 23px;
+    }
+
+    .alert-content h3 {
+        font-size: 15px;
+    }
+
+    .alert-content p {
+        font-size: 12px;
+    }
+
+    .carousel-button {
+        width: 32px;
+        height: 32px;
+    }
+
+    .carousel-button.previous {
+        left: -10px;
+    }
+
+    .carousel-button.next {
+        right: -10px;
+    }
+
+    .monthly-summary {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .summary-number {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* =====================================================
+   RESPONSIVIDADE — 600PX
+===================================================== */
+
+@media (max-width: 600px) {
+    .analysis-card {
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .profile-card {
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .comparison-card {
+        padding: 8px 15px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+    }
+
+    .section-heading h2 {
+        font-size: 16px;
+    }
+
+    .section-heading p {
+        font-size: 12px;
+    }
+
+    .profile-description h3 {
+        font-size: 16px;
+    }
+
+    .profile-description p {
+        font-size: 12px;
+    }
+
+    .profile-insight {
+        align-items: flex-start;
+    }
+
+    .opportunity-card {
+        min-height: auto;
+    }
+
+    .monthly-summary {
+        padding: 20px;
+    }
+}
+
+/* =====================================================
+   RESPONSIVIDADE — 480PX
+===================================================== */
+
+@media (max-width: 480px) {
+    .sidebar {
+        display: none;
+    }
+
+    .alert-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 25px;
+    }
+
+    .alert-content h3 {
+        font-size: 14px;
+    }
+
+    .alert-content p {
+        font-size: 11px;
+    }
+
+    .carousel-button.previous {
+        left: -7px;
+    }
+
+    .carousel-button.next {
+        right: -7px;
+    }
+
+    .comparison-item {
+        gap: 10px;
+    }
+
+    .comparison-item span:first-child {
+        font-size: 11px;
+    }
+
+    .comparison-item strong {
+        font-size: 12px;
+    }
+
+    .comparison-arrow {
+        font-size: 15px;
+    }
+
+    .summary-main h2 {
+        font-size: 18px;
+    }
+
+    .summary-main > p {
+        font-size: 11px;
+    }
+
+    .summary-message {
+        align-items: flex-start;
+        font-size: 11px;
+    }
+
+    .summary-number strong {
+        font-size: 24px;
+    }
+}
+
+/* =====================================================
+   RESPONSIVIDADE — 380PX
+===================================================== */
+
+@media (max-width: 380px) {
+    main {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .page-heading h1 {
+        font-size: 25px;
+    }
+
+    .analysis-card {
+        padding: 16px;
+    }
+
+    .section-heading-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .section-heading-icon .material-symbols-outlined {
+        font-size: 18px;
+    }
+
+    .alert-card {
+        padding: 18px 20px;
+    }
+
+    .carousel-button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .carousel-button .material-symbols-outlined {
+        font-size: 19px;
+    }
+
+    .profile-card {
+        padding: 16px;
+    }
+
+    .comparison-card {
+        padding: 7px 13px;
+    }
+
+    .opportunity-card {
+        padding: 16px;
+    }
+
+    .monthly-summary {
+        padding: 17px;
+    }
 }

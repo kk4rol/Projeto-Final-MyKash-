@@ -11,6 +11,7 @@
 main {
     flex: 1;
     min-width: 0;
+    width: auto;
     padding: 45px 4% 70px;
     box-sizing: border-box;
     background-color: var(--background);
@@ -41,7 +42,7 @@ main {
 .page-header h1 {
     margin: 0 0 7px;
     color: #edf2ef;
-    font-size: 27px;
+    font-size: clamp(23px, 2vw, 27px);
     font-weight: 700;
 }
 
@@ -49,6 +50,7 @@ main {
     margin: 0;
     color: #78847f;
     font-size: 13px;
+    line-height: 1.5;
 }
 
 .period-selector {
@@ -56,7 +58,9 @@ main {
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-shrink: 0;
     padding: 0 12px;
+    box-sizing: border-box;
     border: 1px solid var(--border);
     border-radius: 8px;
     background-color: var(--background-secondary);
@@ -68,6 +72,7 @@ main {
 }
 
 .period-selector select {
+    max-width: 100%;
     border: none;
     outline: none;
     background: transparent;
@@ -84,12 +89,13 @@ main {
 
 .investment-summary {
     display: grid;
-    grid-template-columns: 1.3fr repeat(3, 1fr);
+    grid-template-columns: minmax(220px, 1.3fr) repeat(3, minmax(0, 1fr));
     gap: 16px;
     margin-bottom: 28px;
 }
 
 .investment-summary-card {
+    min-width: 0;
     min-height: 145px;
     padding: 19px;
     box-sizing: border-box;
@@ -102,6 +108,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
     margin-bottom: 19px;
 }
 
@@ -113,6 +120,7 @@ main {
 .summary-icon {
     width: 35px;
     height: 35px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -145,8 +153,9 @@ main {
 
 .investment-summary-card > strong {
     display: block;
+    overflow-wrap: anywhere;
     color: #edf2ef;
-    font-size: 22px;
+    font-size: clamp(19px, 2vw, 22px);
     line-height: 1;
 }
 
@@ -158,11 +167,13 @@ main {
     margin: 9px 0 0;
     color: #606c67;
     font-size: 11px;
+    line-height: 1.4;
 }
 
 .summary-footer {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 4px;
     margin-top: 10px;
     font-size: 11px;
@@ -187,7 +198,7 @@ main {
 
 .investment-overview {
     display: grid;
-    grid-template-columns: minmax(0, 1.65fr) minmax(300px, 0.9fr);
+    grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.9fr);
     gap: 18px;
     margin-bottom: 42px;
 }
@@ -195,6 +206,7 @@ main {
 .chart-card {
     min-width: 0;
     padding: 22px;
+    box-sizing: border-box;
     border: 1px solid var(--border);
     border-radius: 13px;
     background-color: var(--background-secondary);
@@ -218,12 +230,14 @@ main {
     margin: 0;
     color: #68746f;
     font-size: 11px;
+    line-height: 1.5;
 }
 
 .chart-value {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    flex-shrink: 0;
     gap: 3px;
 }
 
@@ -244,11 +258,14 @@ main {
 
 .investment-chart {
     display: flex;
+    width: 100%;
     height: 245px;
+    min-width: 0;
 }
 
 .chart-y-axis {
     width: 38px;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -315,6 +332,7 @@ main {
     bottom: 0;
     display: flex;
     justify-content: space-between;
+    gap: 5px;
 }
 
 .chart-months span {
@@ -380,6 +398,7 @@ main {
 
 .distribution-list {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -396,11 +415,17 @@ main {
     display: flex;
     align-items: center;
     gap: 8px;
+    min-width: 0;
     color: #9ba6a2;
     font-size: 11px;
 }
 
+.distribution-name span:last-child {
+    overflow-wrap: anywhere;
+}
+
 .distribution-item > strong {
+    flex-shrink: 0;
     color: #dce3df;
     font-size: 10px;
 }
@@ -408,6 +433,7 @@ main {
 .legend {
     width: 7px;
     height: 7px;
+    flex-shrink: 0;
     border-radius: 2px;
 }
 
@@ -454,14 +480,18 @@ main {
     margin: 0;
     color: #68746f;
     font-size: 12px;
+    line-height: 1.5;
 }
 
 .add-investment-button {
     height: 36px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
     gap: 6px;
     padding: 0 13px;
+    box-sizing: border-box;
     border: none;
     border-radius: 8px;
     background-color: var(--cyan);
@@ -494,7 +524,9 @@ main {
 }
 
 .investment-card {
+    min-width: 0;
     padding: 18px;
+    box-sizing: border-box;
     border: 1px solid var(--border);
     border-radius: 12px;
     background-color: var(--background-secondary);
@@ -570,6 +602,7 @@ main {
 .investment-menu {
     width: 28px;
     height: 28px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -603,6 +636,7 @@ main {
 }
 
 .investment-values div {
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -616,10 +650,12 @@ main {
 .investment-values strong {
     color: #e5ebe8;
     font-size: 17px;
+    overflow-wrap: anywhere;
 }
 
 .investment-return {
     align-items: flex-end;
+    text-align: right;
 }
 
 .investment-return strong {
@@ -640,6 +676,7 @@ main {
 .progress-info {
     display: flex;
     justify-content: space-between;
+    gap: 10px;
 }
 
 .progress-info span {
@@ -685,6 +722,7 @@ main {
     gap: 15px;
     margin-bottom: 20px;
     padding: 20px;
+    box-sizing: border-box;
     border: 1px solid rgba(88, 99, 248, 0.15);
     border-radius: 12px;
     background:
@@ -713,6 +751,7 @@ main {
 
 .investment-insight > div:last-child {
     flex: 1;
+    min-width: 0;
 }
 
 .investment-insight > div:last-child > span {
@@ -746,6 +785,7 @@ main {
     align-items: center;
     gap: 13px;
     padding: 16px;
+    box-sizing: border-box;
     border: 1px solid rgba(22, 186, 197, 0.10);
     border-radius: 11px;
     background-color: rgba(22, 186, 197, 0.035);
@@ -769,6 +809,7 @@ main {
 
 .investment-open-finance > div:nth-child(2) {
     flex: 1;
+    min-width: 0;
 }
 
 .investment-open-finance strong {
@@ -786,6 +827,7 @@ main {
 }
 
 .sync-status {
+    flex-shrink: 0;
     padding: 5px 8px;
     border-radius: 5px;
     background-color: rgba(98, 217, 155, 0.07);
@@ -800,20 +842,21 @@ main {
 ======================================== */
 
 @media (max-width: 1100px) {
-
     .investment-summary {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .investment-overview {
         grid-template-columns: 1fr;
     }
 
+    .distribution-content {
+        justify-content: center;
+    }
 }
 
 
 @media (max-width: 800px) {
-
     main {
         padding: 35px 5% 55px;
     }
@@ -831,14 +874,32 @@ main {
         grid-template-columns: 1fr;
     }
 
+    .investment-summary-card {
+        min-height: 135px;
+    }
+
+    .section-heading {
+        gap: 15px;
+    }
+
     .distribution-content {
         justify-content: center;
     }
-
 }
 
 
 @media (max-width: 600px) {
+    main {
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .layout {
+        width: 100%;
+        max-width: 100%;
+    }
 
     .investment-summary {
         grid-template-columns: 1fr;
@@ -848,27 +909,95 @@ main {
         min-height: 125px;
     }
 
-    .section-title {
-        align-items: flex-start;
-        flex-direction: column;
+    .page-header {
+        gap: 18px;
+        margin-bottom: 25px;
     }
 
-    .add-investment-button {
+    .page-header h1 {
+        font-size: 25px;
+    }
+
+    .page-header p {
+        font-size: 12px;
+    }
+
+    .period-selector {
         width: 100%;
         justify-content: center;
+    }
+
+    .investment-overview {
+        gap: 14px;
+        margin-bottom: 32px;
+    }
+
+    .chart-card {
+        padding: 19px;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .chart-value {
+        align-items: flex-start;
     }
 
     .investment-chart {
         height: 200px;
     }
 
+    .chart-y-axis {
+        width: 32px;
+    }
+
+    .chart-months span {
+        font-size: 9px;
+    }
+
     .distribution-content {
         align-items: center;
         flex-direction: column;
+        gap: 24px;
+        min-height: auto;
+        padding: 10px 0;
     }
 
     .distribution-list {
         width: 100%;
+    }
+
+    .section-title {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .add-investment-button {
+        width: 100%;
+    }
+
+    .investment-card {
+        padding: 16px;
+    }
+
+    .investment-values {
+        gap: 15px;
+        margin: 20px 0 18px;
+    }
+
+    .investment-values strong {
+        font-size: 16px;
+    }
+
+    .investment-return strong {
+        font-size: 13px;
+    }
+
+    .investment-insight {
+        padding: 17px;
     }
 
     .investment-open-finance {
@@ -879,30 +1008,100 @@ main {
     .sync-status {
         margin-left: 50px;
     }
-
 }
 
 
 @media (max-width: 430px) {
-
     main {
-        padding: 30px 4% 45px;
+        padding: 27px 4% 45px;
     }
 
     .page-header h1 {
         font-size: 23px;
     }
 
+    .page-label {
+        font-size: 8px;
+    }
+
     .chart-card {
-        padding: 17px;
+        padding: 16px;
+    }
+
+    .section-heading h2 {
+        font-size: 13px;
+    }
+
+    .investment-chart {
+        height: 180px;
+    }
+
+    .chart-y-axis {
+        width: 28px;
+    }
+
+    .chart-y-axis span,
+    .chart-months span {
+        font-size: 8px;
+    }
+
+    .donut-chart {
+        width: 125px;
+        height: 125px;
+    }
+
+    .donut-chart::after {
+        inset: 21px;
+    }
+
+    .donut-center strong {
+        font-size: 18px;
     }
 
     .investment-card {
         padding: 15px;
     }
 
-    .investment-values strong {
-        font-size: 15px;
+    .investment-card-header {
+        gap: 8px;
     }
 
+    .investment-type-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .investment-title strong {
+        font-size: 11px;
+    }
+
+    .investment-values {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .investment-return {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .investment-insight {
+        gap: 11px;
+        padding: 15px;
+    }
+
+    .insight-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .investment-open-finance {
+        gap: 10px;
+        padding: 14px;
+    }
+
+    .sync-status {
+        margin-left: 47px;
+    }
 }
