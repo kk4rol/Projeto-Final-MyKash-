@@ -14,6 +14,7 @@ export class Dashboard implements OnInit {
 
   menuPerfilAberto = false;
   temaClaro = false;
+  emailUsuario = '';
 
   constructor(public dadosFinanceiros:DadosFinanceiros) {}
 
@@ -24,6 +25,13 @@ export class Dashboard implements OnInit {
     if (temaSalvo === 'claro') {
       this.temaClaro = true;
       document.body.classList.add('tema-claro');
+    }
+
+    const emailSalvo =
+      localStorage.getItem('mykash-usuario-logado');
+
+    if (emailSalvo) {
+      this.emailUsuario = emailSalvo;
     }
 
   }

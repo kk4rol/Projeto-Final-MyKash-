@@ -483,7 +483,8 @@ main {
 }
 
 .delete-modal {
-    width: 100%;
+    position: relative;
+    width: min(100%, 400px);
     max-width: 430px;
 
     padding: 32px;

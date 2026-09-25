@@ -293,10 +293,12 @@
 
                     <span>Orçamento planejado</span>
 
-                    <strong>R$ 3.200,00</strong>
+                    <strong>R$
+                    {{ dadosFinanceiros.totalOrcamentos | number:'1.2-2' }}</strong>
 
                     <small>
-                        R$ 2.142,00 utilizados
+                        R$
+                        {{ dadosFinanceiros.totalUtilizadoOrcamentos | number:'1.2-2' }} utilizados
                     </small>
 
                 </div>
@@ -305,18 +307,28 @@
 
                     <div class="progress-label">
                         <span>Utilizado</span>
-                        <strong>67%</strong>
+                        <strong>{{
+                        dadosFinanceiros.percentualOrcamentosUtilizados
+                    |   number:'1.0-0'
+                        }}%</strong>
                     </div>
 
                     <div class="progress-bar">
                         <div
                             class="progress-fill"
-                            style="width: 67%;">
+                            [style.width.%]="
+                            dadosFinanceiros.percentualOrcamentosUtilizados">
                         </div>
                     </div>
 
                     <span class="remaining-budget">
-                        R$ 1.058,00 restantes
+                        R$
+                {{
+                    (dadosFinanceiros.totalOrcamentos -
+                     dadosFinanceiros.totalUtilizadoOrcamentos)
+                    | number:'1.2-2'
+                }}
+                restantes
                     </span>
 
                 </div>
@@ -785,7 +797,7 @@
 
                                 <span>Renda recebida</span>
 
-                                <strong>R$ 3.500,00</strong>
+                                <strong>R$ {{ dadosFinanceiros.totalEntradas | number:'1.2-2' }}</strong>
 
                                 <small>
                                     Setembro de 2026

@@ -12,6 +12,7 @@ export class Cabecalho implements OnInit {
 
   menuPerfilAberto = false;
   temaClaro = false;
+  emailUsuario = '';
 
   constructor(private router:Router) {}
 
@@ -22,6 +23,13 @@ export class Cabecalho implements OnInit {
     if (temaSalvo === 'claro') {
       this.temaClaro = true;
       document.body.classList.add('tema-claro');
+    }
+
+    const emailSalvo =
+      localStorage.getItem('mykash-usuario-logado');
+
+    if (emailSalvo) {
+      this.emailUsuario = emailSalvo;
     }
 
   }

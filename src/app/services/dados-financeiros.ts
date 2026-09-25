@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 export interface Movimentacao {
   id: number;
@@ -21,6 +22,12 @@ export class DadosFinanceiros {
 
   movimentacoes: Movimentacao[] = [];
 
+  private dadosAtualizadosSubject =
+  new BehaviorSubject<Movimentacao[]>([]);
+
+  dadosAtualizados$ =
+    this.dadosAtualizadosSubject.asObservable();
+
   constructor() {
 
     const dadosSalvos =
@@ -37,6 +44,8 @@ export class DadosFinanceiros {
       this.salvarDados();
 
     }
+
+    this.dadosAtualizadosSubject.next(this.movimentacoes);
 
   }
 
@@ -276,6 +285,8 @@ export class DadosFinanceiros {
 
     this.salvarDados();
 
+    this.dadosAtualizadosSubject.next(this.movimentacoes);
+
   }
 
 
@@ -283,8 +294,72 @@ export class DadosFinanceiros {
 
     this.movimentacoes = this.dadosIniciais();
 
+    this.numeroSincronizacao = 0;
+
     this.salvarDados();
 
+    localStorage.removeItem('mykash-numero-sincronizacao');
+
+    this.dadosAtualizadosSubject.next(this.movimentacoes);
+  }
+
+  orcamentos: { [categoria: string]: number } = {
+    Alimentação: 600,
+    Lazer: 600,
+    Transporte: 400,
+    Compras: 400,
+    Contas: 900,
+    Outros: 300
+  };
+
+  get totalOrcamentos(): number {
+    return Object.values(this.orcamentos)
+      .reduce((total, valor) => total + valor, 0);
+  }
+
+  get totalUtilizadoOrcamentos(): number {
+    return Object.keys(this.orcamentos)
+      .reduce((total, categoria) => {
+        return total + this.getGastoCategoria(categoria);
+      }, 0);
+  }
+
+  get percentualOrcamentosUtilizados(): number {
+    if (this.totalOrcamentos === 0) {
+      return 0;
+    }
+
+    return Math.min(
+      (this.totalUtilizadoOrcamentos / this.totalOrcamentos) * 100,
+      100
+    );
+  }
+
+  getGastoCategoria(categoria: string): number {
+    return this.movimentacoes
+      .filter(
+        movimentacao =>
+          movimentacao.tipo === 'saida' &&
+          movimentacao.categoria === categoria
+      )
+      .reduce(
+        (total, movimentacao) =>
+          total + movimentacao.valor,
+        0
+      );
+  }
+
+
+  getPercentualOrcamento(categoria: string): number {
+
+    const gasto = this.getGastoCategoria(categoria);
+    const orcamento = this.orcamentos[categoria];
+
+    if (!orcamento) {
+      return 0;
+    }
+
+    return Math.min((gasto / orcamento) * 100, 100);
   }
 
 }

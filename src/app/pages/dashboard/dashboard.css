@@ -261,7 +261,7 @@ header {
     top: calc(100% + 10px);
     right: 0;
 
-    width: 190px;
+    width: 200px;
 
     padding: 7px;
 
@@ -300,6 +300,34 @@ header {
 /* ========================================
    ITENS
 ======================================== */
+
+.account-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 9px 11px 11px;
+}
+
+.account-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+}
+
+.account-email {
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--text);
+    overflow-wrap: anywhere;
+}
+
+.profile-divider {
+    height: 1px;
+    margin: 2px 6px 6px;
+    background-color: var(--border);
+}
 
 .profile-menu-item {
 

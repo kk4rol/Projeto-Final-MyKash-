@@ -88,12 +88,12 @@
 
 
                     <h2>
-                         R$ {{ totalAlimentacao | number:'1.2-2' }}
+                         R$ {{ dadosFinanceiros.getGastoCategoria('Alimentação') | number:'1.2-2' }}
                     </h2>
 
                     <p>
                         Você gasta em média
-                        <strong>R$ {{ totalAlimentacao | number:'1.2-2' }}</strong>
+                        <strong>R$ 728/mês</strong>
                         com alimentação.
                     </p>
 
@@ -134,13 +134,13 @@
 
 
                     <h2>
-                        R$ 642,00
+                        R$ {{ valorPequenosGastos | number:'1.2-2' }}
                     </h2>
 
                     <p>
                         Você realizou
-                        <strong>37 compras</strong>
-                        abaixo de R$ 37 este mês.
+                        <strong>{{ pequenosGastos }}</strong>
+                        abaixo de R$ 30 este mês.
                     </p>
 
 
@@ -181,7 +181,7 @@
 
                     <p>
                         Você já utilizou
-                        <strong>{{ percentualLazer | number:'1.0-0' }}% do orçamento</strong>
+                        <strong>{{ dadosFinanceiros.getPercentualOrcamento('Lazer') | number:'1.0-0' }}%</strong>
                         destinado ao lazer.
                     </p>
 
@@ -190,14 +190,17 @@
 
                         <div
                             class="progress-bar orange-bar"
-                            [style.width.%]="percentualLazer">
+                            [style.width.%]="dadosFinanceiros.getPercentualOrcamento('Lazer')">
                         </div>
 
                     </div>
 
 
                     <span class="progress-text">
-                        R$ 492 de R$ 600
+                        R$
+                        {{ dadosFinanceiros.getGastoCategoria('Lazer') | number:'1.2-2' }}
+                        usados
+
                     </span>
 
                 </article>
