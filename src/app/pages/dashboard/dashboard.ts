@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuLateral } from '../../componentes/menu-lateral/menu-lateral';
 import { CommonModule } from '@angular/common';
 import { DadosFinanceiros } from '../../services/dados-financeiros';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,7 @@ export class Dashboard implements OnInit {
   temaClaro = false;
   emailUsuario = '';
 
-  constructor(public dadosFinanceiros:DadosFinanceiros) {}
+  constructor(public dadosFinanceiros:DadosFinanceiros, private router:Router) {}
 
   ngOnInit(): void {
 
@@ -62,10 +63,9 @@ export class Dashboard implements OnInit {
 
   sair(): void {
 
-    // Aqui você pode colocar posteriormente
-    // a lógica de logout do sistema.
+    localStorage.removeItem('mykash-usuario-logado');
 
-    console.log('Usuário saiu');
+    this.router.navigate(['/index']);
 
   }
 
